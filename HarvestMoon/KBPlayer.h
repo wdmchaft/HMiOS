@@ -16,6 +16,8 @@ enum side {
     Down = 4
     } Side;
 
+/*i am just for testing purposes*/
+
 @interface KBPlayer : CCNode {
     
     CCSprite* _sprite;
