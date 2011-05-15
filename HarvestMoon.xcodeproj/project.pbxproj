@@ -123,7 +123,7 @@
 		723AD2B0137EB8FC0014B7DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2AF137EB8FC0014B7DE /* main.m */; };
 		723AD2B3137EB8FC0014B7DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2B2137EB8FC0014B7DE /* AppDelegate.m */; };
 		723AD2B6137EB8FC0014B7DE /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2B5137EB8FC0014B7DE /* RootViewController.m */; };
-		723AD2B9137EB8FC0014B7DE /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2B8137EB8FC0014B7DE /* HelloWorldLayer.m */; };
+		723AD2B9137EB8FC0014B7DE /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2B8137EB8FC0014B7DE /* GameLayer.m */; };
 		723AD2C1137EB95D0014B7DE /* jack_walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 723AD2C0137EB95D0014B7DE /* jack_walking.png */; };
 		72C13E08137EC42300DFD227 /* KBPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C13E07137EC42300DFD227 /* KBPlayer.m */; };
 /* End PBXBuildFile section */
@@ -360,8 +360,8 @@
 		723AD2B2137EB8FC0014B7DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		723AD2B4137EB8FC0014B7DE /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		723AD2B5137EB8FC0014B7DE /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		723AD2B7137EB8FC0014B7DE /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		723AD2B8137EB8FC0014B7DE /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		723AD2B7137EB8FC0014B7DE /* GameLayer.h */ = {isa = PBXFileReference; path = GameLayer.h; sourceTree = "<group>"; };
+		723AD2B8137EB8FC0014B7DE /* GameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		723AD2BA137EB8FC0014B7DE /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		723AD2C0137EB95D0014B7DE /* jack_walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jack_walking.png; sourceTree = "<group>"; };
 		72C13E06137EC42300DFD227 /* KBPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBPlayer.h; sourceTree = "<group>"; };
@@ -426,8 +426,8 @@
 				723AD2B2137EB8FC0014B7DE /* AppDelegate.m */,
 				723AD2B4137EB8FC0014B7DE /* RootViewController.h */,
 				723AD2B5137EB8FC0014B7DE /* RootViewController.m */,
-				723AD2B7137EB8FC0014B7DE /* HelloWorldLayer.h */,
-				723AD2B8137EB8FC0014B7DE /* HelloWorldLayer.m */,
+				723AD2B7137EB8FC0014B7DE /* GameLayer.h */,
+				723AD2B8137EB8FC0014B7DE /* GameLayer.m */,
 				723AD2BA137EB8FC0014B7DE /* GameConfig.h */,
 				72C13E06137EC42300DFD227 /* KBPlayer.h */,
 				72C13E07137EC42300DFD227 /* KBPlayer.m */,
@@ -876,7 +876,7 @@
 				723AD2B0137EB8FC0014B7DE /* main.m in Sources */,
 				723AD2B3137EB8FC0014B7DE /* AppDelegate.m in Sources */,
 				723AD2B6137EB8FC0014B7DE /* RootViewController.m in Sources */,
-				723AD2B9137EB8FC0014B7DE /* HelloWorldLayer.m in Sources */,
+				723AD2B9137EB8FC0014B7DE /* GameLayer.m in Sources */,
 				72C13E08137EC42300DFD227 /* KBPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
