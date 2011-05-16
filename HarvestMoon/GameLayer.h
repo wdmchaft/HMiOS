@@ -10,18 +10,26 @@
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
 #import "KBPlayer.h"
+#import "KBStandardGameController.h"
+#import "KBTMXTiledMap.h"
 
 // HelloWorldLayer
 @interface GameLayer : CCLayer
 {
     KBPlayer* _player;
+    KBTMXTiledMap* _map;
+    
+    CGPoint viewPoint;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
 
 
--(BOOL) CGPoint:(CGPoint)point inTriangleP1:(CGPoint)p1 P2:(CGPoint)p2 P3:(CGPoint)p3;
+@property(nonatomic,retain) KBTMXTiledMap* map;
 
+
+-(BOOL) CGPoint:(CGPoint)point inTriangleP1:(CGPoint)p1 P2:(CGPoint)p2 P3:(CGPoint)p3;
+-(void)setViewpointCenter:(CGPoint)point;
 
 @end

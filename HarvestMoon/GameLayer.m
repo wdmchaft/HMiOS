@@ -12,7 +12,7 @@
 
 // HelloWorldLayer implementation
 @implementation GameLayer
-
+@synthesize map=_map;
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
@@ -35,17 +35,9 @@
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
 		
-		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-
-		// ask director the the window size
-		CGSize size = [[CCDirector sharedDirector] winSize];
-	
-		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
-		
-		// add the label as a child to this Layer
-		[self addChild: label];
+        self.map = [KBTMXTiledMap tiledMapWithTMXFile:@"Second.tmx"];
+        
+        [self addChild:self.map];
         
         _player = [[KBPlayer alloc] init];
         
@@ -53,7 +45,9 @@
         
         self.isTouchEnabled = YES;
         
+        [[KBStandardGameController sharedController] setGameLayer:self];
         
+        [self.map runAction:[CCScaleBy actionWithDuration:2 scale:0.5f]];
         }
     return self;
 }
@@ -122,6 +116,23 @@
     
     return (u > 0) && (v > 0) && (u + v < 1);
 }
+
+-(void)setViewpointCenter:(CGPoint)point {
+    CGPoint centerPoint = ccp(240, 160);
+    
+    viewPoint = ccpSub(centerPoint, point);
+    
+    // dont scroll so far so we see anywhere outside the visible map which would show up as black bars
+    if(point.x < centerPoint.x)
+        viewPoint.x =0;
+    if(point.y < centerPoint.y)
+        viewPoint.y =0;
+    
+    // while zoomed out, don't adjust the viewpoint
+    //if(!isZoomedOut)
+    //    gameLayer.position = viewPoint;
+}
+
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc

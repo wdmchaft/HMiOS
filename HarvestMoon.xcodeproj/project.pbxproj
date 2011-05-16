@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		722C68F513819A510089310D /* Second.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 722C68F413819A510089310D /* Second.tmx */; };
+		722F192713802BC300ECC33E /* KBStandardGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 722F192613802BC300ECC33E /* KBStandardGameController.m */; };
+		722F192A1380350B00ECC33E /* KBTMXTiledMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 722F19291380350B00ECC33E /* KBTMXTiledMap.m */; };
+		722F193F1381890000ECC33E /* tileset.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 722F193E1381890000ECC33E /* tileset.tsx */; };
+		722F19411381893500ECC33E /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 722F19401381893500ECC33E /* house.png */; };
 		723AD156137EB8F80014B7DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723AD155137EB8F80014B7DE /* QuartzCore.framework */; };
 		723AD158137EB8F80014B7DE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723AD157137EB8F80014B7DE /* OpenGLES.framework */; };
 		723AD15A137EB8F80014B7DE /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723AD159137EB8F80014B7DE /* OpenAL.framework */; };
@@ -129,6 +134,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		722C68F413819A510089310D /* Second.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Second.tmx; sourceTree = "<group>"; };
+		722F192513802BC300ECC33E /* KBStandardGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBStandardGameController.h; sourceTree = "<group>"; };
+		722F192613802BC300ECC33E /* KBStandardGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBStandardGameController.m; sourceTree = "<group>"; };
+		722F19281380350B00ECC33E /* KBTMXTiledMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTMXTiledMap.h; sourceTree = "<group>"; };
+		722F19291380350B00ECC33E /* KBTMXTiledMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTMXTiledMap.m; sourceTree = "<group>"; };
+		722F193E1381890000ECC33E /* tileset.tsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tileset.tsx; sourceTree = "<group>"; };
+		722F19401381893500ECC33E /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
 		723AD151137EB8F80014B7DE /* HarvestMoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarvestMoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723AD155137EB8F80014B7DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		723AD157137EB8F80014B7DE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -360,7 +372,7 @@
 		723AD2B2137EB8FC0014B7DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		723AD2B4137EB8FC0014B7DE /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		723AD2B5137EB8FC0014B7DE /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		723AD2B7137EB8FC0014B7DE /* GameLayer.h */ = {isa = PBXFileReference; path = GameLayer.h; sourceTree = "<group>"; };
+		723AD2B7137EB8FC0014B7DE /* GameLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		723AD2B8137EB8FC0014B7DE /* GameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		723AD2BA137EB8FC0014B7DE /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		723AD2C0137EB95D0014B7DE /* jack_walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jack_walking.png; sourceTree = "<group>"; };
@@ -431,6 +443,10 @@
 				723AD2BA137EB8FC0014B7DE /* GameConfig.h */,
 				72C13E06137EC42300DFD227 /* KBPlayer.h */,
 				72C13E07137EC42300DFD227 /* KBPlayer.m */,
+				722F192513802BC300ECC33E /* KBStandardGameController.h */,
+				722F192613802BC300ECC33E /* KBStandardGameController.m */,
+				722F19281380350B00ECC33E /* KBTMXTiledMap.h */,
+				722F19291380350B00ECC33E /* KBTMXTiledMap.m */,
 				723AD166137EB8F80014B7DE /* Resources */,
 				723AD17A137EB8F80014B7DE /* cocos2d */,
 				723AD26B137EB8FB0014B7DE /* CocosDenshion */,
@@ -445,6 +461,9 @@
 		723AD166137EB8F80014B7DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				722C68F413819A510089310D /* Second.tmx */,
+				722F19401381893500ECC33E /* house.png */,
+				722F193E1381890000ECC33E /* tileset.tsx */,
 				723AD2C0137EB95D0014B7DE /* jack_walking.png */,
 				723AD167137EB8F80014B7DE /* Default.png */,
 				723AD169137EB8F80014B7DE /* fps_images.png */,
@@ -767,6 +786,9 @@
 				723AD176137EB8F80014B7DE /* Icon@2x.png in Resources */,
 				723AD179137EB8F80014B7DE /* iTunesArtwork in Resources */,
 				723AD2C1137EB95D0014B7DE /* jack_walking.png in Resources */,
+				722F193F1381890000ECC33E /* tileset.tsx in Resources */,
+				722F19411381893500ECC33E /* house.png in Resources */,
+				722C68F513819A510089310D /* Second.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -878,6 +900,8 @@
 				723AD2B6137EB8FC0014B7DE /* RootViewController.m in Sources */,
 				723AD2B9137EB8FC0014B7DE /* GameLayer.m in Sources */,
 				72C13E08137EC42300DFD227 /* KBPlayer.m in Sources */,
+				722F192713802BC300ECC33E /* KBStandardGameController.m in Sources */,
+				722F192A1380350B00ECC33E /* KBTMXTiledMap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

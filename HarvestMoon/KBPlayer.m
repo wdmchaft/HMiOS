@@ -22,8 +22,6 @@
     self = [super init];
     if (self) {
         
-        
-        
         self.spriteBatchNode = [[CCSpriteBatchNode alloc] initWithFile:@"jack_walking.png" capacity:30];
         
         self.spriteBatchNode.position = ccp(100,100);
@@ -146,6 +144,11 @@
     }
     
     [self.sprite runAction:self.currentAction];
+}
+
+-(void)setPosition:(CGPoint)point {
+    [[KBStandardGameController sharedController] setViewpointCenter:point];
+    [super setPosition:point];
 }
 
 @end

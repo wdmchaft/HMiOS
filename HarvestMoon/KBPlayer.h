@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "KBStandardGameController.h"
 
 enum side {
     Left= 1,

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="30" height="8" tilewidth="32" tileheight="32">
+ <tileset name="Unbenannt" firstgid="1" tilewidth="32" tileheight="32">
+  <image source="house.png" trans="ff00ff"/>
+ </tileset>
+ <!-- Layer data is compressed (GZip) binary data, encoded in Base64 -->
+ <layer name="Ebene 0" width="30" height="8">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAI3SvU5CQRCG4TkJYA2IyK+CIvKn3CBQoZVwLdBBhx1ci0qj0IDynmw2WTd7zlI8mcxMhhPybToQySCLS+RwhTyujX4sIi94FTVPe+50jdoXUEQJZVRQxQ1ujf6N700wFTX33ekata+hjjvco4EHNPHo6HX13ekatW+hjQ66GPB/hhih7+ifA1Xtux6ejL2uUfswpxm/OReVg52j2ds5fTD7xBe2jn3cOwhzWnCzFJWDnaPZ2zl9M/vBDnvHPu4dhDmtuHkXdw5xOR64OeIXf9a9772HOa252cj/LM/JMYEkUriw9r73fgI3ZSYPwAMAAA==
+  </data>
+ </layer>
+</map>
