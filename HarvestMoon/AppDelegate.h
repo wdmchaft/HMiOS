@@ -2,8 +2,8 @@
 //  AppDelegate.h
 //  HarvestMoon
 //
-//  Created by Maurus KÃ¼hne on 14.05.11.
-//  Copyright __MyCompanyName__ 2011. All rights reserved.
+//  Created by Maurus KŸhne on 14.05.11.
+//  Copyright KBDevers 2011. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
