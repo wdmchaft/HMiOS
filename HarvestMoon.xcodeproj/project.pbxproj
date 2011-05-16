@@ -10,7 +10,6 @@
 		722C68F513819A510089310D /* Second.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 722C68F413819A510089310D /* Second.tmx */; };
 		722F192713802BC300ECC33E /* KBStandardGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 722F192613802BC300ECC33E /* KBStandardGameController.m */; };
 		722F192A1380350B00ECC33E /* KBTMXTiledMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 722F19291380350B00ECC33E /* KBTMXTiledMap.m */; };
-		722F193F1381890000ECC33E /* tileset.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 722F193E1381890000ECC33E /* tileset.tsx */; };
 		722F19411381893500ECC33E /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 722F19401381893500ECC33E /* house.png */; };
 		723AD156137EB8F80014B7DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723AD155137EB8F80014B7DE /* QuartzCore.framework */; };
 		723AD158137EB8F80014B7DE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723AD157137EB8F80014B7DE /* OpenGLES.framework */; };
@@ -139,7 +138,6 @@
 		722F192613802BC300ECC33E /* KBStandardGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBStandardGameController.m; sourceTree = "<group>"; };
 		722F19281380350B00ECC33E /* KBTMXTiledMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTMXTiledMap.h; sourceTree = "<group>"; };
 		722F19291380350B00ECC33E /* KBTMXTiledMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTMXTiledMap.m; sourceTree = "<group>"; };
-		722F193E1381890000ECC33E /* tileset.tsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tileset.tsx; sourceTree = "<group>"; };
 		722F19401381893500ECC33E /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
 		723AD151137EB8F80014B7DE /* HarvestMoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarvestMoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723AD155137EB8F80014B7DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -463,7 +461,6 @@
 			children = (
 				722C68F413819A510089310D /* Second.tmx */,
 				722F19401381893500ECC33E /* house.png */,
-				722F193E1381890000ECC33E /* tileset.tsx */,
 				723AD2C0137EB95D0014B7DE /* jack_walking.png */,
 				723AD167137EB8F80014B7DE /* Default.png */,
 				723AD169137EB8F80014B7DE /* fps_images.png */,
@@ -786,7 +783,6 @@
 				723AD176137EB8F80014B7DE /* Icon@2x.png in Resources */,
 				723AD179137EB8F80014B7DE /* iTunesArtwork in Resources */,
 				723AD2C1137EB95D0014B7DE /* jack_walking.png in Resources */,
-				722F193F1381890000ECC33E /* tileset.tsx in Resources */,
 				722F19411381893500ECC33E /* house.png in Resources */,
 				722C68F513819A510089310D /* Second.tmx in Resources */,
 			);
