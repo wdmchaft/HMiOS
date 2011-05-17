@@ -17,6 +17,8 @@
 
 @synthesize window;
 
+/*checking some committing stuff*/
+
 - (void) removeStartupFlicker
 {
 	//
