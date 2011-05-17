@@ -12,7 +12,6 @@
 
 @interface KBStandardGameController : NSObject {
     CCLayer* _gameLayer;    
-    KBTMXTiledMap* _tileMap;
 }
 
 +(KBStandardGameController *)sharedController;

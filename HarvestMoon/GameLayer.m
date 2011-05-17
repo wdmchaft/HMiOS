@@ -47,7 +47,7 @@
         
         [[KBStandardGameController sharedController] setGameLayer:self];
         
-        [self.map runAction:[CCScaleBy actionWithDuration:2 scale:0.5f]];
+        //[self.map runAction:[CCScaleBy actionWithDuration:2 scale:0.5f]];
         }
     return self;
 }
