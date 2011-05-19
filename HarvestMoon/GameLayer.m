@@ -9,10 +9,11 @@
 
 // Import the interfaces
 #import "GameLayer.h"
+#import "GameConfig.h"
 
 // HelloWorldLayer implementation
 @implementation GameLayer
-@synthesize map=_map;
+@synthesize map=_map,player=_player;
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
@@ -36,22 +37,33 @@
 	if( (self=[super init])) {
 		
         self.map = [KBTMXTiledMap tiledMapWithTMXFile:@"Second.tmx"];
+        //[self.map runAction:[CCScaleBy actionWithDuration:0.1 scale:0.5f]];
         
-        [self addChild:self.map];
         
-        _player = [[KBPlayer alloc] init];
+        [self addChild:self.map z:-1];
         
-        [self addChild:_player];
+        self.player = [[KBPlayer alloc] init];
+        
+        [self addChild:self.player z:1];
+        
+        
+        NSMutableDictionary* spawnPoint = [self.map getObject:kSpawnPointObject];
+        
+        self.player.position = ccp([[spawnPoint valueForKey:@"x"] doubleValue],[[spawnPoint valueForKey:@"y"] doubleValue]);
+        
         
         self.isTouchEnabled = YES;
         
         [[KBStandardGameController sharedController] setGameLayer:self];
         
+        
+        [self setViewpointCenter:self.player.position];
+        
         //[self.map runAction:[CCScaleBy actionWithDuration:2 scale:0.5f]];
         }
     return self;
 }
-
+/*
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch* touch = [touches anyObject];
@@ -85,7 +97,56 @@
     NSLog(@"TOUCH");
     
     
+}*/
+
+-(void)registerWithTouchDispatcher
+{
+    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 }
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    CGPoint touchLocation = [touch locationInView:[touch view]];
+    
+    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+    //touchLocation = [self convertToNodeSpace:touchLocation];
+    
+    int width =[[CCDirector sharedDirector] winSize].width;
+    int height =[[CCDirector sharedDirector] winSize].height;
+    
+    CGPoint middlePoint = CGPointMake(width/2, height/2);
+    CGPoint lo = CGPointMake(0, 0);
+    CGPoint lu = CGPointMake(0, height);
+    CGPoint ro = CGPointMake(width, 0);
+    CGPoint ru = CGPointMake(width, height);
+    
+    
+    if ([self CGPoint:touchLocation inTriangleP1:lu P2:lo P3:middlePoint]) {
+        [_player beginWalkingToSide:Left];
+    }
+    if ([self CGPoint:touchLocation inTriangleP1:ru P2:ro P3:middlePoint]) {
+        [_player beginWalkingToSide:Right];
+    }
+    if ([self CGPoint:touchLocation inTriangleP1:lo P2:ro P3:middlePoint]) {
+        [_player beginWalkingToSide:Up];
+    }
+    if ([self CGPoint:touchLocation inTriangleP1:lu P2:ru P3:middlePoint]) {
+        [_player beginWalkingToSide:Down];
+    }
+    
+    
+    return YES;
+}
+
+-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    
+    [_player stopWalking];
+    
+    [self setViewpointCenter:self.player.position];
+    
+}
+
 
 -(CGFloat) GBDot:(CGPoint)v1 point2:(CGPoint)v2
 {
@@ -117,20 +178,22 @@
     return (u > 0) && (v > 0) && (u + v < 1);
 }
 
--(void)setViewpointCenter:(CGPoint)point {
-    CGPoint centerPoint = ccp(240, 160);
+-(void)setViewpointCenter:(CGPoint)position {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
     
-    viewPoint = ccpSub(centerPoint, point);
+    int x = MAX(position.x, winSize.width / 2);
+    int y = MAX(position.y, winSize.height / 2);
     
-    // dont scroll so far so we see anywhere outside the visible map which would show up as black bars
-    if(point.x < centerPoint.x)
-        viewPoint.x =0;
-    if(point.y < centerPoint.y)
-        viewPoint.y =0;
+    x = MIN(x, (self.map.mapSize.width * self.map.tileSize.width)
+            - winSize.width / 2);
+    y = MIN(y, (self.map.mapSize.height * self.map.tileSize.height)
+            - winSize.height / 2);
     
-    // while zoomed out, don't adjust the viewpoint
-    //if(!isZoomedOut)
-    //    gameLayer.position = viewPoint;
+    CGPoint actualPosition = ccp(x,y);
+    
+    CGPoint centerOfView = ccp(winSize.width/2,winSize.height/2);
+    CGPoint viewPoint = ccpSub(centerOfView, actualPosition);
+    self.position = viewPoint;
 }
 
 

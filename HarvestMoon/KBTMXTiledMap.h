@@ -10,12 +10,15 @@
 #import "cocos2d.h"
 
 @interface KBTMXTiledMap : CCTMXTiledMap {
-    CCTMXLayer* _layer;
+    CCTMXLayer* _background;
+    CCTMXObjectGroup* _objects;
 }
 
-@property(nonatomic,retain) CCTMXLayer* layer;
+@property(nonatomic,retain) CCTMXLayer* background;
+@property(nonatomic,retain) CCTMXObjectGroup* objects;
 
 
 -(CGPoint)coordinatesAtPosition:(CGPoint)point;
 -(unsigned int)getGIDAtPosition:(CGPoint)point;
+-(id)getObject:(NSString *)objectName;
 @end

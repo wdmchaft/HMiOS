@@ -25,4 +25,13 @@
 #define GAME_AUTOROTATION kGameAutorotationUIViewController
 
 
+
+//
+// TileMap Layer Names
+//
+#define kBackgroundLayer @"Background"
+#define kSpawnPointObject @"SpawnPoint"
+#define kObjectLayer @"Objects"
+
+
 #endif // __GAME_CONFIG_H
