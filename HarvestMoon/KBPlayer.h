@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "KBStandardGameController.h"
 
-enum side {
+typedef enum {
     Left= 1,
     Right = 2,
     Up = 3,
@@ -22,25 +22,24 @@ enum side {
 @interface KBPlayer : CCNode {
     
     CCSprite* _sprite;
-    CCAction* _walkLeftAction;
-    CCAction* _walkRightAction;
-    CCAction* _walkUpAction;
-    CCAction* _walkDownAction;
-    CCAction* _currentAction;
     CCSpriteBatchNode* _spriteBatch;
+    
+    // Walking Variables
+    int _walkingSpeed;
+    CCAction* _currentAnimation;
+    BOOL _walking;
+    Side _walkingTo;
 }
 
 @property(nonatomic,retain) CCSprite* sprite;
 @property(nonatomic,retain) CCSpriteBatchNode* spriteBatchNode;
-@property(nonatomic,retain) CCAction* walkLeftAction;
-@property(nonatomic,retain) CCAction* walkRightAction;
-@property(nonatomic,retain) CCAction* walkUpAction;
-@property(nonatomic,retain) CCAction* walkDownAction;
-@property(nonatomic,retain) CCAction* currentAction;
+@property(nonatomic,retain) CCAction* currentAnimation;
+@property(nonatomic) BOOL isWalking;
+@property(nonatomic) Side walkingTo;
 
--(void)initActions;
--(CCAction *)initWalkActionWithRow:(int)y startPosition:(int)xPos spriteCount:(int)count side:(int)side;
 
--(void)walkToSide:(int)side;
-
+-(void)update:(ccTime)dt;
+-(void)beginWalkingToSide:(Side)side;
+-(void)stopWalking;
+-(CCAction *)walkAnimationWithRow:(int)y startPosition:(int)xPos spriteCount:(int)count side:(int)side;
 @end

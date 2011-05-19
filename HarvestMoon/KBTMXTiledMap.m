@@ -7,16 +7,19 @@
 //
 
 #import "KBTMXTiledMap.h"
-
+#import "GameConfig.h"
 
 @implementation KBTMXTiledMap
-@synthesize layer=_layer;
+@synthesize background=_background,objects=_objects;
 
 -(id)initWithTMXFile:(NSString *)tmxFile
 {
     self = [super initWithTMXFile:tmxFile];
     if (self) {
-        self.layer = [self layerNamed:@"Ebene 0"];
+        self.background = [self layerNamed:kBackgroundLayer];
+        NSAssert(self.background != nil, @"Couldn't find Background Layer in this TMX File.", tmxFile);
+        self.objects = [self objectGroupNamed:kObjectLayer];
+        
     }
     
     return self;
@@ -28,7 +31,16 @@
 
 -(unsigned int)getGIDAtPosition:(CGPoint)point {
     
-    return[self.layer tileGIDAt:[self coordinatesAtPosition:point]];
+    return[self.background tileGIDAt:[self coordinatesAtPosition:point]];
+}
+
+
+-(id)getObject:(NSString *)objectName
+{
+    NSAssert(self.objects != nil,@"There is no Object Layer!",nil);
+    
+        
+    return [self.objects objectNamed:objectName];
 }
 
 @end

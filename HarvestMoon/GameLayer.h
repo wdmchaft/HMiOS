@@ -19,7 +19,6 @@
     KBPlayer* _player;
     KBTMXTiledMap* _map;
     
-    CGPoint viewPoint;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
@@ -27,9 +26,10 @@
 
 
 @property(nonatomic,retain) KBTMXTiledMap* map;
+@property(nonatomic,retain) KBPlayer* player;
 
 
 -(BOOL) CGPoint:(CGPoint)point inTriangleP1:(CGPoint)p1 P2:(CGPoint)p2 P3:(CGPoint)p3;
--(void)setViewpointCenter:(CGPoint)point;
+-(void)setViewpointCenter:(CGPoint)position;
 
 @end

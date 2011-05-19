@@ -12,19 +12,15 @@
 @implementation KBPlayer
 @synthesize sprite=_sprite;
 @synthesize spriteBatchNode=_spriteBatch;
-@synthesize walkUpAction = _walkUpAction;
-@synthesize walkDownAction = _walkDownAction;
-@synthesize walkLeftAction = _walkLeftAction;
-@synthesize walkRightAction = _walkRightAction;
-@synthesize currentAction = _currentAction;
-
+@synthesize currentAnimation = _currentAnimation;
+@synthesize isWalking = _walking;
+@synthesize walkingTo = _walkingTo;
 - (id)init {
     self = [super init];
     if (self) {
         
         self.spriteBatchNode = [[CCSpriteBatchNode alloc] initWithFile:@"jack_walking.png" capacity:30];
         
-        self.spriteBatchNode.position = ccp(100,100);
         
         //CCSpriteSheet* sheet = [CCSpriteSheet spriteSheetWithFile:@"myTest"];
         
@@ -34,121 +30,109 @@
         [self.spriteBatchNode addChild:self.sprite];
         
         
-        //
+        _walkingSpeed = 10;
         
-        [self initActions];
         
-        [self.sprite runAction:self.walkDownAction];
+        //[self.sprite runAction:self.walkDownAction];
         //[sprite runAction:self.walkRightAction]
-        self.currentAction = self.walkDownAction;
+        //self.currentAction = self.walkDownAction;
         
         [self addChild:self.spriteBatchNode];
+        
+        
+        [self scheduleUpdate];
         
 	}
 	return self;
 
 }
 
--(void)initActions
+-(void) update:(ccTime)dt
 {
-    self.walkLeftAction = [self initWalkActionWithRow:1 startPosition:1 spriteCount:2 side:Left];
-    self.walkRightAction = [self initWalkActionWithRow:1 startPosition:4 spriteCount:2 side:Right];
-    self.walkDownAction = [self initWalkActionWithRow:0 startPosition:1 spriteCount:2 side:Down];
-    self.walkUpAction = [self initWalkActionWithRow:0 startPosition:4 spriteCount:2 side:Up];
+    if (self.isWalking) {
+        switch (_walkingTo) {
+            case Left:
+                self.position = ccpAdd(self.position, ccp(-1,0));
+                break;
+            case Right:
+                self.position = ccpAdd(self.position, ccp(1,0));
+                break;
+            case Up:
+                self.position = ccpAdd(self.position, ccp(0,-1));
+                break;
+            case Down:
+                self.position = ccpAdd(self.position, ccp(0,1));
+                break;
+            default:
+                @throw [NSException exceptionWithName:@"Unknown Parameter Value" reason:@"For the requested Side is no Animation information available" userInfo:nil];
+                break;
+        }
+    }
+    
+    
+    [[[KBStandardGameController sharedController] gameLayer] setViewpointCenter:self.position];
 }
 
--(CCAction *)initWalkActionWithRow:(int)y startPosition:(int)xPos spriteCount:(int)count side:(int)side
+-(void)beginWalkingToSide:(Side)side
 {
-    CCSpawn* spawn;
-    //CCSequence* sequence = [CCSequence actionWithDuration:1.f];
+    self.isWalking = YES;
+    
+    _walkingTo = side;
+    
+    switch (side) {
+        case Left:
+            self.currentAnimation = [self walkAnimationWithRow:1 startPosition:1 spriteCount:2 side:Left];
+            break;
+        case Right:
+            self.currentAnimation = [self walkAnimationWithRow:1 startPosition:4 spriteCount:2 side:Right];
+            break;
+        case Up:
+            self.currentAnimation = [self walkAnimationWithRow:0 startPosition:1 spriteCount:2 side:Up];
+            break;
+        case Down:
+            self.currentAnimation = [self walkAnimationWithRow:0 startPosition:4 spriteCount:2 side:Down];
+            break;
+        default:
+            @throw [NSException exceptionWithName:@"Unknown Parameter Value" reason:@"For the requested Side is no Animation information available" userInfo:nil];
+            break;
+    }
+    
+    [self.sprite runAction:self.currentAnimation];
+    
+}
+
+-(void)stopWalking
+{
+    self.isWalking = NO;
+    [self.sprite stopAction:self.currentAnimation];
+    self.currentAnimation = nil;
+}
+
+-(CCAction *)walkAnimationWithRow:(int)y startPosition:(int)xPos spriteCount:(int)count side:(int)side
+{
     CCAnimation* walkAnimation = [CCAnimation animation];
     
     walkAnimation.delay = 0.5f;
-    
-    
     
     int frameCount = 0;
     
     for (int x = xPos; x < xPos + count; x++) {
         CCSpriteFrame* frame = [CCSpriteFrame frameWithTexture:[self.spriteBatchNode texture] rect:CGRectMake(x*39, y*37, 39, 37)];
-            
+        
         [walkAnimation addFrame:frame];
-            
+        
         frameCount++;
-            
+        
         if (frameCount == 30) {
             break;
         }
     }
     
     CCAnimate* walkAction = [CCAnimate actionWithAnimation:walkAnimation ];
-    
-    int x = 0;
-    int yCoord = 0;
-    int speed = 40;
-    
-    switch (side) {
-        case Left:
-            x = -speed;
-            break;
-        case Right:
-            x = speed;
-            break;
-        case Up:
-            yCoord = speed;
-            break;
-        case Down:
-            yCoord = -speed;
-            break;
-        default:
-            break;
-    }
-    CCMoveBy* moveAction = [CCMoveBy actionWithDuration:1.f position:CGPointMake(x, yCoord)];
-    
-    //[sequence initOne:walkAction two:moveAction];
-    
-    spawn = [CCSpawn actions:moveAction, walkAction, nil];
-    
-    
-    CCRepeatForever * repeat = [CCRepeatForever actionWithAction:spawn];
-    
-    
+    CCRepeatForever * repeat = [CCRepeatForever actionWithAction:walkAction];
     
     return repeat;
 }
 
--(void)walkToSide:(int)side
-{
-    
-    [self.sprite stopAction:self.currentAction];
-    switch (side) {
-        case Left:
-            self.currentAction = self.walkLeftAction;
-            
-            
-            break;
-        case Right:
-            self.currentAction = self.walkRightAction;
-            break;
-            
-        case Up:
-            self.currentAction = self.walkUpAction;
-            break;
-            
-        case Down:
-            self.currentAction = self.walkDownAction;
-            break;
-            
-        default:
-            break;
-    }
-    
-    [self.sprite runAction:self.currentAction];
-}
-
--(void)setPosition:(CGPoint)point {
-    [[KBStandardGameController sharedController] setViewpointCenter:point];
-    [super setPosition:point];
-}
 
 @end
