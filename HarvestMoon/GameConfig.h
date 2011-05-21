@@ -34,4 +34,11 @@
 #define kObjectLayer        @"Objects"
 #define kMetaLayer          @"Meta"
 
+//
+// Tileset Property Names
+//
+
+
+#define kCollidableProperty @"Collidable"
+
 #endif // __GAME_CONFIG_H

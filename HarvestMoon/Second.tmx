@@ -5,7 +5,12 @@
   <image source="house.png" trans="ff00ff"/>
  </tileset>
  <tileset name="Meta" firstgid="305" tilewidth="32" tileheight="32">
-  <image source="Resources/meta.png"/>
+  <image source="meta.png"/>
+  <tile id="0">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
  </tileset>
  <!-- Layer data is compressed (GZip) binary data, encoded in Base64 -->
  <layer name="Background" width="30" height="8">

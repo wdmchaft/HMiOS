@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "KBStandardGameController.h"
+#import "GameConfig.h"
 
 typedef enum {
     Left= 1,

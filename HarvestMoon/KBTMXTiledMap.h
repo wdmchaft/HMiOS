@@ -23,4 +23,7 @@
 -(unsigned int)getGIDAtPosition:(CGPoint)point;
 -(id)getObject:(NSString *)objectName;
 - (CGPoint)tileCoordForPosition:(CGPoint)position;
+
+
+-(NSDictionary*)metaInformationAtPosition:(CGPoint)position;
 @end
