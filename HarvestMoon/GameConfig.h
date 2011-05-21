@@ -29,9 +29,9 @@
 //
 // TileMap Layer Names
 //
-#define kBackgroundLayer @"Background"
-#define kSpawnPointObject @"SpawnPoint"
-#define kObjectLayer @"Objects"
-
+#define kBackgroundLayer    @"Background"
+#define kSpawnPointObject   @"SpawnPoint"
+#define kObjectLayer        @"Objects"
+#define kMetaLayer          @"Meta"
 
 #endif // __GAME_CONFIG_H

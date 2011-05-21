@@ -10,7 +10,7 @@
 // Import the interfaces
 #import "KBGameLayer.h"
 #import "GameConfig.h"
-
+ 
 // HelloWorldLayer implementation
 @implementation KBGameLayer
 @synthesize map=_map,player=_player;

@@ -7,7 +7,7 @@
 //
 
 #import "KBPlayer.h"
-
+#import "KBGameLayer.h"
 
 @implementation KBPlayer
 @synthesize sprite=_sprite;
@@ -70,7 +70,7 @@
     }
     
     
-    [[[KBStandardGameController sharedController] gameLayer] setViewpointCenter:self.position];
+    [((KBGameLayer *)[[KBStandardGameController sharedController] gameLayer]) setViewpointCenter:self.position];
 }
 
 -(void)beginWalkingToSide:(Side)side
@@ -93,7 +93,9 @@
             self.currentAnimation = [self walkAnimationWithRow:0 startPosition:4 spriteCount:2 side:Down];
             break;
         default:
-            @throw [NSException exceptionWithName:@"Unknown Parameter Value" reason:@"For the requested Side is no Animation information available" userInfo:nil];
+            @throw [NSException exceptionWithName:@"Unknown Parameter Value" 
+                                           reason:@"For the requested Side is no Animation information available" 
+                                         userInfo:nil];
             break;
     }
     
@@ -106,6 +108,29 @@
     self.isWalking = NO;
     [self.sprite stopAction:self.currentAnimation];
     self.currentAnimation = nil;
+    
+    switch (self.walkingTo) {
+        case Left:
+            self.currentAnimation = [self walkAnimationWithRow:1 startPosition:0 spriteCount:1 side:Left];
+            break;
+        case Right:
+            self.currentAnimation = [self walkAnimationWithRow:1 startPosition:3 spriteCount:1 side:Right];
+            break;
+        case Up:
+            self.currentAnimation = [self walkAnimationWithRow:0 startPosition:0 spriteCount:1 side:Up];
+            break;
+        case Down:
+            self.currentAnimation = [self walkAnimationWithRow:0 startPosition:3 spriteCount:1 side:Down];
+            break;
+        default:
+            @throw [NSException exceptionWithName:@"Unknown Parameter Value" 
+                                           reason:@"For the requested Side is no Animation information available" 
+                                         userInfo:nil];
+            break;
+    }
+    
+    [self.sprite runAction:self.currentAnimation];
+    
 }
 
 -(CCAction *)walkAnimationWithRow:(int)y startPosition:(int)xPos spriteCount:(int)count side:(int)side
@@ -117,7 +142,8 @@
     int frameCount = 0;
     
     for (int x = xPos; x < xPos + count; x++) {
-        CCSpriteFrame* frame = [CCSpriteFrame frameWithTexture:[self.spriteBatchNode texture] rect:CGRectMake(x*39, y*37, 39, 37)];
+        CCSpriteFrame* frame = [CCSpriteFrame frameWithTexture:[self.spriteBatchNode texture] 
+                                                          rect:CGRectMake(x*39, y*37, 39, 37)];
         
         [walkAnimation addFrame:frame];
         

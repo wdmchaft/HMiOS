@@ -10,7 +10,7 @@
 #import "GameConfig.h"
 
 @implementation KBTMXTiledMap
-@synthesize background=_background,objects=_objects;
+@synthesize background=_background,objects=_objects,meta=_meta;
 
 -(id)initWithTMXFile:(NSString *)tmxFile
 {
@@ -19,7 +19,7 @@
         self.background = [self layerNamed:kBackgroundLayer];
         NSAssert(self.background != nil, @"Couldn't find Background Layer in this TMX File.", tmxFile);
         self.objects = [self objectGroupNamed:kObjectLayer];
-        
+        self.meta = [self layerNamed:kMetaLayer];
     }
     
     return self;
@@ -41,6 +41,12 @@
     
         
     return [self.objects objectNamed:objectName];
+}
+
+- (CGPoint)tileCoordForPosition:(CGPoint)position {
+    int x = position.x / self.tileSize.width;
+    int y = ((self.mapSize.height * self.tileSize.height) - position.y) / self.tileSize.height;
+    return ccp(x, y);
 }
 
 @end
