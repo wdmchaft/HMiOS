@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
-<map version="1.0" orientation="orthogonal" width="30" height="8" tilewidth="32" tileheight="32">
- <tileset name="House" firstgid="1" tilewidth="32" tileheight="32">
-  <image source="house.png" trans="ff00ff"/>
+<map version="1.0" orientation="orthogonal" width="15" height="15" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="House" tilewidth="32" tileheight="32">
+  <image source="house.png" trans="ff00ff" width="256" height="1216"/>
  </tileset>
- <tileset name="Meta" firstgid="305" tilewidth="32" tileheight="32">
-  <image source="meta.png"/>
+ <tileset firstgid="305" name="Meta" tilewidth="32" tileheight="32">
+  <image source="meta.png" width="32" height="32"/>
   <tile id="0">
    <properties>
     <property name="Collidable" value="True"/>
    </properties>
   </tile>
  </tileset>
- <!-- Layer data is compressed (GZip) binary data, encoded in Base64 -->
- <layer name="Background" width="30" height="8">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAFNkYGBQojNWBmJNINaiM9YGYkMgNqIzNgZiSyC2ojO2BmJBIGYEYiY60kJALAnEnEDMRUdaagT6FwCdrDhwwAMAAA==
+ <layer name="Background" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxTZGBgUCIDKwOxJhBrkYG1gdgQiI3IwMZAbAnEVmRgayAWBGJGIGYikRYCYkkg5gRiLhJpqQG0dxQMfgAAD/AMkQ==
   </data>
  </layer>
- <layer name="Items" width="30" height="8">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAWjgPpgLRCvo9CMWiCuA+J6ItTuBuI9QLwViLdRaG8rELcBcTsRag8D8REK7YOBXiDuA+J+EvQAAF3z2BfAAwAA
+ <layer name="Items" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFxIK1QLyOTL1bgXgbmXofAvEjHPg0HrnHZNo3CugLAGNHD+4=
   </data>
  </layer>
- <objectgroup name="Objects" width="0" height="0">
-  <object name="SpawnPoint" x="838" y="136" width="20" height="18"/>
+ <objectgroup name="Objects" width="15" height="15">
+  <object name="SpawnPoint" x="208" y="185" width="20" height="18"/>
  </objectgroup>
- <layer name="Meta" width="30" height="8" opacity="0.35">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAADNkZGAwHMXDGtMbUMtuUsyhpp/JtZdSQKpZIHUAJCjRR8ADAAA=
+ <layer name="Meta" width="15" height="15" opacity="0.34">
+  <data encoding="base64" compression="zlib">
+   eJwzZGRgMByCmBxADb3k6KeWXlzhQO1wGgX0BQBDyg17
   </data>
  </layer>
 </map>
