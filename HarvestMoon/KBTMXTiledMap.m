@@ -49,4 +49,11 @@
     return ccp(x, y);
 }
 
+-(NSDictionary*)metaInformationAtPosition:(CGPoint)position
+{
+    unsigned int GID = [self.meta tileGIDAt:position];
+    
+    return [self propertiesForGID:GID];
+}
+
 @end

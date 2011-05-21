@@ -49,28 +49,49 @@
 
 -(void) update:(ccTime)dt
 {
+    KBGameLayer* gameLayer = ((KBGameLayer *)[[KBStandardGameController sharedController] gameLayer]);
+    CGPoint moveVector;
+    
     if (self.isWalking) {
         switch (_walkingTo) {
             case Left:
-                self.position = ccpAdd(self.position, ccp(-1,0));
+                moveVector = ccp(-1,0);
                 break;
             case Right:
-                self.position = ccpAdd(self.position, ccp(1,0));
+                moveVector = ccp(1,0);
                 break;
             case Up:
-                self.position = ccpAdd(self.position, ccp(0,-1));
+                moveVector = ccp(0,-1);
                 break;
             case Down:
-                self.position = ccpAdd(self.position, ccp(0,1));
+                moveVector = ccp(0,1);
                 break;
             default:
-                @throw [NSException exceptionWithName:@"Unknown Parameter Value" reason:@"For the requested Side is no Animation information available" userInfo:nil];
+                @throw [NSException exceptionWithName:@"Unknown Parameter Value" 
+                                               reason:@"For the requested Side is no Animation information available" 
+                                             userInfo:nil];
                 break;
         }
+        
+        
+        CGPoint pointOnMap = [[gameLayer map] tileCoordForPosition:ccpAdd(self.position, moveVector)];
+        
+        NSDictionary* props = [[gameLayer map] metaInformationAtPosition:pointOnMap];
+        
+        if([[props valueForKey:kCollidableProperty] isEqualToString:@"True"])
+        {
+            NSLog(@"can't move further!");
+        }
+        else
+        {
+            self.position = ccpAdd(self.position, moveVector);
+        }
+            
+        
     }
     
     
-    [((KBGameLayer *)[[KBStandardGameController sharedController] gameLayer]) setViewpointCenter:self.position];
+    [gameLayer setViewpointCenter:self.position];
 }
 
 -(void)beginWalkingToSide:(Side)side
