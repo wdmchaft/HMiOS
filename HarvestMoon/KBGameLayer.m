@@ -6,15 +6,22 @@
 //  Copyright KBDevers 2011. All rights reserved.
 //
 
-
-// Import the interfaces
 #import "KBGameLayer.h"
-#import "GameConfig.h"
  
 // HelloWorldLayer implementation
 @implementation KBGameLayer
-@synthesize map=_map,player=_player;
-+(CCScene *) scene
+
+#pragma mark -
+#pragma mark Properties
+
+@synthesize map = _map;
+
+@synthesize player = _player;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (CCScene *) scene
 {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
@@ -29,8 +36,11 @@
 	return scene;
 }
 
+#pragma mark -
+#pragma mark Init & Dealloc
+
 // on "init" you need to initialize your instance
--(id) init
+- (id) init
 {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
@@ -60,16 +70,30 @@
         [self setViewpointCenter:self.player.position];
         
         //[self.map runAction:[CCScaleBy actionWithDuration:2 scale:0.5f]];
-        }
+    }
     return self;
 }
 
--(void)registerWithTouchDispatcher
+// on "dealloc" you need to release all your retained objects
+- (void) dealloc
+{
+	// in case you have something to dealloc, do it in this method
+	// in this particular example nothing needs to be released.
+	// cocos2d will automatically release all the children (Label)
+	
+	// don't forget to call "super dealloc"
+	[super dealloc];
+}
+
+#pragma mark -
+#pragma mark Touch Handling
+
+- (void) registerWithTouchDispatcher
 {
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 }
 
--(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+- (BOOL) ccTouchBegan:(UITouch *) touch withEvent:(UIEvent *) event
 {
     CGPoint touchLocation = [touch locationInView:[touch view]];
     
@@ -103,13 +127,13 @@
     return YES;
 }
 
--(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+- (void) ccTouchMoved:(UITouch *) touch withEvent:(UIEvent *) event
 {
     //Durchschleifen, 
     [self ccTouchBegan:touch withEvent:event];
 }
 
--(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+- (void) ccTouchEnded:(UITouch *) touch withEvent:(UIEvent *) event
 {
     
     [_player stopWalking];
@@ -118,18 +142,17 @@
     
 }
 
-
--(CGFloat) GBDot:(CGPoint)v1 point2:(CGPoint)v2
+- (CGFloat) GBDot:(CGPoint) v1 point2:(CGPoint) v2
 {
     return v1.x * v2.x + v1.y * v2.y;
 }
 
--(CGPoint) GBSub:(CGPoint)v1 point2:(CGPoint)v2
+- (CGPoint) GBSub:(CGPoint) v1 point2:(CGPoint) v2
 {
     return CGPointMake(v1.x - v2.x, v1.y - v2.y);
 }
 
--(BOOL) CGPoint:(CGPoint)point inTriangleP1:(CGPoint)p1 P2:(CGPoint)p2 P3:(CGPoint)p3
+- (BOOL) CGPoint:(CGPoint) point inTriangleP1:(CGPoint) p1 P2:(CGPoint) p2 P3:(CGPoint) p3
 {
     CGPoint v0 = [self GBSub:p3 point2:p1];
     CGPoint v1 = [self GBSub:p2 point2:p1];
@@ -149,7 +172,11 @@
     return (u > 0) && (v > 0) && (u + v < 1);
 }
 
--(void)setViewpointCenter:(CGPoint)position {
+#pragma mark -
+#pragma mark Camera Handling
+
+- (void) setViewpointCenter:(CGPoint) position 
+{
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
     int x = MAX(position.x, winSize.width / 2);
@@ -167,15 +194,6 @@
     self.position = viewPoint;
 }
 
+#pragma mark -
 
-// on "dealloc" you need to release all your retained objects
-- (void) dealloc
-{
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
-	// cocos2d will automatically release all the children (Label)
-	
-	// don't forget to call "super dealloc"
-	[super dealloc];
-}
 @end

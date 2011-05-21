@@ -6,18 +6,27 @@
 //  Copyright KBDevers 2011. All rights reserved.
 //
 
-#import "cocos2d.h"
-
 #import "AppDelegate.h"
-#import "GameConfig.h"
-#import "KBGameLayer.h"
-#import "RootViewController.h"
 
 @implementation AppDelegate
 
-@synthesize window;
+#pragma mark -
+#pragma mark Properties
 
-/*checking some committing stuff*/
+@synthesize window = _window;
+
+#pragma mark -
+#pragma mark Init & Dealloc
+
+- (void) dealloc 
+{
+	[[CCDirector sharedDirector] release];
+	[_window release];
+	[super dealloc];
+}
+
+#pragma mark -
+#pragma mark Cocos2D Methods
 
 - (void) removeStartupFlicker
 {
@@ -40,10 +49,14 @@
 	
 #endif // GAME_AUTOROTATION == kGameAutorotationUIViewController	
 }
-- (void) applicationDidFinishLaunching:(UIApplication*)application
+
+#pragma mark -
+#pragma mark UIApplicationDelegate Methods
+
+- (void) applicationDidFinishLaunching:(UIApplication *) application
 {
 	// Init the window
-	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	_window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
 	// Try to use CADisplayLink director
 	// if it fails (SDK < 3.1) use the default director
@@ -54,8 +67,8 @@
 	CCDirector *director = [CCDirector sharedDirector];
 	
 	// Init the View Controller
-	viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
-	viewController.wantsFullScreenLayout = YES;
+	_viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
+	_viewController.wantsFullScreenLayout = YES;
 	
 	//
 	// Create the EAGLView manually
@@ -63,7 +76,7 @@
 	//	2. depth format of 0 bit. Use 16 or 24 bit for 3d effects, like CCPageTurnTransition
 	//
 	//
-	EAGLView *glView = [EAGLView viewWithFrame:[window bounds]
+	EAGLView *glView = [EAGLView viewWithFrame:[_window bounds]
 								   pixelFormat:kEAGLColorFormatRGB565	// kEAGLColorFormatRGBA8
 								   depthFormat:0						// GL_DEPTH_COMPONENT16_OES
 						];
@@ -95,12 +108,12 @@
 	
 	
 	// make the OpenGLView a child of the view controller
-	[viewController setView:glView];
+	[_viewController setView:glView];
 	
 	// make the View Controller a child of the main window
-	[window addSubview: viewController.view];
+	[_window addSubview: _viewController.view];
 	
-	[window makeKeyAndVisible];
+	[_window makeKeyAndVisible];
 	
 	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
 	// It can be RGBA8888, RGBA4444, RGB5_A1, RGB565
@@ -115,47 +128,49 @@
 	[[CCDirector sharedDirector] runWithScene: [KBGameLayer scene]];
 }
 
-
-- (void)applicationWillResignActive:(UIApplication *)application {
+- (void) applicationWillResignActive:(UIApplication *) application 
+{
 	[[CCDirector sharedDirector] pause];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
+- (void) applicationDidBecomeActive:(UIApplication *) application 
+{
 	[[CCDirector sharedDirector] resume];
 }
 
-- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+- (void) applicationDidReceiveMemoryWarning:(UIApplication *) application 
+{
 	[[CCDirector sharedDirector] purgeCachedData];
 }
 
--(void) applicationDidEnterBackground:(UIApplication*)application {
+- (void) applicationDidEnterBackground:(UIApplication *) application 
+{
 	[[CCDirector sharedDirector] stopAnimation];
 }
 
--(void) applicationWillEnterForeground:(UIApplication*)application {
+- (void) applicationWillEnterForeground:(UIApplication *) application 
+{
 	[[CCDirector sharedDirector] startAnimation];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
+- (void) applicationWillTerminate:(UIApplication *) application 
+{
 	CCDirector *director = [CCDirector sharedDirector];
 	
 	[[director openGLView] removeFromSuperview];
 	
-	[viewController release];
+	[_viewController release];
 	
-	[window release];
+	[_window release];
 	
 	[director end];	
 }
 
-- (void)applicationSignificantTimeChange:(UIApplication *)application {
+- (void) applicationSignificantTimeChange:(UIApplication *) application 
+{
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
 
-- (void)dealloc {
-	[[CCDirector sharedDirector] release];
-	[window release];
-	[super dealloc];
-}
+#pragma mark -
 
 @end

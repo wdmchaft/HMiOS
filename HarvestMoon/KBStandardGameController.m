@@ -8,12 +8,19 @@
 
 #import "KBStandardGameController.h"
 
-
 @implementation KBStandardGameController
-@synthesize gameLayer=_gameLayer;
+
 static KBStandardGameController *sharedSingleton;
 
-+ (void)initialize
+#pragma mark -
+#pragma mark Properties
+
+@synthesize gameLayer = _gameLayer;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (void) initialize
 {
     static BOOL initialized = NO;
     if(!initialized)
@@ -23,10 +30,11 @@ static KBStandardGameController *sharedSingleton;
     }
 }
 
-
-+(KBStandardGameController *)sharedController
++ (KBStandardGameController *) sharedController
 {
     return sharedSingleton;
 }
+
+#pragma mark -
 
 @end
