@@ -98,6 +98,10 @@
 
 -(void)beginWalkingToSide:(Side)side
 {
+    if(self.isWalking && self.walkingTo == side)
+        return;
+    
+    
     self.isWalking = YES;
     
     _walkingTo = side;
