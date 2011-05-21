@@ -127,9 +127,10 @@
 		723AD2B0137EB8FC0014B7DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2AF137EB8FC0014B7DE /* main.m */; };
 		723AD2B3137EB8FC0014B7DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2B2137EB8FC0014B7DE /* AppDelegate.m */; };
 		723AD2B6137EB8FC0014B7DE /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2B5137EB8FC0014B7DE /* RootViewController.m */; };
-		723AD2B9137EB8FC0014B7DE /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2B8137EB8FC0014B7DE /* GameLayer.m */; };
+		723AD2B9137EB8FC0014B7DE /* KBGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */; };
 		723AD2C1137EB95D0014B7DE /* jack_walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 723AD2C0137EB95D0014B7DE /* jack_walking.png */; };
 		72C13E08137EC42300DFD227 /* KBPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C13E07137EC42300DFD227 /* KBPlayer.m */; };
+		72FA4D55138801E100796337 /* meta.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FA4D54138801E100796337 /* meta.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -370,12 +371,13 @@
 		723AD2B2137EB8FC0014B7DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		723AD2B4137EB8FC0014B7DE /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		723AD2B5137EB8FC0014B7DE /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		723AD2B7137EB8FC0014B7DE /* GameLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
-		723AD2B8137EB8FC0014B7DE /* GameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		723AD2B7137EB8FC0014B7DE /* KBGameLayer.h */ = {isa = PBXFileReference; path = KBGameLayer.h; sourceTree = "<group>"; };
+		723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KBGameLayer.m; sourceTree = "<group>"; };
 		723AD2BA137EB8FC0014B7DE /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		723AD2C0137EB95D0014B7DE /* jack_walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jack_walking.png; sourceTree = "<group>"; };
 		72C13E06137EC42300DFD227 /* KBPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBPlayer.h; sourceTree = "<group>"; };
 		72C13E07137EC42300DFD227 /* KBPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBPlayer.m; sourceTree = "<group>"; };
+		72FA4D54138801E100796337 /* meta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = meta.png; path = Resources/meta.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,8 +438,8 @@
 				723AD2B2137EB8FC0014B7DE /* AppDelegate.m */,
 				723AD2B4137EB8FC0014B7DE /* RootViewController.h */,
 				723AD2B5137EB8FC0014B7DE /* RootViewController.m */,
-				723AD2B7137EB8FC0014B7DE /* GameLayer.h */,
-				723AD2B8137EB8FC0014B7DE /* GameLayer.m */,
+				723AD2B7137EB8FC0014B7DE /* KBGameLayer.h */,
+				723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */,
 				723AD2BA137EB8FC0014B7DE /* GameConfig.h */,
 				72C13E06137EC42300DFD227 /* KBPlayer.h */,
 				72C13E07137EC42300DFD227 /* KBPlayer.m */,
@@ -460,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				722C68F413819A510089310D /* Second.tmx */,
+				72FA4D54138801E100796337 /* meta.png */,
 				722F19401381893500ECC33E /* house.png */,
 				723AD2C0137EB95D0014B7DE /* jack_walking.png */,
 				723AD167137EB8F80014B7DE /* Default.png */,
@@ -785,6 +788,7 @@
 				723AD2C1137EB95D0014B7DE /* jack_walking.png in Resources */,
 				722F19411381893500ECC33E /* house.png in Resources */,
 				722C68F513819A510089310D /* Second.tmx in Resources */,
+				72FA4D55138801E100796337 /* meta.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -894,7 +898,7 @@
 				723AD2B0137EB8FC0014B7DE /* main.m in Sources */,
 				723AD2B3137EB8FC0014B7DE /* AppDelegate.m in Sources */,
 				723AD2B6137EB8FC0014B7DE /* RootViewController.m in Sources */,
-				723AD2B9137EB8FC0014B7DE /* GameLayer.m in Sources */,
+				723AD2B9137EB8FC0014B7DE /* KBGameLayer.m in Sources */,
 				72C13E08137EC42300DFD227 /* KBPlayer.m in Sources */,
 				722F192713802BC300ECC33E /* KBStandardGameController.m in Sources */,
 				722F192A1380350B00ECC33E /* KBTMXTiledMap.m in Sources */,
