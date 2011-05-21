@@ -49,8 +49,8 @@
 
 }
 
--(void) update:(ccTime)dt
-{
+- (void) handleWalking 
+{  
     KBGameLayer* gameLayer = ((KBGameLayer *)[[KBStandardGameController sharedController] gameLayer]);
     CGPoint moveVector;
     
@@ -76,22 +76,44 @@
         }
         
         
-        CGPoint pointOnMap = [[gameLayer map] tileCoordForPosition:ccpAdd(self.position, moveVector)];
+        CGPoint arr[] = {
+            [[gameLayer map] tileCoordForPosition:ccpAdd(
+                   ccp(self.position.x - (self.sprite.textureRect.size.width / 2),self.position.y),
+                   moveVector)],
+            
+            [[gameLayer map] tileCoordForPosition:ccpAdd(
+                   ccp(self.position.x + (self.sprite.textureRect.size.width / 2),self.position.y)
+                   , moveVector)],
+            
+            [[gameLayer map] tileCoordForPosition:ccpAdd(
+                   ccp(self.position.x,self.position.y - (self.sprite.textureRect.size.height / 2)), 
+                   moveVector)],
+            
+            [[gameLayer map] tileCoordForPosition: ccpAdd(
+                   ccp(self.position.x,self.position.y + (self.sprite.textureRect.size.height / 2)), 
+                   moveVector)]};
         
-        NSDictionary* props = [[gameLayer map] metaInformationAtPosition:pointOnMap];
-        
-        if([[props valueForKey:kCollidableProperty] isEqualToString:@"True"])
+        BOOL canWalk = YES;
+        for (int i = 0; i < 4; i++) 
         {
-            NSLog(@"can't move further!");
+            NSDictionary* props = [[gameLayer map] metaInformationAtPosition:arr[i]];
+            
+            if([[props valueForKey:kCollidableProperty] isEqualToString:@"True"])
+                canWalk = NO;
         }
-        else
-        {
+        
+        if (canWalk) {
             self.position = ccpAdd(self.position, moveVector);
         }
-            
         
+          
     }
+}
+-(void) update:(ccTime)dt
+{
+    KBGameLayer* gameLayer = ((KBGameLayer *)[[KBStandardGameController sharedController] gameLayer]);
     
+    [self handleWalking];
     
     [gameLayer setViewpointCenter:self.position];
 }

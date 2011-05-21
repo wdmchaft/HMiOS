@@ -43,4 +43,6 @@ typedef enum {
 -(void)beginWalkingToSide:(Side)side;
 -(void)stopWalking;
 -(CCAction *)walkAnimationWithRow:(int)y startPosition:(int)xPos spriteCount:(int)count side:(int)side;
+
+- (void) handleWalking;
 @end
