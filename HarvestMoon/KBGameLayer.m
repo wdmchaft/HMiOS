@@ -63,41 +63,6 @@
         }
     return self;
 }
-/*
--(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch* touch = [touches anyObject];
-    
-    
-    CGPoint location = [touch locationInView:[touch view]];
-    
-    int width =[[CCDirector sharedDirector] winSize].width;
-    int height =[[CCDirector sharedDirector] winSize].height;
-    
-    CGPoint middlePoint = CGPointMake(width/2, height/2);
-    CGPoint lo = CGPointMake(0, 0);
-    CGPoint lu = CGPointMake(0, height);
-    CGPoint ro = CGPointMake(width, 0);
-    CGPoint ru = CGPointMake(width, height);
-    
-    //left
-    if ([self CGPoint:location inTriangleP1:lu P2:lo P3:middlePoint]) {
-        [_player walkToSide:Left];
-    }
-    if ([self CGPoint:location inTriangleP1:ru P2:ro P3:middlePoint]) {
-        [_player walkToSide:Right];
-    }
-    if ([self CGPoint:location inTriangleP1:lo P2:ro P3:middlePoint]) {
-        [_player walkToSide:Up];
-    }
-    if ([self CGPoint:location inTriangleP1:lu P2:ru P3:middlePoint]) {
-        [_player walkToSide:Down];
-    }
-    
-    NSLog(@"TOUCH");
-    
-    
-}*/
 
 -(void)registerWithTouchDispatcher
 {
@@ -122,20 +87,26 @@
     
     
     if ([self CGPoint:touchLocation inTriangleP1:lu P2:lo P3:middlePoint]) {
-        [_player beginWalkingToSide:Left];
+        [self.player beginWalkingToSide:Left];
     }
     if ([self CGPoint:touchLocation inTriangleP1:ru P2:ro P3:middlePoint]) {
-        [_player beginWalkingToSide:Right];
+        [self.player beginWalkingToSide:Right];
     }
     if ([self CGPoint:touchLocation inTriangleP1:lo P2:ro P3:middlePoint]) {
-        [_player beginWalkingToSide:Up];
+        [self.player beginWalkingToSide:Up];
     }
     if ([self CGPoint:touchLocation inTriangleP1:lu P2:ru P3:middlePoint]) {
-        [_player beginWalkingToSide:Down];
+        [self.player beginWalkingToSide:Down];
     }
     
     
     return YES;
+}
+
+-(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    //Durchschleifen, 
+    [self ccTouchBegan:touch withEvent:event];
 }
 
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event

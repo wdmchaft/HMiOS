@@ -39,6 +39,8 @@
         
         [self addChild:self.spriteBatchNode];
         
+        [self.sprite runAction:[CCScaleBy actionWithDuration:0.1f scale:1.5f]];
+        
         
         [self scheduleUpdate];
         
@@ -158,7 +160,7 @@
 {
     CCAnimation* walkAnimation = [CCAnimation animation];
     
-    walkAnimation.delay = 0.5f;
+    walkAnimation.delay = 0.45f;
     
     int frameCount = 0;
     
