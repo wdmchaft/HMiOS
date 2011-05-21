@@ -11,14 +11,23 @@
 #import "KBTMXTiledMap.h"
 
 @interface KBStandardGameController : NSObject {
+    
     CCLayer* _gameLayer;    
+    
 }
 
-+(KBStandardGameController *)sharedController;
+#pragma mark -
+#pragma mark Properties
 
+@property(nonatomic, retain) CCLayer* gameLayer;
 
-@property(nonatomic,retain) CCLayer* gameLayer;
+#pragma mark -
+#pragma mark Class Methods
 
++ (void) initialize;
 
++ (KBStandardGameController *) sharedController;
+
+#pragma mark -
 
 @end

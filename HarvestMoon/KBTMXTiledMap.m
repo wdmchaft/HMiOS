@@ -7,12 +7,22 @@
 //
 
 #import "KBTMXTiledMap.h"
-#import "GameConfig.h"
 
 @implementation KBTMXTiledMap
-@synthesize background=_background,objects=_objects,meta=_meta;
 
--(id)initWithTMXFile:(NSString *)tmxFile
+#pragma mark -
+#pragma mark Properties
+
+@synthesize background = _background;
+
+@synthesize objects = _objects;
+
+@synthesize meta = _meta;
+
+#pragma mark -
+#pragma mark Init & Dealloc
+
+- (id) initWithTMXFile:(NSString *) tmxFile
 {
     self = [super initWithTMXFile:tmxFile];
     if (self) {
@@ -25,17 +35,21 @@
     return self;
 }
 
--(CGPoint)coordinatesAtPosition:(CGPoint)point {
+#pragma mark -
+#pragma mark Convenience Methods
+
+- (CGPoint) coordinatesAtPosition:(CGPoint) point 
+{
     return ccp((int)(point.x / self.tileSize.width), (int)(self.mapSize.height -(point.y / self.tileSize.height)));
 }
 
--(unsigned int)getGIDAtPosition:(CGPoint)point {
+-(unsigned int) getGIDAtPosition:(CGPoint) point 
+{
     
     return[self.background tileGIDAt:[self coordinatesAtPosition:point]];
 }
 
-
--(id)getObject:(NSString *)objectName
+- (id) getObject:(NSString *) objectName
 {
     NSAssert(self.objects != nil,@"There is no Object Layer!",nil);
     
@@ -43,17 +57,20 @@
     return [self.objects objectNamed:objectName];
 }
 
-- (CGPoint)tileCoordForPosition:(CGPoint)position {
+- (CGPoint) tileCoordForPosition:(CGPoint) position 
+{
     int x = position.x / self.tileSize.width;
     int y = ((self.mapSize.height * self.tileSize.height) - position.y) / self.tileSize.height;
     return ccp(x, y);
 }
 
--(NSDictionary*)metaInformationAtPosition:(CGPoint)position
+- (NSDictionary *) metaInformationAtPosition:(CGPoint) position
 {
     unsigned int GID = [self.meta tileGIDAt:position];
     
     return [self propertiesForGID:GID];
 }
+
+#pragma mark -
 
 @end

@@ -8,22 +8,45 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "GameConfig.h"
 
 @interface KBTMXTiledMap : CCTMXTiledMap {
+    
     CCTMXLayer* _background;
+    
     CCTMXObjectGroup* _objects;
+    
     CCTMXLayer* _meta;
+    
 }
 
-@property(nonatomic,retain) CCTMXLayer* background;
-@property(nonatomic,retain) CCTMXObjectGroup* objects;
-@property(nonatomic,retain) CCTMXLayer* meta;
+#pragma mark -
+#pragma mark Properties
 
--(CGPoint)coordinatesAtPosition:(CGPoint)point;
--(unsigned int)getGIDAtPosition:(CGPoint)point;
--(id)getObject:(NSString *)objectName;
-- (CGPoint)tileCoordForPosition:(CGPoint)position;
+@property(nonatomic, retain) CCTMXLayer* background;
 
+@property(nonatomic, retain) CCTMXObjectGroup* objects;
 
--(NSDictionary*)metaInformationAtPosition:(CGPoint)position;
+@property(nonatomic, retain) CCTMXLayer* meta;
+
+#pragma mark -
+#pragma mark Init & Dealloc
+
+- (id) initWithTMXFile:(NSString *) tmxFile;
+
+#pragma mark -
+#pragma mark Convenience Methos
+
+- (CGPoint) coordinatesAtPosition:(CGPoint) point;
+
+- (unsigned int) getGIDAtPosition:(CGPoint) point;
+
+- (id) getObject:(NSString *) objectName;
+
+- (CGPoint) tileCoordForPosition:(CGPoint) position;
+
+- (NSDictionary *) metaInformationAtPosition:(CGPoint) position;
+
+#pragma mark -
+
 @end
