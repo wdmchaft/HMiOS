@@ -57,6 +57,16 @@
         
         [self scheduleUpdate];
         
+        _walkLeftAnimation = [self walkAnimationWithRow:1 startPosition:1 spriteCount:2 side:Left];
+        _walkRightAnimation = [self walkAnimationWithRow:1 startPosition:4 spriteCount:2 side:Right];
+        _walkUpAnimation = [self walkAnimationWithRow:0 startPosition:1 spriteCount:2 side:Up];
+        _walkDownAnimation = [self walkAnimationWithRow:0 startPosition:4 spriteCount:2 side:Down];
+        _stayLeftAnimation = [self walkAnimationWithRow:1 startPosition:0 spriteCount:1 side:Left];
+        _stayRightAnimation = [self walkAnimationWithRow:1 startPosition:3 spriteCount:1 side:Right];
+        _stayUpAnimation = [self walkAnimationWithRow:0 startPosition:0 spriteCount:1 side:Up];
+        _stayDownAnimation = [self walkAnimationWithRow:0 startPosition:3 spriteCount:1 side:Down];
+        
+        
 	}
 	return self;
     
@@ -89,16 +99,16 @@
     
     switch (side) {
         case Left:
-            self.currentAnimation = [self walkAnimationWithRow:1 startPosition:1 spriteCount:2 side:Left];
+            self.currentAnimation = _walkLeftAnimation;
             break;
         case Right:
-            self.currentAnimation = [self walkAnimationWithRow:1 startPosition:4 spriteCount:2 side:Right];
+            self.currentAnimation = _walkRightAnimation;
             break;
         case Up:
-            self.currentAnimation = [self walkAnimationWithRow:0 startPosition:1 spriteCount:2 side:Up];
+            self.currentAnimation = _walkUpAnimation;
             break;
         case Down:
-            self.currentAnimation = [self walkAnimationWithRow:0 startPosition:4 spriteCount:2 side:Down];
+            self.currentAnimation = _walkDownAnimation;
             break;
         default:
             @throw [NSException exceptionWithName:@"Unknown Parameter Value" 
@@ -119,16 +129,16 @@
     
     switch (self.walkingTo) {
         case Left:
-            self.currentAnimation = [self walkAnimationWithRow:1 startPosition:0 spriteCount:1 side:Left];
+            self.currentAnimation = _stayLeftAnimation;
             break;
         case Right:
-            self.currentAnimation = [self walkAnimationWithRow:1 startPosition:3 spriteCount:1 side:Right];
+            self.currentAnimation = _stayRightAnimation;
             break;
         case Up:
-            self.currentAnimation = [self walkAnimationWithRow:0 startPosition:0 spriteCount:1 side:Up];
+            self.currentAnimation = _stayUpAnimation;
             break;
         case Down:
-            self.currentAnimation = [self walkAnimationWithRow:0 startPosition:3 spriteCount:1 side:Down];
+            self.currentAnimation = _stayDownAnimation;
             break;
         default:
             @throw [NSException exceptionWithName:@"Unknown Parameter Value" 
@@ -168,6 +178,8 @@
     CCAnimate* walkAction = [CCAnimate actionWithAnimation:walkAnimation ];
     CCRepeatForever * repeat = [CCRepeatForever actionWithAction:walkAction];
     
+    [repeat retain];
+                                  
     return repeat;
 }
 
