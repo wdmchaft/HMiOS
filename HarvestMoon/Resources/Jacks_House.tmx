@@ -1,29 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="15" height="15" tilewidth="32" tileheight="32">
- <tileset firstgid="1" name="House" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="House" tilewidth="16" tileheight="16">
   <image source="house.png" trans="ff00ff" width="256" height="1216"/>
  </tileset>
- <tileset firstgid="305" name="Meta" tilewidth="32" tileheight="32">
+ <tileset firstgid="1217" name="Meta" tilewidth="16" tileheight="16">
   <image source="meta.png" width="96" height="32"/>
   <tile id="1">
    <properties>
     <property name="Collidable" value="True"/>
    </properties>
   </tile>
+  <tile id="2">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
  </tileset>
- <layer name="Background" width="15" height="15">
+ <layer name="Background" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJyd0rEKgDAMhOHUrW666aZO6qRO6vu/lzcoBKGQu+EjkKE/gQ5mNgommGERrLDBLjjghEtwQwMJKnK20Lldhjo4+7f77ZQu0/t3k3Cz77Jt3y01It1Sg+2y9/o3o/dmsuf/0QNtZg9l
+   eJzt07VRRFEABdAPSwNIA0gDSANIA0gDSANIA4tsvpqjOZqjOZqjORpzkj/D/Py9IXjBmTs3vnPLWZatssZ6hNygQpUadRoRskmLTbbYZidC7rLHPgccchQhjznhlDPOuYiQl1xxzQ233EXIex545IlnXiLkK2+888EnXxHymx9GGaONdkp0BOzjTDDJFJ100U1PwD7NDLPM0Usf/QwE7PMssMgSgwwxzEjAvszKn31D75r34r6hd817cd/Qu+a9uG/oXfNe3Df9N/03/Tf9N/33f/23XIr/34pSpUadBs0IWvwCPw8ViA==
   </data>
  </layer>
- <layer name="Items" width="15" height="15">
+ <layer name="Items" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztyykOgEAQRNGehMWw3P9MnAKwDGMGMGxfIEGUQJBQyVPd3+y7G+AxIohtxIQZi9iu2LDjENvEmaXIkDutLfgvUaEW23/vrkX3oLnc3XqcQRkY5w==
+   eJzt1LcNQkEQRdFhFxPjY0wDmKqBCoAKgAQTAQk+xqfcXwPiBWiedOIrjVZr5vP91+bBbIElVkHX3dHa44CjsHuldcMdD2E3Fc0CItJR183TKqCIkrBbo1VHA01ht0WrjQ66P+r2eDd9DITvJ9mQ3ghjcXdCb4qZuLumt8FW3PWZnbj5GRfx7Z/0XniLuxn+iixywr8qWZleBVVx1+fzfbcPNI8b0Q==
   </data>
  </layer>
- <layer name="Meta" width="15" height="15" opacity="0.34">
+ <layer name="Meta" width="30" height="30" opacity="0.43">
   <data encoding="base64" compression="zlib">
-   eJwzYmRgMBqCGASwieED6HqRxYe7XlLBqF7S9eJLq/jUAQAndxJV
+   eJztVkEOwCAI22H//5S76Kt2GQlpKhoXy2EjaUgcUkDQlfM4ygQuAv8NNdrhWn3Q821oBLa3EY12vTWMfbYGkY72+TijnOuC7wjG6/2xmmKMvs4MzAfWOeqJ3jmP7EZgZzWKc5TLDFi+u6V8lNfPsJIX+1PBy/p3FxfeKwrx74CS199J6nybuH9Rsnjrxv6NhL0/Kl7F7DJemyllzS3fmsSrlsz5zcr359Xxvv0XXsENqm0Ftw==
   </data>
  </layer>
 </map>
