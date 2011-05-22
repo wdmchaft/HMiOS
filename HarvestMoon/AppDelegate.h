@@ -11,6 +11,7 @@
 #import "GameConfig.h"
 #import "KBGameLayer.h"
 #import "RootViewController.h"
+#import "KBStoryController.h"
 
 @class RootViewController;
 

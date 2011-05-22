@@ -48,7 +48,9 @@
 		
         
         
-        self.map = [[KBMap alloc] init];
+        self.map = [[KBMap alloc] initWithMapName:
+                    [[KBStoryController sharedController] currentMapName]];
+        
         //[self.map runAction:[CCScaleBy actionWithDuration:0.1 scale:0.5f]];
         
         
@@ -59,7 +61,7 @@
         [self addChild:self.player z:1];
         
         
-        self.player.position = ccp(400,300);
+        self.player.position = [[KBStoryController sharedController] lastSavedPlayerPosition];
         
         
         self.isTouchEnabled = YES;

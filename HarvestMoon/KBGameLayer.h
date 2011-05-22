@@ -14,6 +14,7 @@
 #import "KBMap.h"
 #import "KBGameLayer.h"
 #import "GameConfig.h"
+#import "KBStoryController.h"
 
 // HelloWorldLayer
 @interface KBGameLayer : CCLayer

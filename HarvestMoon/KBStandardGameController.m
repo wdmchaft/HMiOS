@@ -10,7 +10,7 @@
 
 @implementation KBStandardGameController
 
-static KBStandardGameController *sharedSingleton;
+static KBStandardGameController* _sharedSingleton;
 
 #pragma mark -
 #pragma mark Properties
@@ -26,13 +26,13 @@ static KBStandardGameController *sharedSingleton;
     if(!initialized)
     {
         initialized = YES;
-        sharedSingleton = [[KBStandardGameController alloc] init];
+        _sharedSingleton = [[KBStandardGameController alloc] init];
     }
 }
 
 + (KBStandardGameController *) sharedController
 {
-    return sharedSingleton;
+    return _sharedSingleton;
 }
 
 #pragma mark -

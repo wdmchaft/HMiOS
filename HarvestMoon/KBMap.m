@@ -19,10 +19,10 @@
 #pragma mark -
 #pragma mark Init & Dealloc
 
-- (id) init {
+- (id) initWithMapName:(NSString *)mapName {
     self = [super init];
     if (self) {
-        self.tileMap = [KBTMXTiledMap tiledMapWithTMXFile:kJacksHouseMap];
+        self.tileMap = [KBTMXTiledMap tiledMapWithTMXFile:mapName];
         
         [self addChild:self.tileMap];
     }

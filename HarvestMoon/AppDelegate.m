@@ -130,6 +130,7 @@
 
 - (void) applicationWillResignActive:(UIApplication *) application 
 {
+    [[KBStoryController sharedController] saveGameState];
 	[[CCDirector sharedDirector] pause];
 }
 

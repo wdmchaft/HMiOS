@@ -13,6 +13,8 @@
 #pragma mark -
 #pragma mark General Game Constants
 
+#define kApplicationWillTerminateNotification @"AppWillTerminate"
+
 #define kDevelopmentMode 0
 
 #pragma mark -

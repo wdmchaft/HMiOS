@@ -127,6 +127,7 @@
 		723AD2B6137EB8FC0014B7DE /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2B5137EB8FC0014B7DE /* RootViewController.m */; };
 		723AD2B9137EB8FC0014B7DE /* KBGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */; };
 		726C6CAA13894CDF0047B503 /* KBMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 726C6CA913894CDE0047B503 /* KBMap.m */; };
+		726C6CB1138954940047B503 /* KBStoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 726C6CB0138954940047B503 /* KBStoryController.m */; };
 		727F1AFE13881402005C2D78 /* jack_walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 727F1AFD13881402005C2D78 /* jack_walking.png */; };
 		727F1B0013881457005C2D78 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 727F1AFF13881457005C2D78 /* house.png */; };
 		727F1B0213881467005C2D78 /* Jacks_House.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 727F1B0113881467005C2D78 /* Jacks_House.tmx */; };
@@ -375,6 +376,8 @@
 		723AD2BA137EB8FC0014B7DE /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		726C6CA813894CDE0047B503 /* KBMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBMap.h; sourceTree = "<group>"; };
 		726C6CA913894CDE0047B503 /* KBMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBMap.m; sourceTree = "<group>"; };
+		726C6CAF138954940047B503 /* KBStoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBStoryController.h; sourceTree = "<group>"; };
+		726C6CB0138954940047B503 /* KBStoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBStoryController.m; sourceTree = "<group>"; };
 		727F1AFD13881402005C2D78 /* jack_walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jack_walking.png; path = Resources/jack_walking.png; sourceTree = "<group>"; };
 		727F1AFF13881457005C2D78 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = house.png; path = Resources/house.png; sourceTree = "<group>"; };
 		727F1B0113881467005C2D78 /* Jacks_House.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Jacks_House.tmx; path = Resources/Jacks_House.tmx; sourceTree = "<group>"; };
@@ -477,6 +480,8 @@
 				723AD2B2137EB8FC0014B7DE /* AppDelegate.m */,
 				723AD2B4137EB8FC0014B7DE /* RootViewController.h */,
 				723AD2B5137EB8FC0014B7DE /* RootViewController.m */,
+				726C6CAF138954940047B503 /* KBStoryController.h */,
+				726C6CB0138954940047B503 /* KBStoryController.m */,
 				723AD2B7137EB8FC0014B7DE /* KBGameLayer.h */,
 				723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */,
 				723AD2BA137EB8FC0014B7DE /* GameConfig.h */,
@@ -940,6 +945,7 @@
 				722F192713802BC300ECC33E /* KBStandardGameController.m in Sources */,
 				722F192A1380350B00ECC33E /* KBTMXTiledMap.m in Sources */,
 				726C6CAA13894CDF0047B503 /* KBMap.m in Sources */,
+				726C6CB1138954940047B503 /* KBStoryController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
