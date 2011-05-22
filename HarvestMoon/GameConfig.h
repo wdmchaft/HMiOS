@@ -22,7 +22,7 @@
 // TileMap Map Names
 //
 
-#define kJacksHouseMap @"Jacks_House"
+#define kJacksHouseMap @"Jacks_House.tmx"
 
 //
 // TileMap Layer Names
