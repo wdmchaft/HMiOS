@@ -30,6 +30,10 @@
         NSAssert(self.background != nil, @"Couldn't find Background Layer in this TMX File.", tmxFile);
         self.objects = [self objectGroupNamed:kObjectLayer];
         self.meta = [self layerNamed:kMetaLayer];
+        
+        if(kDevelopmentMode == NO)
+            [self.meta setVisible:NO];
+        
     }
     
     return self;
