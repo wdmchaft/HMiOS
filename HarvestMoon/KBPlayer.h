@@ -37,12 +37,19 @@ typedef enum {
     // Animations
     
     CCAction* _walkLeftAnimation;
+    
     CCAction* _walkRightAnimation;
+    
     CCAction* _walkUpAnimation;
+    
     CCAction* _walkDownAnimation;
+    
     CCAction* _stayLeftAnimation;
+    
     CCAction* _stayRightAnimation;
+    
     CCAction* _stayUpAnimation;
+    
     CCAction* _stayDownAnimation;
     
 }
