@@ -9,27 +9,11 @@
 #ifndef __GAME_CONFIG_H
 #define __GAME_CONFIG_H
 
+
 #pragma mark -
-#pragma mark Cocos2D Constants
+#pragma mark General Game Constants
 
-//
-// Supported Autorotations:
-//		None,
-//		UIViewController,
-//		CCDirector
-//
-
-#define kGameAutorotationNone 0
-
-#define kGameAutorotationCCDirector 1
-
-#define kGameAutorotationUIViewController 2
-
-//
-// Define here the type of autorotation that you want for your game
-//
-
-#define GAME_AUTOROTATION kGameAutorotationUIViewController
+#define kDevelopmentMode 0
 
 #pragma mark -
 #pragma mark Tilemap Constants
@@ -51,6 +35,28 @@
 //
 
 #define kCollidableProperty @"Collidable"
+
+#pragma mark -
+#pragma mark Cocos2D Constants
+
+//
+// Supported Autorotations:
+//		None,
+//		UIViewController,
+//		CCDirector
+//
+
+#define kGameAutorotationNone 0
+
+#define kGameAutorotationCCDirector 1
+
+#define kGameAutorotationUIViewController 2
+
+//
+// Define here the type of autorotation that you want for your game
+//
+
+#define GAME_AUTOROTATION kGameAutorotationUIViewController
 
 #pragma mark -
 
