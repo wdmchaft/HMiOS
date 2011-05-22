@@ -4,8 +4,8 @@
   <image source="house.png" trans="ff00ff" width="256" height="1216"/>
  </tileset>
  <tileset firstgid="305" name="Meta" tilewidth="32" tileheight="32">
-  <image source="meta.png" width="32" height="32"/>
-  <tile id="0">
+  <image source="meta.png" width="96" height="32"/>
+  <tile id="1">
    <properties>
     <property name="Collidable" value="True"/>
    </properties>
@@ -13,20 +13,17 @@
  </tileset>
  <layer name="Background" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJxTZGBgUCIDKwOxJhBrkYG1gdgQiI3IwMZAbAnEVmRgayAWBGJGIGYikRYCYkkg5gRiLhJpqQG0dxQMfgAAD/AMkQ==
+   eJyd0rEKgDAMhOHUrW666aZO6qRO6vu/lzcoBKGQu+EjkKE/gQ5mNgommGERrLDBLjjghEtwQwMJKnK20Lldhjo4+7f77ZQu0/t3k3Cz77Jt3y01It1Sg+2y9/o3o/dmsuf/0QNtZg9l
   </data>
  </layer>
  <layer name="Items" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFxIK1QLyOTL1bgXgbmXofAvEjHPg0HrnHZNo3CugLAGNHD+4=
+   eJztyykOgEAQRNGehMWw3P9MnAKwDGMGMGxfIEGUQJBQyVPd3+y7G+AxIohtxIQZi9iu2LDjENvEmaXIkDutLfgvUaEW23/vrkX3oLnc3XqcQRkY5w==
   </data>
  </layer>
- <objectgroup name="Objects" width="15" height="15">
-  <object name="SpawnPoint" x="208" y="185" width="20" height="18"/>
- </objectgroup>
  <layer name="Meta" width="15" height="15" opacity="0.34">
   <data encoding="base64" compression="zlib">
-   eJwzZGRgMByCmBxADb3k6KeWXlzhQO1wGgX0BQBDyg17
+   eJwzYmRgMBqCGASwieED6HqRxYe7XlLBqF7S9eJLq/jUAQAndxJV
   </data>
  </layer>
 </map>

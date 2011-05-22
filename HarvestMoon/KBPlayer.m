@@ -199,26 +199,26 @@
         
         
         CGPoint arr[] = {
-            [[gameLayer map] tileCoordForPosition:ccpAdd(
+            [[gameLayer map].tileMap tileCoordForPosition:ccpAdd(
                    ccp(self.position.x - (self.sprite.textureRect.size.width / 2),self.position.y),
                    moveVector)],
             
-            [[gameLayer map] tileCoordForPosition:ccpAdd(
+            [[gameLayer map].tileMap tileCoordForPosition:ccpAdd(
                    ccp(self.position.x + (self.sprite.textureRect.size.width / 2),self.position.y)
                    , moveVector)],
             
-            [[gameLayer map] tileCoordForPosition:ccpAdd(
+            [[gameLayer map].tileMap tileCoordForPosition:ccpAdd(
                    ccp(self.position.x,self.position.y - (self.sprite.textureRect.size.height / 2)), 
                    moveVector)],
             
-            [[gameLayer map] tileCoordForPosition: ccpAdd(
+            [[gameLayer map].tileMap tileCoordForPosition: ccpAdd(
                    ccp(self.position.x,self.position.y + (self.sprite.textureRect.size.height / 2)), 
                    moveVector)]};
         
         BOOL canWalk = YES;
         for (int i = 0; i < 4; i++) 
         {
-            NSDictionary* props = [[gameLayer map] metaInformationAtPosition:arr[i]];
+            NSDictionary* props = [[gameLayer map].tileMap metaInformationAtPosition:arr[i]];
             
             if([[props valueForKey:kCollidableProperty] isEqualToString:@"True"])
                 canWalk = NO;

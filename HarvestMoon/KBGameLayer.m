@@ -46,7 +46,9 @@
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
 		
-        self.map = [KBTMXTiledMap tiledMapWithTMXFile:kJacksHouseMap];
+        
+        
+        self.map = [[KBMap alloc] init];
         //[self.map runAction:[CCScaleBy actionWithDuration:0.1 scale:0.5f]];
         
         
@@ -57,9 +59,7 @@
         [self addChild:self.player z:1];
         
         
-        NSMutableDictionary* spawnPoint = [self.map getObject:kSpawnPointObject];
-        
-        self.player.position = ccp([[spawnPoint valueForKey:@"x"] doubleValue],[[spawnPoint valueForKey:@"y"] doubleValue]);
+        self.player.position = ccp(400,300);
         
         
         self.isTouchEnabled = YES;
@@ -182,9 +182,9 @@
     int x = MAX(position.x, winSize.width / 2);
     int y = MAX(position.y, winSize.height / 2);
     
-    x = MIN(x, (self.map.mapSize.width * self.map.tileSize.width)
+    x = MIN(x, (self.map.mapWidth * self.map.tileWidth)
             - winSize.width / 2);
-    y = MIN(y, (self.map.mapSize.height * self.map.tileSize.height)
+    y = MIN(y, (self.map.mapHeight * self.map.tileHeight)
             - winSize.height / 2);
     
     CGPoint actualPosition = ccp(x,y);

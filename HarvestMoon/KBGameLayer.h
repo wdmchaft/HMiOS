@@ -11,7 +11,7 @@
 #import "cocos2d.h"
 #import "KBPlayer.h"
 #import "KBStandardGameController.h"
-#import "KBTMXTiledMap.h"
+#import "KBMap.h"
 #import "KBGameLayer.h"
 #import "GameConfig.h"
 
@@ -20,14 +20,14 @@
 {
     KBPlayer* _player;
     
-    KBTMXTiledMap* _map;
+    KBMap* _map;
     
 }
 
 #pragma mark -
 #pragma mark Properties
 
-@property (nonatomic, retain) KBTMXTiledMap* map;
+@property (nonatomic, retain) KBMap* map;
 
 @property (nonatomic, retain) KBPlayer* player;
 
