@@ -46,7 +46,7 @@
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
 		
-        self.map = [KBTMXTiledMap tiledMapWithTMXFile:@"Second.tmx"];
+        self.map = [KBTMXTiledMap tiledMapWithTMXFile:kJacksHouseMap];
         //[self.map runAction:[CCScaleBy actionWithDuration:0.1 scale:0.5f]];
         
         

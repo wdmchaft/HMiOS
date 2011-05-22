@@ -19,6 +19,12 @@
 #pragma mark Tilemap Constants
 
 //
+// TileMap Map Names
+//
+
+#define kJacksHouseMap @"Jacks_House"
+
+//
 // TileMap Layer Names
 //
 
