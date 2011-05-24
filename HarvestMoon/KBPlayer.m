@@ -91,7 +91,7 @@
 {
     if(self.isWalking && self.walkingTo == side)
         return;
-    
+    [self.sprite stopAllActions];
     
     self.isWalking = YES;
     
@@ -123,9 +123,11 @@
 
 - (void) stopWalking
 {
+    
     self.isWalking = NO;
-    [self.sprite stopAction:self.currentAnimation];
-    self.currentAnimation = nil;
+    
+    [self.sprite stopAllActions];
+    
     
     switch (self.walkingTo) {
         case Left:
