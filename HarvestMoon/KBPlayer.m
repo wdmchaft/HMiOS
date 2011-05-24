@@ -214,7 +214,7 @@
         
         CGPoint arr[] = {
             [[gameLayer map].tileMap tileCoordForPosition:ccpAdd(
-                   ccp(self.position.x - (self.sprite.textureRect.size.width / 2),self.position.y),
+                   ccp(self.position.x - (self.sprite.textureRect.size.width / 2) - 7,self.position.y),
                    moveVector)],
             
             [[gameLayer map].tileMap tileCoordForPosition:ccpAdd(
@@ -226,7 +226,7 @@
                    moveVector)],
             
             [[gameLayer map].tileMap tileCoordForPosition: ccpAdd(
-                   ccp(self.position.x,self.position.y + (self.sprite.textureRect.size.height / 2)), 
+                   ccp(self.position.x,self.position.y + (self.sprite.textureRect.size.height / 6)), 
                    moveVector)]};
         
         BOOL canWalk = YES;
