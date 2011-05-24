@@ -66,7 +66,13 @@
         _stayUpAnimation = [self walkAnimationWithRow:0 startPosition:0 spriteCount:1 side:Up];
         _stayDownAnimation = [self walkAnimationWithRow:0 startPosition:3 spriteCount:1 side:Down];
         
+        KBGameLayer* gameLayer = ((KBGameLayer *)[[KBStandardGameController sharedController] gameLayer]);
+        int screenWidth = [[CCDirector sharedDirector] winSize].width;
+        int screenHeight = [[CCDirector sharedDirector] winSize].height;
+        int mapWidth = [gameLayer map].tileMap.mapSize.width;
+        int mapHeight = [gameLayer map].tileMap.mapSize.height;
         
+        _centerPlayer = (screenWidth < mapWidth || screenHeight < mapHeight);
 	}
 	return self;
     
@@ -78,10 +84,17 @@
 - (void) update:(ccTime) dt
 {
     KBGameLayer* gameLayer = ((KBGameLayer *)[[KBStandardGameController sharedController] gameLayer]);
+    int mapPosX = [gameLayer map].tileMap.position.x;
+    int mapPosY = [gameLayer map].tileMap.position.y;
     
     [self handleWalking];
     
-    [gameLayer setViewpointCenter:self.position];
+    if (_centerPlayer)
+    {
+        [gameLayer setViewpointCenter:self.position];
+    } else {
+        [gameLayer setViewpointCenter:ccp(mapPosX, mapPosY)];
+    }
 }
 
 #pragma mark -

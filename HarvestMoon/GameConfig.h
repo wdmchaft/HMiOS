@@ -25,6 +25,7 @@
 //
 
 #define kJacksHouseMap @"Jacks_House.tmx"
+#define kCentering_Test @"centering_test.tmx"
 
 //
 // TileMap Layer Names

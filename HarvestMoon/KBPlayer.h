@@ -24,6 +24,8 @@ typedef enum {
     
     CCSpriteBatchNode* _spriteBatch;
     
+    BOOL _centerPlayer;
+    
     // Walking Variables
     
     int _walkingSpeed;

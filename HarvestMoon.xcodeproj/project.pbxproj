@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07F23337138C3CB700A3C973 /* centering_test.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 07F23336138C3CB700A3C973 /* centering_test.tmx */; };
 		722F192713802BC300ECC33E /* KBStandardGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 722F192613802BC300ECC33E /* KBStandardGameController.m */; };
 		722F192A1380350B00ECC33E /* KBTMXTiledMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 722F19291380350B00ECC33E /* KBTMXTiledMap.m */; };
 		723AD156137EB8F80014B7DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723AD155137EB8F80014B7DE /* QuartzCore.framework */; };
@@ -137,6 +138,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07F23336138C3CB700A3C973 /* centering_test.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = centering_test.tmx; path = Resources/centering_test.tmx; sourceTree = "<group>"; };
 		722F192513802BC300ECC33E /* KBStandardGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBStandardGameController.h; sourceTree = "<group>"; };
 		722F192613802BC300ECC33E /* KBStandardGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBStandardGameController.m; sourceTree = "<group>"; };
 		722F19281380350B00ECC33E /* KBTMXTiledMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTMXTiledMap.h; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 		7208C973138905AE001B8F92 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				07F23336138C3CB700A3C973 /* centering_test.tmx */,
 				727F1B0113881467005C2D78 /* Jacks_House.tmx */,
 			);
 			name = Maps;
@@ -835,6 +838,7 @@
 				727F1B0013881457005C2D78 /* house.png in Resources */,
 				727F1B0213881467005C2D78 /* Jacks_House.tmx in Resources */,
 				72AF3CB4138C317900B77A75 /* Meta.tsx in Resources */,
+				07F23337138C3CB700A3C973 /* centering_test.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
