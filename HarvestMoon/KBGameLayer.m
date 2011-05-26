@@ -92,7 +92,25 @@
 
 - (void) update:(ccTime) dt
 {
+    NSDictionary* playerObject = [self.map.tileMap objectAtPosition:self.player.position];
+    if(playerObject != nil)
+    {    
+        KBEvent* script = [KBSEventFactory eventForObject:playerObject];
+        
+        [script run];
+        
+    }
+    
     [self setViewpointCenter:self.player.position];
+}
+
+-(void) loadMap:(NSString*)mapName withAnimation:(BOOL)animate
+{
+    [self removeChild:self.map cleanup:YES];
+    
+    self.map = [[KBMap alloc] initWithMapName:mapName];
+    
+    [self addChild:self.map];
 }
 
 #pragma mark -
@@ -131,16 +149,6 @@
     }
     if ([self CGPoint:touchLocation inTriangleP1:lu P2:ru P3:middlePoint]) {
         [self.player beginWalkingToSide:Down];
-    }
-        
-    touchLocation = [self convertToNodeSpace:touchLocation];
-    
-    
-    NSDictionary* object = [self.map.tileMap objectAtPosition:touchLocation];
-    NSDictionary* playerObject = [self.map.tileMap objectAtPosition:self.player.position];
-    if(object != nil && object == playerObject)
-    {    
-        KBEvent* script = [KBSEventFactory eventForObject:object];
     }
     
     return YES;

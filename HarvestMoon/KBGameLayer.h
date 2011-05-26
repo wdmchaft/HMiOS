@@ -51,6 +51,8 @@
 
 - (void) update:(ccTime) dt;
 
+-(void) loadMap:(NSString*)mapName withAnimation:(BOOL)animate;
+
 #pragma mark -
 #pragma mark Touch Handling
 

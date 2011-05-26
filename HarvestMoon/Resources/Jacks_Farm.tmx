@@ -103,7 +103,7 @@
  </tileset>
  <layer name="Background" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt07VRRFEABdAPSwNIA0gDSANIA0gDSANIA4tsvpqjOZqjOZqjORpzkj/D/Py9IXjBmTs3vnPLWZatssZ6hNygQpUadRoRskmLTbbYZidC7rLHPgccchQhjznhlDPOuYiQl1xxzQ233EXIex545IlnXiLkK2+888EnXxHymx9GGaONdkp0BOzjTDDJFJ100U1PwD7NDLPM0Usf/QwE7PMssMgSgwwxzEjAvszKn31D75r34r6hd817cd/Qu+a9uG/oXfNe3Df9N/03/Tf9N/33f/23XIr/34pSpUadBs0IWvwCPw8ViA==
+   eJy91LVPBEEcxfGDo8GDNHiQBg/S4EEaPEiDB2nwIP/AIdef9miP9miP9miP1nybS8jmdvcmmZ3ik19eMt3LG4fNZlvDOjYU3E044YIbHngVXB/82MI2drCr4O5hHwc4xBGOFdwTnOIM57jApYJ7hWvc4BZ3uFdwH/CIJzzjBa8K7hve8YFPfOFbwf3BLxrRhDCEw44IC3MzWtCDXiQgEUlIDpIjEYVoxCAWcYjXea+X+9CPcUwgGznIRV6QnIJUpCEdGchEls57vTyJKSxhGWUoRwUqg+R8FKAQRShGCUp13uvlFaz+69eslypUowa1qEM9GgR71vZr1ksr2tCODnSiC90h9hrI2n7NehnAIIYwjBGMYizEXgNZ269ZL9OYwSzmMI8FLIbYayBr+zXrxahfK/dr1K+V+zXq18r9GvVr5X5lZdH9yvq3Rfcr698W3a+sf1t0v7L+bdH9yvq3Rfcr698W3a+sfzvQr8Oufr9OggtueOCFTwE//gAfNydg
   </data>
  </layer>
  <layer name="Items" width="30" height="30">
@@ -117,9 +117,9 @@
   </data>
  </layer>
  <objectgroup name="Events" width="30" height="30">
-  <object name="GoOutsideEvent" x="165" y="403" width="137" height="78">
+  <object name="JumpIntoHouseEvent" x="321" y="368" width="146" height="54">
    <properties>
-    <property name="MapName" value="Jacks_Farm"/>
+    <property name="MapName" value="Jacks_House"/>
     <property name="ScriptingId" value="0002"/>
    </properties>
   </object>

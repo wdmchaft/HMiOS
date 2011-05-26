@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "ScriptingIdentifiers.h"
+#import "GameConfig.h"
 #import "KBEvent.h"
+#import "KBJumpToMapEvent.h"
 
 @interface KBSEventFactory : NSObject {
     
 }
-+ (KBEvent *) eventForObject:(NSDictionary *)scriptingID;
++ (KBEvent *) eventForObject:(NSDictionary *)object;
 
 @end

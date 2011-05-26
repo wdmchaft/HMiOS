@@ -11,4 +11,5 @@
 
 @implementation KBEvent
 
+-(void)run{NSAssert(false,@"Fail : run method on KBEvent not overwritten");}
 @end

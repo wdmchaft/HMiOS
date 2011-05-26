@@ -11,10 +11,21 @@
 
 @implementation KBSEventFactory
 
-+ (KBEvent *) eventForObject:(NSDictionary *)scriptingID
++ (KBEvent *) eventForObject:(NSDictionary *)object
 {
-    NSLog(@"now we should create an run the event %@", scriptingID);
-    return nil;
+    NSLog(@"now we should create an run the event %@", object);
+    KBEvent* event = nil;
+    switch ([[object valueForKey:kScriptingId] integerValue]) {
+        case  kJumpToMap:
+            event = [[KBJumpToMapEvent alloc] initWithObject:object];
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    return [event autorelease];
 }
 
 @end

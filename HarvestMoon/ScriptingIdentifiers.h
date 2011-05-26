@@ -6,4 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#define kOpenToolBox @"0001"
+#define kOpenToolBox    0001
+#define kJumpToMap      0002
+
+// Event Properties
+
+#define kMapNameProperty @"MapName"

@@ -133,6 +133,8 @@
 		727F1B0213881467005C2D78 /* Jacks_House.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 727F1B0113881467005C2D78 /* Jacks_House.tmx */; };
 		72AF3CB8138C345900B77A75 /* KBSEventFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF3CB7138C345900B77A75 /* KBSEventFactory.m */; };
 		72AF3CBC138C38A900B77A75 /* KBEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF3CBB138C38A900B77A75 /* KBEvent.m */; };
+		72AF3CBF138ED03A00B77A75 /* KBJumpToMapEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF3CBE138ED03900B77A75 /* KBJumpToMapEvent.m */; };
+		72AF3CC1138ED22C00B77A75 /* Jacks_Farm.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 72AF3CC0138ED22C00B77A75 /* Jacks_Farm.tmx */; };
 		72C13E08137EC42300DFD227 /* KBPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C13E07137EC42300DFD227 /* KBPlayer.m */; };
 		72FA4D55138801E100796337 /* meta.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FA4D54138801E100796337 /* meta.png */; };
 /* End PBXBuildFile section */
@@ -388,6 +390,9 @@
 		72AF3CB9138C348700B77A75 /* ScriptingIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptingIdentifiers.h; sourceTree = "<group>"; };
 		72AF3CBA138C38A900B77A75 /* KBEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBEvent.h; sourceTree = "<group>"; };
 		72AF3CBB138C38A900B77A75 /* KBEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBEvent.m; sourceTree = "<group>"; };
+		72AF3CBD138ED03900B77A75 /* KBJumpToMapEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBJumpToMapEvent.h; sourceTree = "<group>"; };
+		72AF3CBE138ED03900B77A75 /* KBJumpToMapEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBJumpToMapEvent.m; sourceTree = "<group>"; };
+		72AF3CC0138ED22C00B77A75 /* Jacks_Farm.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Jacks_Farm.tmx; path = Resources/Jacks_Farm.tmx; sourceTree = "<group>"; };
 		72C13E06137EC42300DFD227 /* KBPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBPlayer.h; sourceTree = "<group>"; };
 		72C13E07137EC42300DFD227 /* KBPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBPlayer.m; sourceTree = "<group>"; };
 		72FA4D54138801E100796337 /* meta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = meta.png; path = Resources/meta.png; sourceTree = "<group>"; };
@@ -415,6 +420,7 @@
 		7208C973138905AE001B8F92 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				72AF3CC0138ED22C00B77A75 /* Jacks_Farm.tmx */,
 				727F1B0113881467005C2D78 /* Jacks_House.tmx */,
 			);
 			name = Maps;
@@ -498,6 +504,8 @@
 				72C13E07137EC42300DFD227 /* KBPlayer.m */,
 				72AF3CB6138C345900B77A75 /* KBSEventFactory.h */,
 				72AF3CB7138C345900B77A75 /* KBSEventFactory.m */,
+				72AF3CBD138ED03900B77A75 /* KBJumpToMapEvent.h */,
+				72AF3CBE138ED03900B77A75 /* KBJumpToMapEvent.m */,
 				72AF3CB9138C348700B77A75 /* ScriptingIdentifiers.h */,
 				722F192513802BC300ECC33E /* KBStandardGameController.h */,
 				722F192613802BC300ECC33E /* KBStandardGameController.m */,
@@ -843,6 +851,7 @@
 				727F1AFE13881402005C2D78 /* jack_walking.png in Resources */,
 				727F1B0013881457005C2D78 /* house.png in Resources */,
 				727F1B0213881467005C2D78 /* Jacks_House.tmx in Resources */,
+				72AF3CC1138ED22C00B77A75 /* Jacks_Farm.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -960,6 +969,7 @@
 				726C6CB1138954940047B503 /* KBStoryController.m in Sources */,
 				72AF3CB8138C345900B77A75 /* KBSEventFactory.m in Sources */,
 				72AF3CBC138C38A900B77A75 /* KBEvent.m in Sources */,
+				72AF3CBF138ED03A00B77A75 /* KBJumpToMapEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
