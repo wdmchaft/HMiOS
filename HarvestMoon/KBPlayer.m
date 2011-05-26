@@ -75,9 +75,11 @@
 
 - (void) update:(ccTime) dt
 {
-    KBGameLayer* gameLayer;
-    int mapPosX;
-    int mapPosY;
+    KBGameLayer* gameLayer = ((KBGameLayer *)[[KBStandardGameController sharedController] gameLayer]);
+    int mapPosX = 200;
+    int mapPosY = 200;
+    //int mapPosX = [gameLayer map].tileMap.mapSize.width * [gameLayer map].tileMap.tileSize.width;
+    //int mapPosY = [gameLayer map].tileMap.mapSize.height * [gameLayer map].tileMap.tileSize.height;
     
     [self handleWalking];
     
@@ -85,9 +87,6 @@
     {
         [gameLayer setViewpointCenter:self.position];
     } else {
-        gameLayer = ((KBGameLayer *)[[KBStandardGameController sharedController] gameLayer]);
-        mapPosX = [gameLayer map].tileMap.position.x;
-        mapPosY = [gameLayer map].tileMap.position.y;
         [gameLayer setViewpointCenter:ccp(mapPosX, mapPosY)];
     }
 }
