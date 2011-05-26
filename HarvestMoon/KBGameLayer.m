@@ -135,11 +135,12 @@
         
     touchLocation = [self convertToNodeSpace:touchLocation];
     
-    NSDictionary* props = [self.map.tileMap metaInformationAtPosition:[self.map.tileMap coordinatesAtPosition:touchLocation]];
     
-    if([props valueForKey:kScriptingId] != nil)
-    {
-        KBEvent* script = [KBSEventFactory EventForScriptingId:[props valueForKey:kScriptingId]];
+    NSDictionary* object = [self.map.tileMap objectAtPosition:touchLocation];
+    NSDictionary* playerObject = [self.map.tileMap objectAtPosition:self.player.position];
+    if(object != nil && object == playerObject)
+    {    
+        KBEvent* script = [KBSEventFactory eventForObject:object];
     }
     
     return YES;

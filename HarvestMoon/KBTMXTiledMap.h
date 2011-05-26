@@ -14,11 +14,11 @@
     
     CCTMXLayer* _background;
     
-    CCTMXObjectGroup* _objects;
-    
     CCTMXLayer* _meta;
     
     CCTMXLayer* _items;
+    
+    CCTMXObjectGroup* _events;
     
 }
 
@@ -27,11 +27,11 @@
 
 @property(nonatomic, retain) CCTMXLayer* background;
 
-@property(nonatomic, retain) CCTMXObjectGroup* objects;
-
 @property(nonatomic, retain) CCTMXLayer* meta;
 
 @property(nonatomic, retain) CCTMXLayer* items;
+
+@property(nonatomic, retain) CCTMXObjectGroup* events;
 
 #pragma mark -
 #pragma mark Init & Dealloc
@@ -45,11 +45,11 @@
 
 - (unsigned int) getGIDAtPosition:(CGPoint) point layer:(CCTMXLayer *)layer;
 
-- (id) getObject:(NSString *) objectName;
-
 - (CGPoint) tileCoordForPosition:(CGPoint) position;
 
 - (NSDictionary *) metaInformationAtPosition:(CGPoint) position;
+
+- (NSDictionary *) objectAtPosition:(CGPoint) position;
 
 #pragma mark -
 

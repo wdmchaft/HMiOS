@@ -34,7 +34,7 @@
 
 #define kSpawnPointObject   @"SpawnPoint"
 
-#define kObjectLayer        @"Objects"
+#define kEventsLayer        @"Events"
 
 #define kMetaLayer          @"Meta"
 

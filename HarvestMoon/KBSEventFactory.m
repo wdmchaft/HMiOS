@@ -11,7 +11,7 @@
 
 @implementation KBSEventFactory
 
-+ (KBEvent *) EventForScriptingId:(NSString *)scriptingID
++ (KBEvent *) eventForObject:(NSDictionary *)scriptingID
 {
     NSLog(@"now we should create an run the event %@", scriptingID);
     return nil;

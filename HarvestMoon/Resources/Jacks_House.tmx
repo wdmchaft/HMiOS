@@ -116,4 +116,11 @@
    eJztVkEOwCAI22H//5S76Kt2GQlpKhoXy2EjaUgcUkDQlfM4ygQuAv8NNdrhWn3Q821oBLa3EY12vTWMfbYGkY72+TijnOuC7wjG6/2xmmKMvs4MzAfWOeqJ3jmP7EZgZzWKc5TLDFi+u6V8lNfPsJIX+1PBy/p3FxfeKwrx74CS199J6nybuH9Rsnjrxv6NhL0/Kl7F7DJemyllzS3fmsSrlsz5zcr359Xxvv0XXsENqm0Ftw==
   </data>
  </layer>
+ <objectgroup name="Events" width="30" height="30">
+  <object name="ToolboxEvent" x="16" y="273" width="79" height="124">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

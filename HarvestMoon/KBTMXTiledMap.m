@@ -15,11 +15,11 @@
 
 @synthesize background = _background;
 
-@synthesize objects = _objects;
-
 @synthesize meta = _meta;
 
 @synthesize items = _items;
+
+@synthesize events = _events;
 
 #pragma mark -
 #pragma mark Init & Dealloc
@@ -30,7 +30,9 @@
     if (self) {
         self.background = [self layerNamed:kBackgroundLayer];
         NSAssert(self.background != nil, @"Couldn't find Background Layer in this TMX File.", tmxFile);
-        self.objects = [self objectGroupNamed:kObjectLayer];
+        
+        self.events = [self objectGroupNamed:kEventsLayer];
+        
         self.meta = [self layerNamed:kMetaLayer];
         self.items = [self layerNamed:kItemsLayer];
         
@@ -56,14 +58,6 @@
     return[self.background tileGIDAt:[self coordinatesAtPosition:point]];
 }
 
-- (id) getObject:(NSString *) objectName
-{
-    NSAssert(self.objects != nil,@"There is no Object Layer!",nil);
-    
-        
-    return [self.objects objectNamed:objectName];
-}
-
 - (CGPoint) tileCoordForPosition:(CGPoint) position 
 {
     int x = position.x / self.tileSize.width;
@@ -84,6 +78,28 @@
     
     return dict;
 }
+
+- (NSDictionary *) objectAtPosition:(CGPoint) position
+{
+    
+    for (NSMutableDictionary* object in [self.events objects]) {
+        
+        int x = [[object valueForKey:@"x"] integerValue];
+        int y = [[object valueForKey:@"y"] integerValue];
+        int h = [[object valueForKey:@"height"] integerValue];
+        int w = [[object valueForKey:@"width"] integerValue];
+        
+        CGPoint min = ccp(x,y);
+        CGPoint max = ccp(x + w, y + h);
+        
+        
+        if(position.x > min.x && position.y > min.y && position.x < max.x && position.y < max.y)
+            return object;
+    }
+    
+    return nil;
+}
+
 #pragma mark -
 
 @end

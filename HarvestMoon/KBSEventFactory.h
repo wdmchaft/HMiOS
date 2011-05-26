@@ -13,6 +13,6 @@
 @interface KBSEventFactory : NSObject {
     
 }
-+ (KBEvent *) EventForScriptingId:(NSString *)scriptingID;
++ (KBEvent *) eventForObject:(NSDictionary *)scriptingID;
 
 @end
