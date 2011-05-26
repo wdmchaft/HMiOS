@@ -77,11 +77,7 @@
 
 - (void) update:(ccTime) dt
 {
-    KBGameLayer* gameLayer = ((KBGameLayer *)[[KBStandardGameController sharedController] gameLayer]);
-    
     [self handleWalking];
-    
-    [gameLayer setViewpointCenter:self.position];
 }
 
 #pragma mark -

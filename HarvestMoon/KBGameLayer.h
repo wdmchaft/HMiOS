@@ -15,6 +15,7 @@
 #import "KBGameLayer.h"
 #import "GameConfig.h"
 #import "KBStoryController.h"
+#import "KBSEventFactory.h"
 
 // HelloWorldLayer
 @interface KBGameLayer : CCLayer
@@ -44,6 +45,11 @@
 - (id) init;
 
 - (void) dealloc;
+
+#pragma mark -
+#pragma mark Update Logic
+
+- (void) update:(ccTime) dt;
 
 #pragma mark -
 #pragma mark Touch Handling

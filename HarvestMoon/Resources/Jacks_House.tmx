@@ -2,6 +2,76 @@
 <map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="16" tileheight="16">
  <tileset firstgid="1" name="House" tilewidth="16" tileheight="16">
   <image source="house.png" trans="ff00ff" width="256" height="1216"/>
+  <tile id="486">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
+  <tile id="487">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
+  <tile id="502">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
+  <tile id="503">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
+  <tile id="740">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
+  <tile id="741">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
+  <tile id="742">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
+  <tile id="756">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
+  <tile id="758">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
+  <tile id="772">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
+  <tile id="774">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
+  <tile id="788">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
+  <tile id="789">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
+  <tile id="790">
+   <properties>
+    <property name="ScriptingId" value="0001"/>
+   </properties>
+  </tile>
  </tileset>
  <tileset firstgid="1217" name="Meta" tilewidth="16" tileheight="16">
   <image source="meta.png" width="96" height="32"/>
@@ -38,7 +108,7 @@
  </layer>
  <layer name="Items" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt1LcNQkEQRdFhFxPjY0wDmKqBCoAKgAQTAQk+xqfcXwPiBWiedOIrjVZr5vP91+bBbIElVkHX3dHa44CjsHuldcMdD2E3Fc0CItJR183TKqCIkrBbo1VHA01ht0WrjQ66P+r2eDd9DITvJ9mQ3ghjcXdCb4qZuLumt8FW3PWZnbj5GRfx7Z/0XniLuxn+iixywr8qWZleBVVx1+fzfbcPNI8b0Q==
+   eJzt1DcOwjAYhuHfMWWmz5QLUE4NnAA4AbBQJmChhpUaRt7cgGDxD8if9G5RHsmyLOLn91+bBSJzWtAy0HO3WDva00HRvWBd6UZ3RddYkYAspez3/wmNyNl8/n0OK08FKjq4EeYrgVvFqlGdGg5u0jWxWtSmzo/cLvemR33F+xNvgDekkbI7xpvQVNld4a1po+z6iRw58xOFymf/wHtSpOymeSsylFV8q+KV8MpUUXb9/Pzc9gYmMB+T
   </data>
  </layer>
  <layer name="Meta" width="30" height="30" opacity="0.43">

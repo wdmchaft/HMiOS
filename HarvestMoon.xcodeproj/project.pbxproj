@@ -131,7 +131,8 @@
 		727F1AFE13881402005C2D78 /* jack_walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 727F1AFD13881402005C2D78 /* jack_walking.png */; };
 		727F1B0013881457005C2D78 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 727F1AFF13881457005C2D78 /* house.png */; };
 		727F1B0213881467005C2D78 /* Jacks_House.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 727F1B0113881467005C2D78 /* Jacks_House.tmx */; };
-		72AF3CB4138C317900B77A75 /* Meta.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 72AF3CB3138C317900B77A75 /* Meta.tsx */; };
+		72AF3CB8138C345900B77A75 /* KBSEventFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF3CB7138C345900B77A75 /* KBSEventFactory.m */; };
+		72AF3CBC138C38A900B77A75 /* KBEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF3CBB138C38A900B77A75 /* KBEvent.m */; };
 		72C13E08137EC42300DFD227 /* KBPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C13E07137EC42300DFD227 /* KBPlayer.m */; };
 		72FA4D55138801E100796337 /* meta.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FA4D54138801E100796337 /* meta.png */; };
 /* End PBXBuildFile section */
@@ -382,7 +383,11 @@
 		727F1AFD13881402005C2D78 /* jack_walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jack_walking.png; path = Resources/jack_walking.png; sourceTree = "<group>"; };
 		727F1AFF13881457005C2D78 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = house.png; path = Resources/house.png; sourceTree = "<group>"; };
 		727F1B0113881467005C2D78 /* Jacks_House.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Jacks_House.tmx; path = Resources/Jacks_House.tmx; sourceTree = "<group>"; };
-		72AF3CB3138C317900B77A75 /* Meta.tsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Meta.tsx; path = Resources/Meta.tsx; sourceTree = "<group>"; };
+		72AF3CB6138C345900B77A75 /* KBSEventFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBSEventFactory.h; sourceTree = "<group>"; };
+		72AF3CB7138C345900B77A75 /* KBSEventFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBSEventFactory.m; sourceTree = "<group>"; };
+		72AF3CB9138C348700B77A75 /* ScriptingIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptingIdentifiers.h; sourceTree = "<group>"; };
+		72AF3CBA138C38A900B77A75 /* KBEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBEvent.h; sourceTree = "<group>"; };
+		72AF3CBB138C38A900B77A75 /* KBEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBEvent.m; sourceTree = "<group>"; };
 		72C13E06137EC42300DFD227 /* KBPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBPlayer.h; sourceTree = "<group>"; };
 		72C13E07137EC42300DFD227 /* KBPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBPlayer.m; sourceTree = "<group>"; };
 		72FA4D54138801E100796337 /* meta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = meta.png; path = Resources/meta.png; sourceTree = "<group>"; };
@@ -427,7 +432,6 @@
 		7208C975138905C8001B8F92 /* Tilesets */ = {
 			isa = PBXGroup;
 			children = (
-				72AF3CB3138C317900B77A75 /* Meta.tsx */,
 				727F1AFF13881457005C2D78 /* house.png */,
 				72FA4D54138801E100796337 /* meta.png */,
 			);
@@ -487,9 +491,14 @@
 				726C6CB0138954940047B503 /* KBStoryController.m */,
 				723AD2B7137EB8FC0014B7DE /* KBGameLayer.h */,
 				723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */,
+				72AF3CBA138C38A900B77A75 /* KBEvent.h */,
+				72AF3CBB138C38A900B77A75 /* KBEvent.m */,
 				723AD2BA137EB8FC0014B7DE /* GameConfig.h */,
 				72C13E06137EC42300DFD227 /* KBPlayer.h */,
 				72C13E07137EC42300DFD227 /* KBPlayer.m */,
+				72AF3CB6138C345900B77A75 /* KBSEventFactory.h */,
+				72AF3CB7138C345900B77A75 /* KBSEventFactory.m */,
+				72AF3CB9138C348700B77A75 /* ScriptingIdentifiers.h */,
 				722F192513802BC300ECC33E /* KBStandardGameController.h */,
 				722F192613802BC300ECC33E /* KBStandardGameController.m */,
 				722F19281380350B00ECC33E /* KBTMXTiledMap.h */,
@@ -834,7 +843,6 @@
 				727F1AFE13881402005C2D78 /* jack_walking.png in Resources */,
 				727F1B0013881457005C2D78 /* house.png in Resources */,
 				727F1B0213881467005C2D78 /* Jacks_House.tmx in Resources */,
-				72AF3CB4138C317900B77A75 /* Meta.tsx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -950,6 +958,8 @@
 				722F192A1380350B00ECC33E /* KBTMXTiledMap.m in Sources */,
 				726C6CAA13894CDF0047B503 /* KBMap.m in Sources */,
 				726C6CB1138954940047B503 /* KBStoryController.m in Sources */,
+				72AF3CB8138C345900B77A75 /* KBSEventFactory.m in Sources */,
+				72AF3CBC138C38A900B77A75 /* KBEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

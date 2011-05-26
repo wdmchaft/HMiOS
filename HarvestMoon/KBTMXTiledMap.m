@@ -19,6 +19,8 @@
 
 @synthesize meta = _meta;
 
+@synthesize items = _items;
+
 #pragma mark -
 #pragma mark Init & Dealloc
 
@@ -30,6 +32,8 @@
         NSAssert(self.background != nil, @"Couldn't find Background Layer in this TMX File.", tmxFile);
         self.objects = [self objectGroupNamed:kObjectLayer];
         self.meta = [self layerNamed:kMetaLayer];
+        self.items = [self layerNamed:kItemsLayer];
+        
         
         if(kDevelopmentMode == NO)
             [self.meta setVisible:NO];
@@ -47,9 +51,8 @@
     return ccp((int)(point.x / self.tileSize.width), (int)(self.mapSize.height -(point.y / self.tileSize.height)));
 }
 
--(unsigned int) getGIDAtPosition:(CGPoint) point 
+-(unsigned int) getGIDAtPosition:(CGPoint) point  layer:(CCTMXLayer *)layer
 {
-    
     return[self.background tileGIDAt:[self coordinatesAtPosition:point]];
 }
 
@@ -71,10 +74,16 @@
 - (NSDictionary *) metaInformationAtPosition:(CGPoint) position
 {
     unsigned int GID = [self.meta tileGIDAt:position];
+    unsigned int GID2 = [self.items tileGIDAt:position];
+    unsigned int GID3 = [self.background tileGIDAt:position];
     
-    return [self propertiesForGID:GID];
+    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithDictionary:[self propertiesForGID:GID]];
+    
+    [dict addEntriesFromDictionary:[self propertiesForGID:GID2]];
+    [dict addEntriesFromDictionary:[self propertiesForGID:GID3]];
+    
+    return dict;
 }
-
 #pragma mark -
 
 @end

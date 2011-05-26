@@ -18,6 +18,8 @@
     
     CCTMXLayer* _meta;
     
+    CCTMXLayer* _items;
+    
 }
 
 #pragma mark -
@@ -29,6 +31,8 @@
 
 @property(nonatomic, retain) CCTMXLayer* meta;
 
+@property(nonatomic, retain) CCTMXLayer* items;
+
 #pragma mark -
 #pragma mark Init & Dealloc
 
@@ -39,7 +43,7 @@
 
 - (CGPoint) coordinatesAtPosition:(CGPoint) point;
 
-- (unsigned int) getGIDAtPosition:(CGPoint) point;
+- (unsigned int) getGIDAtPosition:(CGPoint) point layer:(CCTMXLayer *)layer;
 
 - (id) getObject:(NSString *) objectName;
 

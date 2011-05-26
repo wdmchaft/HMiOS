@@ -60,7 +60,6 @@
         
         [self addChild:self.player z:1];
         
-        
         self.player.position = [[KBStoryController sharedController] lastSavedPlayerPosition];
         
         
@@ -71,7 +70,8 @@
         
         [self setViewpointCenter:self.player.position];
         
-        //[self.map runAction:[CCScaleBy actionWithDuration:2 scale:0.5f]];
+        [self scheduleUpdate];
+        
     }
     return self;
 }
@@ -85,6 +85,14 @@
 	
 	// don't forget to call "super dealloc"
 	[super dealloc];
+}
+
+#pragma mark -
+#pragma mark Update Logic
+
+- (void) update:(ccTime) dt
+{
+    [self setViewpointCenter:self.player.position];
 }
 
 #pragma mark -
@@ -124,7 +132,15 @@
     if ([self CGPoint:touchLocation inTriangleP1:lu P2:ru P3:middlePoint]) {
         [self.player beginWalkingToSide:Down];
     }
+        
+    touchLocation = [self convertToNodeSpace:touchLocation];
     
+    NSDictionary* props = [self.map.tileMap metaInformationAtPosition:[self.map.tileMap coordinatesAtPosition:touchLocation]];
+    
+    if([props valueForKey:kScriptingId] != nil)
+    {
+        KBEvent* script = [KBSEventFactory EventForScriptingId:[props valueForKey:kScriptingId]];
+    }
     
     return YES;
 }

@@ -38,11 +38,14 @@
 
 #define kMetaLayer          @"Meta"
 
+#define kItemsLayer         @"Items"
+
 //
 // Tileset Property Names
 //
 
 #define kCollidableProperty @"Collidable"
+#define kScriptingId @"ScriptingId"
 
 #pragma mark -
 #pragma mark Cocos2D Constants
