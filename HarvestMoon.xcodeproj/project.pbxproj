@@ -487,8 +487,8 @@
 		723AD165137EB8F80014B7DE /* HarvestMoon */ = {
 			isa = PBXGroup;
 			children = (
-				726C6CA813894CDE0047B503 /* KBMap.h */,
-				726C6CA913894CDE0047B503 /* KBMap.m */,
+				72AF3CC3138ED68200B77A75 /* Map-Handling */,
+				72AF3CC2138ED65700B77A75 /* Events & Scripting */,
 				723AD2B1137EB8FC0014B7DE /* AppDelegate.h */,
 				723AD2B2137EB8FC0014B7DE /* AppDelegate.m */,
 				723AD2B4137EB8FC0014B7DE /* RootViewController.h */,
@@ -497,20 +497,11 @@
 				726C6CB0138954940047B503 /* KBStoryController.m */,
 				723AD2B7137EB8FC0014B7DE /* KBGameLayer.h */,
 				723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */,
-				72AF3CBA138C38A900B77A75 /* KBEvent.h */,
-				72AF3CBB138C38A900B77A75 /* KBEvent.m */,
 				723AD2BA137EB8FC0014B7DE /* GameConfig.h */,
 				72C13E06137EC42300DFD227 /* KBPlayer.h */,
 				72C13E07137EC42300DFD227 /* KBPlayer.m */,
-				72AF3CB6138C345900B77A75 /* KBSEventFactory.h */,
-				72AF3CB7138C345900B77A75 /* KBSEventFactory.m */,
-				72AF3CBD138ED03900B77A75 /* KBJumpToMapEvent.h */,
-				72AF3CBE138ED03900B77A75 /* KBJumpToMapEvent.m */,
-				72AF3CB9138C348700B77A75 /* ScriptingIdentifiers.h */,
 				722F192513802BC300ECC33E /* KBStandardGameController.h */,
 				722F192613802BC300ECC33E /* KBStandardGameController.m */,
-				722F19281380350B00ECC33E /* KBTMXTiledMap.h */,
-				722F19291380350B00ECC33E /* KBTMXTiledMap.m */,
 				723AD166137EB8F80014B7DE /* Resources */,
 				723AD17A137EB8F80014B7DE /* cocos2d */,
 				723AD26B137EB8FB0014B7DE /* CocosDenshion */,
@@ -789,6 +780,31 @@
 				723AD2AF137EB8FC0014B7DE /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		72AF3CC2138ED65700B77A75 /* Events & Scripting */ = {
+			isa = PBXGroup;
+			children = (
+				72AF3CB9138C348700B77A75 /* ScriptingIdentifiers.h */,
+				72AF3CBA138C38A900B77A75 /* KBEvent.h */,
+				72AF3CBB138C38A900B77A75 /* KBEvent.m */,
+				72AF3CB6138C345900B77A75 /* KBSEventFactory.h */,
+				72AF3CB7138C345900B77A75 /* KBSEventFactory.m */,
+				72AF3CBD138ED03900B77A75 /* KBJumpToMapEvent.h */,
+				72AF3CBE138ED03900B77A75 /* KBJumpToMapEvent.m */,
+			);
+			name = "Events & Scripting";
+			sourceTree = "<group>";
+		};
+		72AF3CC3138ED68200B77A75 /* Map-Handling */ = {
+			isa = PBXGroup;
+			children = (
+				722F19281380350B00ECC33E /* KBTMXTiledMap.h */,
+				722F19291380350B00ECC33E /* KBTMXTiledMap.m */,
+				726C6CA813894CDE0047B503 /* KBMap.h */,
+				726C6CA913894CDE0047B503 /* KBMap.m */,
+			);
+			name = "Map-Handling";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
