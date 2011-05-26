@@ -109,6 +109,7 @@
     [self removeChild:self.map cleanup:YES];
     
     self.map = [[KBMap alloc] initWithMapName:mapName];
+    [self.player updatePlayerForMapChange];
     
     [self addChild:self.map];
 }
@@ -165,7 +166,7 @@
     
     [_player stopWalking];
     
-    [self setViewpointCenter:self.player.position];
+    //[self setViewpointCenter:self.player.position];
     
 }
 

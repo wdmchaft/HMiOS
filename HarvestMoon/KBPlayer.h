@@ -80,6 +80,11 @@ typedef enum {
 - (void) update:(ccTime) dt;
 
 #pragma mark -
+#pragma mark MapChange Methods
+
+- (void) updatePlayerForMapChange;
+
+#pragma mark -
 #pragma mark Walking
 
 - (void) beginWalkingToSide:(Side) side;

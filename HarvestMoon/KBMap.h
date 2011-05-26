@@ -38,6 +38,8 @@
 
 - (int) tileHeight;
 
+- (BOOL) centerPlayer;
+
 #pragma mark -
 
 @end
