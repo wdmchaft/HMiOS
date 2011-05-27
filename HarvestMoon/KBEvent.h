@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 
-@interface KBEvent : NSObject {
-    
-}
+@protocol KBEvent <NSObject>
+@required
+@property(nonatomic) BOOL hasFinishedRunning;
 
 -(void) run;
-
+-(id)initWithObject:(NSDictionary *)object;
 @end

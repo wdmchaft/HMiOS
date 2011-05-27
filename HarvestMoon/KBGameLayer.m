@@ -18,6 +18,8 @@
 
 @synthesize player = _player;
 
+@synthesize currentEvent = _currentEvent;
+
 #pragma mark -
 #pragma mark Class Methods
 
@@ -93,14 +95,20 @@
 - (void) update:(ccTime) dt
 {
     NSDictionary* playerObject = [self.map.tileMap objectAtPosition:self.player.position];
-    if(playerObject != nil)
-    {    
-        KBEvent* script = [KBSEventFactory eventForObject:playerObject];
+        
+    if(playerObject != nil && (self.currentEvent == nil || [self.currentEvent hasFinishedRunning])
+       && ![_currentMapObject isEqualToDictionary:playerObject])
+    {
+        
+        
+        id<KBEvent> script = [KBSEventFactory eventForObject:playerObject];
+        
+        self.currentEvent = script;
         
         [script run];
         
     }
-    
+    _currentMapObject = [playerObject retain];
     [self setViewpointCenter:self.player.position];
 }
 

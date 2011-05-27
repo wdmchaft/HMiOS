@@ -24,6 +24,9 @@
     
     KBMap* _map;
     
+    id<KBEvent> _currentEvent;
+    
+    NSDictionary* _currentMapObject;
 }
 
 #pragma mark -
@@ -32,6 +35,8 @@
 @property (nonatomic, retain) KBMap* map;
 
 @property (nonatomic, retain) KBPlayer* player;
+
+@property (nonatomic, retain) id<KBEvent> currentEvent;
 
 #pragma mark -
 #pragma mark Class Methods

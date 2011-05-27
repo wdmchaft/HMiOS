@@ -74,7 +74,7 @@
   </tile>
  </tileset>
  <tileset firstgid="1217" name="Meta" tilewidth="16" tileheight="16">
-  <image source="meta.png" width="96" height="32"/>
+  <image source="meta.png" width="128" height="32"/>
   <tile id="1">
    <properties>
     <property name="Collidable" value="True"/>
@@ -90,12 +90,12 @@
     <property name="Collidable" value="True"/>
    </properties>
   </tile>
-  <tile id="8">
+  <tile id="10">
    <properties>
     <property name="Collidable" value="True"/>
    </properties>
   </tile>
-  <tile id="9">
+  <tile id="11">
    <properties>
     <property name="Collidable" value="True"/>
    </properties>
@@ -113,7 +113,7 @@
  </layer>
  <layer name="Meta" width="30" height="30" opacity="0.43">
   <data encoding="base64" compression="zlib">
-   eJztVkEOwCAI22H//5S76Kt2GQlpKhoXy2EjaUgcUkDQlfM4ygQuAv8NNdrhWn3Q821oBLa3EY12vTWMfbYGkY72+TijnOuC7wjG6/2xmmKMvs4MzAfWOeqJ3jmP7EZgZzWKc5TLDFi+u6V8lNfPsJIX+1PBy/p3FxfeKwrx74CS199J6nybuH9Rsnjrxv6NhL0/Kl7F7DJemyllzS3fmsSrlsz5zcr359Xxvv0XXsENqm0Ftw==
+   eJztl+EKgCAMhP3R+7+U/tOHKiFBjlsOyhOqwSGswaenGxS3EKKhNBCr8easmnyoDMRqWm7ESWcd8iwP0A+2evbMPPX4giy2lyu/sb7/5vU5d7L8xzzWe/y9o3YedjczVQxuXWeH9SYVXHxjSi7yFVzWZwou67NZLJwRiljJVfdNjX5uKLl9rOLmxedV9m7j4rxScVedVzGrGPdLffRz38/1/ss8rR0p9AXh
   </data>
  </layer>
  <objectgroup name="Events" width="30" height="30">
@@ -121,6 +121,11 @@
    <properties>
     <property name="MapName" value="Jacks_Farm"/>
     <property name="ScriptingId" value="0002"/>
+   </properties>
+  </object>
+  <object name="SampleTalkEvent" x="290" y="130" width="62" height="64">
+   <properties>
+    <property name="ScriptingId" value="0003"/>
    </properties>
   </object>
  </objectgroup>

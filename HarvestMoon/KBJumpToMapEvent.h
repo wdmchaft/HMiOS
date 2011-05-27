@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "KBEvent.h"
 
-@interface KBJumpToMapEvent : KBEvent {
+@interface KBJumpToMapEvent : NSObject <KBEvent> {
     
     NSString* _mapName;
     
