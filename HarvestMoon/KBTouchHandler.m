@@ -38,7 +38,7 @@
     buttonDown.rotation = 180;
     
     
-    background.position = ccp(480 - background.contentSize.width/2,background.contentSize.height/2);
+    background.position = ccp([[CCDirector sharedDirector] winSize].width - background.contentSize.width/2,background.contentSize.height/2);
     
     
     buttonUp.position = ccp(background.position.x,background.position.y + background.contentSize.height/2 - buttonUp.contentSize.height/2);
