@@ -31,8 +31,13 @@
 	// 'layer' is an autorelease object.
 	KBGameLayer *layer = [KBGameLayer node];
 	
+    KBTouchHandler* touchHandler = [KBTouchHandler node];
+    
+    touchHandler.delegate = layer;
+    
 	// add layer as a child to scene
 	[scene addChild: layer];
+    [scene addChild:touchHandler];
 	
 	// return the scene
 	return scene;
@@ -64,8 +69,6 @@
         
         self.player.position = [[KBStoryController sharedController] lastSavedPlayerPosition];
         
-        
-        self.isTouchEnabled = YES;
         
         [[KBStandardGameController sharedController] setGameLayer:self];
         
@@ -123,92 +126,6 @@
 }
 
 #pragma mark -
-#pragma mark Touch Handling
-
-- (void) registerWithTouchDispatcher
-{
-    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-}
-
-- (BOOL) ccTouchBegan:(UITouch *) touch withEvent:(UIEvent *) event
-{
-    CGPoint touchLocation = [touch locationInView:[touch view]];
-    
-    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    //touchLocation = [self convertToNodeSpace:touchLocation];
-    
-    int width =[[CCDirector sharedDirector] winSize].width;
-    int height =[[CCDirector sharedDirector] winSize].height;
-    
-    CGPoint middlePoint = CGPointMake(width/2, height/2);
-    CGPoint lo = CGPointMake(0, 0);
-    CGPoint lu = CGPointMake(0, height);
-    CGPoint ro = CGPointMake(width, 0);
-    CGPoint ru = CGPointMake(width, height);
-    
-    
-    if ([self CGPoint:touchLocation inTriangleP1:lu P2:lo P3:middlePoint]) {
-        [self.player beginWalkingToSide:Left];
-    }
-    if ([self CGPoint:touchLocation inTriangleP1:ru P2:ro P3:middlePoint]) {
-        [self.player beginWalkingToSide:Right];
-    }
-    if ([self CGPoint:touchLocation inTriangleP1:lo P2:ro P3:middlePoint]) {
-        [self.player beginWalkingToSide:Up];
-    }
-    if ([self CGPoint:touchLocation inTriangleP1:lu P2:ru P3:middlePoint]) {
-        [self.player beginWalkingToSide:Down];
-    }
-    
-    return YES;
-}
-
-- (void) ccTouchMoved:(UITouch *) touch withEvent:(UIEvent *) event
-{
-    //Durchschleifen, 
-    [self ccTouchBegan:touch withEvent:event];
-}
-
-- (void) ccTouchEnded:(UITouch *) touch withEvent:(UIEvent *) event
-{
-    
-    [_player stopWalking];
-    
-    //[self setViewpointCenter:self.player.position];
-    
-}
-
-- (CGFloat) GBDot:(CGPoint) v1 point2:(CGPoint) v2
-{
-    return v1.x * v2.x + v1.y * v2.y;
-}
-
-- (CGPoint) GBSub:(CGPoint) v1 point2:(CGPoint) v2
-{
-    return CGPointMake(v1.x - v2.x, v1.y - v2.y);
-}
-
-- (BOOL) CGPoint:(CGPoint) point inTriangleP1:(CGPoint) p1 P2:(CGPoint) p2 P3:(CGPoint) p3
-{
-    CGPoint v0 = [self GBSub:p3 point2:p1];
-    CGPoint v1 = [self GBSub:p2 point2:p1];
-    CGPoint v2 = [self GBSub:point point2:p1];
-    
-    CGFloat dot00 = [self GBDot:v0 point2:v0];
-    CGFloat dot01 = [self GBDot:v0 point2:v1];
-    CGFloat dot02 = [self GBDot:v0 point2:v2];
-    CGFloat dot11 = [self GBDot:v1 point2:v1];
-    CGFloat dot12 = [self GBDot:v1 point2:v2];
-    
-    
-    CGFloat invDenom = 1/(dot00 * dot11 - dot01 * dot01);
-    CGFloat u = (dot11 * dot02 - dot01 * dot12) * invDenom;
-    CGFloat v = (dot00 * dot12 - dot01 * dot02) *invDenom;
-    
-    return (u > 0) && (v > 0) && (u + v < 1);
-}
-
-#pragma mark -
 #pragma mark Camera Handling
 
 - (void) setViewpointCenter:(CGPoint) position 
@@ -231,5 +148,20 @@
 }
 
 #pragma mark -
+#pragma mark Touch Events
+-(void)shouldBeginMovingPlayerToSide:(Side)side
+{
+    [self.player beginWalkingToSide:side];
+}
+
+-(void)shouldChangePlayerMovementToSide:(Side)side
+{
+    [self.player beginWalkingToSide:side];
+}
+
+-(void)shouldStopPlayerMovement
+{
+    [self.player stopWalking];
+}
 
 @end

@@ -131,6 +131,10 @@
 		7249E70213901A990010CD97 /* KBMessageBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249E70113901A990010CD97 /* KBMessageBox.m */; };
 		7249E70413901BAE0010CD97 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7249E70313901BAE0010CD97 /* Localizable.strings */; };
 		7249E70613901FF50010CD97 /* message_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7249E70513901FF50010CD97 /* message_background.png */; };
+		7249E70E139030F60010CD97 /* KBTouchHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249E70D139030F50010CD97 /* KBTouchHandler.m */; };
+		7249E713139037EF0010CD97 /* DPad_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7249E710139037EF0010CD97 /* DPad_Background.png */; };
+		7249E714139037EF0010CD97 /* DPad_Button_Pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7249E711139037EF0010CD97 /* DPad_Button_Pressed.png */; };
+		7249E715139037EF0010CD97 /* DPad_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7249E712139037EF0010CD97 /* DPad_Button.png */; };
 		726C6CAA13894CDF0047B503 /* KBMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 726C6CA913894CDE0047B503 /* KBMap.m */; };
 		726C6CB1138954940047B503 /* KBStoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 726C6CB0138954940047B503 /* KBStoryController.m */; };
 		727F1AFE13881402005C2D78 /* jack_walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 727F1AFD13881402005C2D78 /* jack_walking.png */; };
@@ -383,13 +387,19 @@
 		723AD2B7137EB8FC0014B7DE /* KBGameLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KBGameLayer.h; sourceTree = "<group>"; };
 		723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KBGameLayer.m; sourceTree = "<group>"; };
 		723AD2BA137EB8FC0014B7DE /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
-		7249E6FD139019350010CD97 /* KBShowMessageEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; path = KBShowMessageEvent.h; sourceTree = "<group>"; };
+		7249E6FD139019350010CD97 /* KBShowMessageEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBShowMessageEvent.h; sourceTree = "<group>"; };
 		7249E6FE139019350010CD97 /* KBShowMessageEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBShowMessageEvent.m; sourceTree = "<group>"; };
 		7249E70013901A990010CD97 /* KBMessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBMessageBox.h; sourceTree = "<group>"; };
 		7249E70113901A990010CD97 /* KBMessageBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBMessageBox.m; sourceTree = "<group>"; };
 		7249E70313901BAE0010CD97 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		7249E70513901FF50010CD97 /* message_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_background.png; sourceTree = "<group>"; };
 		7249E708139024480010CD97 /* KBMessageBoxDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBMessageBoxDelegate.h; sourceTree = "<group>"; };
+		7249E70C139030F40010CD97 /* KBTouchHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTouchHandler.h; sourceTree = "<group>"; };
+		7249E70D139030F50010CD97 /* KBTouchHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTouchHandler.m; sourceTree = "<group>"; };
+		7249E70F1390312F0010CD97 /* KBTouchHandlerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTouchHandlerProtocol.h; sourceTree = "<group>"; };
+		7249E710139037EF0010CD97 /* DPad_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DPad_Background.png; sourceTree = "<group>"; };
+		7249E711139037EF0010CD97 /* DPad_Button_Pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DPad_Button_Pressed.png; sourceTree = "<group>"; };
+		7249E712139037EF0010CD97 /* DPad_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DPad_Button.png; sourceTree = "<group>"; };
 		726C6CA813894CDE0047B503 /* KBMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBMap.h; sourceTree = "<group>"; };
 		726C6CA913894CDE0047B503 /* KBMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBMap.m; sourceTree = "<group>"; };
 		726C6CAF138954940047B503 /* KBStoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBStoryController.h; sourceTree = "<group>"; };
@@ -441,6 +451,9 @@
 		7208C974138905BB001B8F92 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				7249E710139037EF0010CD97 /* DPad_Background.png */,
+				7249E711139037EF0010CD97 /* DPad_Button_Pressed.png */,
+				7249E712139037EF0010CD97 /* DPad_Button.png */,
 				7249E70513901FF50010CD97 /* message_background.png */,
 				7208C976138905E7001B8F92 /* Characters */,
 				7208C975138905C8001B8F92 /* Tilesets */,
@@ -511,6 +524,9 @@
 				726C6CB0138954940047B503 /* KBStoryController.m */,
 				723AD2B7137EB8FC0014B7DE /* KBGameLayer.h */,
 				723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */,
+				7249E70F1390312F0010CD97 /* KBTouchHandlerProtocol.h */,
+				7249E70C139030F40010CD97 /* KBTouchHandler.h */,
+				7249E70D139030F50010CD97 /* KBTouchHandler.m */,
 				723AD2BA137EB8FC0014B7DE /* GameConfig.h */,
 				72C13E06137EC42300DFD227 /* KBPlayer.h */,
 				72C13E07137EC42300DFD227 /* KBPlayer.m */,
@@ -897,6 +913,9 @@
 				07631E64138EE6BE00CAD983 /* centering_test.tmx in Resources */,
 				7249E70413901BAE0010CD97 /* Localizable.strings in Resources */,
 				7249E70613901FF50010CD97 /* message_background.png in Resources */,
+				7249E713139037EF0010CD97 /* DPad_Background.png in Resources */,
+				7249E714139037EF0010CD97 /* DPad_Button_Pressed.png in Resources */,
+				7249E715139037EF0010CD97 /* DPad_Button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1016,6 +1035,7 @@
 				72AF3CBF138ED03A00B77A75 /* KBJumpToMapEvent.m in Sources */,
 				7249E6FF139019350010CD97 /* KBShowMessageEvent.m in Sources */,
 				7249E70213901A990010CD97 /* KBMessageBox.m in Sources */,
+				7249E70E139030F60010CD97 /* KBTouchHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

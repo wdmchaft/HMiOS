@@ -11,13 +11,6 @@
 #import "KBStandardGameController.h"
 #import "GameConfig.h"
 
-typedef enum {
-    Left= 1,
-    Right = 2,
-    Up = 3,
-    Down = 4
-    } Side;
-
 @interface KBPlayer : CCNode {
     
     CCSprite* _sprite;

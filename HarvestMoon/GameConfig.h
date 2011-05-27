@@ -9,6 +9,16 @@
 #ifndef __GAME_CONFIG_H
 #define __GAME_CONFIG_H
 
+#pragma mark -
+#pragma mark Generam Enums
+
+typedef enum {
+    Left= 1,
+    Right = 2,
+    Up = 3,
+    Down = 4
+} Side;
+
 
 #pragma mark -
 #pragma mark General Game Constants
@@ -16,6 +26,8 @@
 #define kApplicationWillTerminateNotification @"AppWillTerminate"
 
 #define kDevelopmentMode 0
+
+#define kUseDPad 1
 
 #pragma mark -
 #pragma mark Tilemap Constants
