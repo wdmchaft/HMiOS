@@ -41,5 +41,9 @@
     return self;
 }
 
+-(RunOnEvent) runsOnEvent
+{
+    return TouchedWithFinger;
+}
 
 @end

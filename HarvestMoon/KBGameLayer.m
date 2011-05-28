@@ -31,7 +31,7 @@
 	// 'layer' is an autorelease object.
 	KBGameLayer *layer = [KBGameLayer node];
 	
-    KBTouchHandler* touchHandler = [KBTouchHandler node];
+    KBInteractionHandler* touchHandler = [KBInteractionHandler node];
     
     touchHandler.delegate = layer;
     
@@ -72,7 +72,6 @@
         
         [[KBStandardGameController sharedController] setGameLayer:self];
         
-        
         [self setViewpointCenter:self.player.position];
         
         [self scheduleUpdate];
@@ -97,21 +96,8 @@
 
 - (void) update:(ccTime) dt
 {
-    NSDictionary* playerObject = [self.map.tileMap objectAtPosition:self.player.position];
-        
-    if(playerObject != nil && (self.currentEvent == nil || [self.currentEvent hasFinishedRunning])
-       && ![_currentMapObject isEqualToDictionary:playerObject])
-    {
-        
-        
-        id<KBEvent> script = [KBSEventFactory eventForObject:playerObject];
-        
-        self.currentEvent = script;
-        
-        [script run];
-        
-    }
-    _currentMapObject = [playerObject retain];
+    [self findAndRunEventAtPosition:self.player.position interactionType:TouchedByPlayer];
+    
     [self setViewpointCenter:self.player.position];
 }
 
@@ -163,5 +149,35 @@
 {
     [self.player stopWalking];
 }
+
+- (void) findAndRunEventAtPosition: (CGPoint) tilePosition interactionType:(RunOnEvent)runOnEvent  {
+  NSDictionary* playerObject = [self.map.tileMap objectAtPosition:tilePosition];
+    
+    if(playerObject != nil && (self.currentEvent == nil || [self.currentEvent hasFinishedRunning])
+       && ![_currentMapObject isEqualToDictionary:playerObject])
+    {
+        
+        
+        id<KBEvent> script = [KBSEventFactory eventForObject:playerObject];
+        if([script runsOnEvent] == runOnEvent)
+        {
+            self.currentEvent = script;
+        
+            [script run];
+        }
+    }
+    _currentMapObject = [playerObject retain];
+
+}
+-(void)touchedAtScreenCoordinate:(CGPoint)screenCoordinate
+{
+    screenCoordinate = [[CCDirector sharedDirector] convertToGL:screenCoordinate];
+    
+    
+    [self findAndRunEventAtPosition:[self convertToNodeSpace:screenCoordinate ] interactionType:TouchedWithFinger];
+
+}
+
+
 
 @end

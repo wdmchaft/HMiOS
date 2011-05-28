@@ -20,5 +20,5 @@
 
 @property(nonatomic,retain) NSString* text;
 @property(nonatomic,retain) KBMessageBox* messageBox;
-
+-(RunOnEvent) runsOnEvent;
 @end

@@ -16,11 +16,11 @@
 #import "GameConfig.h"
 #import "KBStoryController.h"
 #import "KBSEventFactory.h"
-#import "KBTouchHandlerProtocol.h"
-#import "KBTouchHandler.h"
+#import "KBInteractionHandler.h"
+#import "KBInteractionHandler.h"
 
 // HelloWorldLayer
-@interface KBGameLayer : CCLayer <KBTouchHandlerProtocol>
+@interface KBGameLayer : CCLayer <KBInteractionHandlerDelegate>
 {
     KBPlayer* _player;
     
@@ -71,5 +71,6 @@
 -(void)shouldBeginMovingPlayerToSide:(Side)side;
 -(void)shouldChangePlayerMovementToSide:(Side)side;
 -(void)shouldStopPlayerMovement;
-
+-(void)touchedAtScreenCoordinate:(CGPoint)screenCoordinate;
+- (void) findAndRunEventAtPosition: (CGPoint) tilePosition interactionType:(RunOnEvent)runOnEvent;
 @end

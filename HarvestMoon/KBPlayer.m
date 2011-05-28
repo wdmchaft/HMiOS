@@ -32,6 +32,8 @@
     self = [super init];
     if (self) {
         
+        [[KBStandardGameController sharedController] setPlayer:self];
+        
         self.spriteBatchNode = [[CCSpriteBatchNode alloc] initWithFile:@"jack_walking.png" capacity:30];
         
         

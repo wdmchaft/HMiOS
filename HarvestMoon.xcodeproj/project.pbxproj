@@ -131,7 +131,7 @@
 		7249E70213901A990010CD97 /* KBMessageBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249E70113901A990010CD97 /* KBMessageBox.m */; };
 		7249E70413901BAE0010CD97 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7249E70313901BAE0010CD97 /* Localizable.strings */; };
 		7249E70613901FF50010CD97 /* message_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7249E70513901FF50010CD97 /* message_background.png */; };
-		7249E70E139030F60010CD97 /* KBTouchHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249E70D139030F50010CD97 /* KBTouchHandler.m */; };
+		7249E70E139030F60010CD97 /* KBInteractionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249E70D139030F50010CD97 /* KBInteractionHandler.m */; };
 		7249E713139037EF0010CD97 /* DPad_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7249E710139037EF0010CD97 /* DPad_Background.png */; };
 		7249E714139037EF0010CD97 /* DPad_Button_Pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7249E711139037EF0010CD97 /* DPad_Button_Pressed.png */; };
 		7249E715139037EF0010CD97 /* DPad_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7249E712139037EF0010CD97 /* DPad_Button.png */; };
@@ -394,9 +394,9 @@
 		7249E70313901BAE0010CD97 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		7249E70513901FF50010CD97 /* message_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_background.png; sourceTree = "<group>"; };
 		7249E708139024480010CD97 /* KBMessageBoxDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBMessageBoxDelegate.h; sourceTree = "<group>"; };
-		7249E70C139030F40010CD97 /* KBTouchHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTouchHandler.h; sourceTree = "<group>"; };
-		7249E70D139030F50010CD97 /* KBTouchHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTouchHandler.m; sourceTree = "<group>"; };
-		7249E70F1390312F0010CD97 /* KBTouchHandlerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTouchHandlerProtocol.h; sourceTree = "<group>"; };
+		7249E70C139030F40010CD97 /* KBInteractionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; path = KBInteractionHandler.h; sourceTree = "<group>"; };
+		7249E70D139030F50010CD97 /* KBInteractionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBInteractionHandler.m; sourceTree = "<group>"; };
+		7249E70F1390312F0010CD97 /* KBInteractionHandlerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; path = KBInteractionHandlerDelegate.h; sourceTree = "<group>"; };
 		7249E710139037EF0010CD97 /* DPad_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DPad_Background.png; sourceTree = "<group>"; };
 		7249E711139037EF0010CD97 /* DPad_Button_Pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DPad_Button_Pressed.png; sourceTree = "<group>"; };
 		7249E712139037EF0010CD97 /* DPad_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DPad_Button.png; sourceTree = "<group>"; };
@@ -524,9 +524,9 @@
 				726C6CB0138954940047B503 /* KBStoryController.m */,
 				723AD2B7137EB8FC0014B7DE /* KBGameLayer.h */,
 				723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */,
-				7249E70F1390312F0010CD97 /* KBTouchHandlerProtocol.h */,
-				7249E70C139030F40010CD97 /* KBTouchHandler.h */,
-				7249E70D139030F50010CD97 /* KBTouchHandler.m */,
+				7249E70F1390312F0010CD97 /* KBInteractionHandlerDelegate.h */,
+				7249E70C139030F40010CD97 /* KBInteractionHandler.h */,
+				7249E70D139030F50010CD97 /* KBInteractionHandler.m */,
 				723AD2BA137EB8FC0014B7DE /* GameConfig.h */,
 				72C13E06137EC42300DFD227 /* KBPlayer.h */,
 				72C13E07137EC42300DFD227 /* KBPlayer.m */,
@@ -1035,7 +1035,7 @@
 				72AF3CBF138ED03A00B77A75 /* KBJumpToMapEvent.m in Sources */,
 				7249E6FF139019350010CD97 /* KBShowMessageEvent.m in Sources */,
 				7249E70213901A990010CD97 /* KBMessageBox.m in Sources */,
-				7249E70E139030F60010CD97 /* KBTouchHandler.m in Sources */,
+				7249E70E139030F60010CD97 /* KBInteractionHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

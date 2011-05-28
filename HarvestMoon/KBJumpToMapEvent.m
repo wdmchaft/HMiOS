@@ -32,4 +32,9 @@
     self.hasFinishedRunning = YES;
 }
 
+-(RunOnEvent) runsOnEvent
+{
+    return TouchedByPlayer;
+}
+
 @end

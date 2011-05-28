@@ -15,7 +15,12 @@
     
 }
 
+
+
 @property(nonatomic,retain) NSString* mapName;
+
+
+-(RunOnEvent) runsOnEvent;
 
 -(id)initWithObject:(NSDictionary *)object;
 

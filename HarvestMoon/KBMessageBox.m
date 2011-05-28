@@ -40,7 +40,7 @@
         [self.sprite setPosition:ccp([[CCDirector sharedDirector] winSize].width/2, 50)];
         
         
-        self.label = [CCLabelTTF labelWithString:text dimensions:CGSizeMake([[CCDirector sharedDirector] winSize].width - 20, 210) 
+        self.label = [CCLabelTTF labelWithString:text dimensions:CGSizeMake(480 - 20, 210) 
                                        alignment:UITextAlignmentLeft 
                                         fontName:@"Marker Felt" fontSize:16];
         
