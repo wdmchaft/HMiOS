@@ -156,8 +156,6 @@
     if(playerObject != nil && (self.currentEvent == nil || [self.currentEvent hasFinishedRunning])
        && ![_currentMapObject isEqualToDictionary:playerObject])
     {
-        
-        
         id<KBEvent> script = [KBSEventFactory eventForObject:playerObject];
         if([script runsOnEvent] == runOnEvent)
         {
