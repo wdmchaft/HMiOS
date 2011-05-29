@@ -175,13 +175,16 @@
         {
             [self.delegate shouldStopPlayerMovement];
         }
-        else if(!CGRectContainsPoint(background.textureRect, [background convertTouchToNodeSpace:touch]))
-        {
-        }
     }
     else
     {
         [self.delegate shouldStopPlayerMovement];
+        
+        CGPoint touchLocation = [touch locationInView:[touch view]];
+        
+        touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+        
+        [self.delegate touchedAtScreenCoordinate:touchLocation];
     }
     
 }

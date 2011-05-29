@@ -27,7 +27,7 @@ typedef enum {
 
 #define kDevelopmentMode 0
 
-#define kUseDPad 1
+#define kUseDPad 0
 
 #pragma mark -
 #pragma mark Tilemap Constants
