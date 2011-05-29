@@ -138,8 +138,8 @@
         if ([self CGPoint:touchLocation inTriangleP1:lu P2:ru P3:middlePoint]) {
             return Down;
         }
-        
-        NSAssert(false, @"touchLocation is outside of the screen... thats just impossible. stopping immediately");
+
+        return Down;
     }
     
     //didn't touch the dpad or made a touch outside of the sceen
