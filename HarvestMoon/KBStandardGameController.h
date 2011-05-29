@@ -10,16 +10,23 @@
 #import "cocos2d.h"
 #import "KBTMXTiledMap.h"
 
+@class KBGameLayer;
+@class KBPlayer;
+
 @interface KBStandardGameController : NSObject {
     
-    CCLayer* _gameLayer;    
+    KBGameLayer* _gameLayer;    
+    
+    KBPlayer* _player;
     
 }
 
 #pragma mark -
 #pragma mark Properties
 
-@property(nonatomic, retain) CCLayer* gameLayer;
+@property(nonatomic, retain) KBGameLayer* gameLayer;
+
+@property(nonatomic,retain) KBPlayer* player;
 
 #pragma mark -
 #pragma mark Class Methods

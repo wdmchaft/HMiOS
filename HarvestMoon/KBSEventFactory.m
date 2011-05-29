@@ -11,15 +11,16 @@
 
 @implementation KBSEventFactory
 
-+ (KBEvent *) eventForObject:(NSDictionary *)object
++ (id<KBEvent>) eventForObject:(NSDictionary *)object
 {
     NSLog(@"now we should create an run the event %@", object);
-    KBEvent* event = nil;
+    id<KBEvent> event = nil;
     switch ([[object valueForKey:kScriptingId] integerValue]) {
         case  kJumpToMap:
             event = [[KBJumpToMapEvent alloc] initWithObject:object];
             break;
-            
+        case kShowMessage: 
+            event = [[KBShowMessageEvent alloc] initWithObject:object];
         default:
             break;
     }

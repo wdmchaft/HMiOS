@@ -8,11 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    TouchedByPlayer = 1,
+    TouchedWithFinger = 2
+} RunOnEvent;
 
-@interface KBEvent : NSObject {
-    
-}
+@protocol KBEvent <NSObject>
+@required
+@property(nonatomic) BOOL hasFinishedRunning;
 
+
+-(RunOnEvent) runsOnEvent;
 -(void) run;
-
+-(id)initWithObject:(NSDictionary *)object;
 @end

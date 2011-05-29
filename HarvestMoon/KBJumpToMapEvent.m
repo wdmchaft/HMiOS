@@ -13,7 +13,7 @@
 
 @implementation KBJumpToMapEvent
 @synthesize mapName = _mapName;
-
+@synthesize hasFinishedRunning;
 
 -(id)initWithObject:(NSDictionary *)object
 {
@@ -29,7 +29,12 @@
     KBGameLayer* gameLayer = (KBGameLayer *)[[KBStandardGameController sharedController] gameLayer];
     
     [gameLayer loadMap:[self.mapName stringByAppendingString:@".tmx"] withAnimation:YES];
-    
+    self.hasFinishedRunning = YES;
+}
+
+-(RunOnEvent) runsOnEvent
+{
+    return TouchedByPlayer;
 }
 
 @end

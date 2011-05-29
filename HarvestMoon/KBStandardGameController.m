@@ -17,6 +17,8 @@ static KBStandardGameController* _sharedSingleton;
 
 @synthesize gameLayer = _gameLayer;
 
+@synthesize player = _player;
+
 #pragma mark -
 #pragma mark Class Methods
 

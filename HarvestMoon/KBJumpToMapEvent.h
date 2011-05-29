@@ -9,13 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "KBEvent.h"
 
-@interface KBJumpToMapEvent : KBEvent {
+@interface KBJumpToMapEvent : NSObject <KBEvent> {
     
     NSString* _mapName;
     
 }
 
+
+
 @property(nonatomic,retain) NSString* mapName;
+
+
+-(RunOnEvent) runsOnEvent;
 
 -(id)initWithObject:(NSDictionary *)object;
 

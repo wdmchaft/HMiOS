@@ -11,10 +11,11 @@
 #import "GameConfig.h"
 #import "KBEvent.h"
 #import "KBJumpToMapEvent.h"
+#import "KBShowMessageEvent.h"
 
 @interface KBSEventFactory : NSObject {
     
 }
-+ (KBEvent *) eventForObject:(NSDictionary *)object;
++ (id<KBEvent>) eventForObject:(NSDictionary *)object;
 
 @end

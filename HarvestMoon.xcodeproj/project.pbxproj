@@ -127,13 +127,20 @@
 		723AD2B3137EB8FC0014B7DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2B2137EB8FC0014B7DE /* AppDelegate.m */; };
 		723AD2B6137EB8FC0014B7DE /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2B5137EB8FC0014B7DE /* RootViewController.m */; };
 		723AD2B9137EB8FC0014B7DE /* KBGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */; };
+		7249E6FF139019350010CD97 /* KBShowMessageEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249E6FE139019350010CD97 /* KBShowMessageEvent.m */; };
+		7249E70213901A990010CD97 /* KBMessageBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249E70113901A990010CD97 /* KBMessageBox.m */; };
+		7249E70413901BAE0010CD97 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7249E70313901BAE0010CD97 /* Localizable.strings */; };
+		7249E70613901FF50010CD97 /* message_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7249E70513901FF50010CD97 /* message_background.png */; };
+		7249E70E139030F60010CD97 /* KBInteractionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249E70D139030F50010CD97 /* KBInteractionHandler.m */; };
+		7249E713139037EF0010CD97 /* DPad_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7249E710139037EF0010CD97 /* DPad_Background.png */; };
+		7249E714139037EF0010CD97 /* DPad_Button_Pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7249E711139037EF0010CD97 /* DPad_Button_Pressed.png */; };
+		7249E715139037EF0010CD97 /* DPad_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7249E712139037EF0010CD97 /* DPad_Button.png */; };
 		726C6CAA13894CDF0047B503 /* KBMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 726C6CA913894CDE0047B503 /* KBMap.m */; };
 		726C6CB1138954940047B503 /* KBStoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 726C6CB0138954940047B503 /* KBStoryController.m */; };
 		727F1AFE13881402005C2D78 /* jack_walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 727F1AFD13881402005C2D78 /* jack_walking.png */; };
 		727F1B0013881457005C2D78 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 727F1AFF13881457005C2D78 /* house.png */; };
 		727F1B0213881467005C2D78 /* Jacks_House.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 727F1B0113881467005C2D78 /* Jacks_House.tmx */; };
 		72AF3CB8138C345900B77A75 /* KBSEventFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF3CB7138C345900B77A75 /* KBSEventFactory.m */; };
-		72AF3CBC138C38A900B77A75 /* KBEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF3CBB138C38A900B77A75 /* KBEvent.m */; };
 		72AF3CBF138ED03A00B77A75 /* KBJumpToMapEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF3CBE138ED03900B77A75 /* KBJumpToMapEvent.m */; };
 		72AF3CC1138ED22C00B77A75 /* Jacks_Farm.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 72AF3CC0138ED22C00B77A75 /* Jacks_Farm.tmx */; };
 		72C13E08137EC42300DFD227 /* KBPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C13E07137EC42300DFD227 /* KBPlayer.m */; };
@@ -380,6 +387,19 @@
 		723AD2B7137EB8FC0014B7DE /* KBGameLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KBGameLayer.h; sourceTree = "<group>"; };
 		723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KBGameLayer.m; sourceTree = "<group>"; };
 		723AD2BA137EB8FC0014B7DE /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		7249E6FD139019350010CD97 /* KBShowMessageEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBShowMessageEvent.h; sourceTree = "<group>"; };
+		7249E6FE139019350010CD97 /* KBShowMessageEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBShowMessageEvent.m; sourceTree = "<group>"; };
+		7249E70013901A990010CD97 /* KBMessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBMessageBox.h; sourceTree = "<group>"; };
+		7249E70113901A990010CD97 /* KBMessageBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBMessageBox.m; sourceTree = "<group>"; };
+		7249E70313901BAE0010CD97 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		7249E70513901FF50010CD97 /* message_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_background.png; sourceTree = "<group>"; };
+		7249E708139024480010CD97 /* KBMessageBoxDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBMessageBoxDelegate.h; sourceTree = "<group>"; };
+		7249E70C139030F40010CD97 /* KBInteractionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; path = KBInteractionHandler.h; sourceTree = "<group>"; };
+		7249E70D139030F50010CD97 /* KBInteractionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBInteractionHandler.m; sourceTree = "<group>"; };
+		7249E70F1390312F0010CD97 /* KBInteractionHandlerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; path = KBInteractionHandlerDelegate.h; sourceTree = "<group>"; };
+		7249E710139037EF0010CD97 /* DPad_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DPad_Background.png; sourceTree = "<group>"; };
+		7249E711139037EF0010CD97 /* DPad_Button_Pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DPad_Button_Pressed.png; sourceTree = "<group>"; };
+		7249E712139037EF0010CD97 /* DPad_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DPad_Button.png; sourceTree = "<group>"; };
 		726C6CA813894CDE0047B503 /* KBMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBMap.h; sourceTree = "<group>"; };
 		726C6CA913894CDE0047B503 /* KBMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBMap.m; sourceTree = "<group>"; };
 		726C6CAF138954940047B503 /* KBStoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBStoryController.h; sourceTree = "<group>"; };
@@ -391,7 +411,6 @@
 		72AF3CB7138C345900B77A75 /* KBSEventFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBSEventFactory.m; sourceTree = "<group>"; };
 		72AF3CB9138C348700B77A75 /* ScriptingIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptingIdentifiers.h; sourceTree = "<group>"; };
 		72AF3CBA138C38A900B77A75 /* KBEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBEvent.h; sourceTree = "<group>"; };
-		72AF3CBB138C38A900B77A75 /* KBEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBEvent.m; sourceTree = "<group>"; };
 		72AF3CBD138ED03900B77A75 /* KBJumpToMapEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBJumpToMapEvent.h; sourceTree = "<group>"; };
 		72AF3CBE138ED03900B77A75 /* KBJumpToMapEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBJumpToMapEvent.m; sourceTree = "<group>"; };
 		72AF3CC0138ED22C00B77A75 /* Jacks_Farm.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Jacks_Farm.tmx; path = Resources/Jacks_Farm.tmx; sourceTree = "<group>"; };
@@ -432,6 +451,10 @@
 		7208C974138905BB001B8F92 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				7249E710139037EF0010CD97 /* DPad_Background.png */,
+				7249E711139037EF0010CD97 /* DPad_Button_Pressed.png */,
+				7249E712139037EF0010CD97 /* DPad_Button.png */,
+				7249E70513901FF50010CD97 /* message_background.png */,
 				7208C976138905E7001B8F92 /* Characters */,
 				7208C975138905C8001B8F92 /* Tilesets */,
 			);
@@ -490,6 +513,7 @@
 		723AD165137EB8F80014B7DE /* HarvestMoon */ = {
 			isa = PBXGroup;
 			children = (
+				7249E7071390242A0010CD97 /* Menu */,
 				72AF3CC3138ED68200B77A75 /* Map-Handling */,
 				72AF3CC2138ED65700B77A75 /* Events & Scripting */,
 				723AD2B1137EB8FC0014B7DE /* AppDelegate.h */,
@@ -500,6 +524,9 @@
 				726C6CB0138954940047B503 /* KBStoryController.m */,
 				723AD2B7137EB8FC0014B7DE /* KBGameLayer.h */,
 				723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */,
+				7249E70F1390312F0010CD97 /* KBInteractionHandlerDelegate.h */,
+				7249E70C139030F40010CD97 /* KBInteractionHandler.h */,
+				7249E70D139030F50010CD97 /* KBInteractionHandler.m */,
 				723AD2BA137EB8FC0014B7DE /* GameConfig.h */,
 				72C13E06137EC42300DFD227 /* KBPlayer.h */,
 				72C13E07137EC42300DFD227 /* KBPlayer.m */,
@@ -519,6 +546,7 @@
 		723AD166137EB8F80014B7DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7249E70313901BAE0010CD97 /* Localizable.strings */,
 				7208C974138905BB001B8F92 /* Graphics */,
 				7208C973138905AE001B8F92 /* Maps */,
 				723AD167137EB8F80014B7DE /* Default.png */,
@@ -785,16 +813,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7249E7071390242A0010CD97 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				7249E70013901A990010CD97 /* KBMessageBox.h */,
+				7249E70113901A990010CD97 /* KBMessageBox.m */,
+				7249E708139024480010CD97 /* KBMessageBoxDelegate.h */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		72AF3CC2138ED65700B77A75 /* Events & Scripting */ = {
 			isa = PBXGroup;
 			children = (
 				72AF3CB9138C348700B77A75 /* ScriptingIdentifiers.h */,
 				72AF3CBA138C38A900B77A75 /* KBEvent.h */,
-				72AF3CBB138C38A900B77A75 /* KBEvent.m */,
 				72AF3CB6138C345900B77A75 /* KBSEventFactory.h */,
 				72AF3CB7138C345900B77A75 /* KBSEventFactory.m */,
 				72AF3CBD138ED03900B77A75 /* KBJumpToMapEvent.h */,
 				72AF3CBE138ED03900B77A75 /* KBJumpToMapEvent.m */,
+				7249E6FD139019350010CD97 /* KBShowMessageEvent.h */,
+				7249E6FE139019350010CD97 /* KBShowMessageEvent.m */,
 			);
 			name = "Events & Scripting";
 			sourceTree = "<group>";
@@ -872,6 +911,11 @@
 				727F1B0213881467005C2D78 /* Jacks_House.tmx in Resources */,
 				72AF3CC1138ED22C00B77A75 /* Jacks_Farm.tmx in Resources */,
 				07631E64138EE6BE00CAD983 /* centering_test.tmx in Resources */,
+				7249E70413901BAE0010CD97 /* Localizable.strings in Resources */,
+				7249E70613901FF50010CD97 /* message_background.png in Resources */,
+				7249E713139037EF0010CD97 /* DPad_Background.png in Resources */,
+				7249E714139037EF0010CD97 /* DPad_Button_Pressed.png in Resources */,
+				7249E715139037EF0010CD97 /* DPad_Button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -988,8 +1032,10 @@
 				726C6CAA13894CDF0047B503 /* KBMap.m in Sources */,
 				726C6CB1138954940047B503 /* KBStoryController.m in Sources */,
 				72AF3CB8138C345900B77A75 /* KBSEventFactory.m in Sources */,
-				72AF3CBC138C38A900B77A75 /* KBEvent.m in Sources */,
 				72AF3CBF138ED03A00B77A75 /* KBJumpToMapEvent.m in Sources */,
+				7249E6FF139019350010CD97 /* KBShowMessageEvent.m in Sources */,
+				7249E70213901A990010CD97 /* KBMessageBox.m in Sources */,
+				7249E70E139030F60010CD97 /* KBInteractionHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

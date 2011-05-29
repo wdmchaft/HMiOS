@@ -16,13 +16,19 @@
 #import "GameConfig.h"
 #import "KBStoryController.h"
 #import "KBSEventFactory.h"
+#import "KBInteractionHandler.h"
+#import "KBInteractionHandler.h"
 
 // HelloWorldLayer
-@interface KBGameLayer : CCLayer
+@interface KBGameLayer : CCLayer <KBInteractionHandlerDelegate>
 {
     KBPlayer* _player;
     
     KBMap* _map;
+    
+    id<KBEvent> _currentEvent;
+    
+    NSDictionary* _currentMapObject;
     
 }
 
@@ -32,6 +38,8 @@
 @property (nonatomic, retain) KBMap* map;
 
 @property (nonatomic, retain) KBPlayer* player;
+
+@property (nonatomic, retain) id<KBEvent> currentEvent;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -54,27 +62,15 @@
 -(void) loadMap:(NSString*)mapName withAnimation:(BOOL)animate;
 
 #pragma mark -
-#pragma mark Touch Handling
-
-- (BOOL) CGPoint:(CGPoint) point inTriangleP1:(CGPoint) p1 P2:(CGPoint) p2 P3:(CGPoint) p3;
-
-- (void) registerWithTouchDispatcher;
-
-- (BOOL) ccTouchBegan:(UITouch *) touch withEvent:(UIEvent *) event;
-
-- (void) ccTouchMoved:(UITouch *) touch withEvent:(UIEvent *) event;
-
-- (void) ccTouchEnded:(UITouch *) touch withEvent:(UIEvent *) event;
-
-- (CGFloat) GBDot:(CGPoint) v1 point2:(CGPoint) v2;
-
-- (CGPoint) GBSub:(CGPoint) v1 point2:(CGPoint) v2;
-
-#pragma mark -
 #pragma mark Camera Handling
 
 - (void) setViewpointCenter:(CGPoint) position;
 
 #pragma mark -
-
+#pragma mark Touch Events
+-(void)shouldBeginMovingPlayerToSide:(Side)side;
+-(void)shouldChangePlayerMovementToSide:(Side)side;
+-(void)shouldStopPlayerMovement;
+-(void)touchedAtScreenCoordinate:(CGPoint)screenCoordinate;
+- (void) findAndRunEventAtPosition: (CGPoint) tilePosition interactionType:(RunOnEvent)runOnEvent;
 @end
