@@ -101,14 +101,17 @@
     [self setViewpointCenter:self.player.position];
 }
 
--(void) loadMap:(NSString*)mapName withAnimation:(BOOL)animate
+-(void) loadMap:(NSString*)mapName playerPosition:(CGPoint)playerPosition withAnimation:(BOOL)animate
 {
     [self removeChild:self.map cleanup:YES];
     
     self.map = [[KBMap alloc] initWithMapName:mapName];
+    
     [self.player updatePlayerForMapChange];
     
     [self addChild:self.map];
+    
+    self.player.position = ccp(playerPosition.x * self.map.tileWidth, playerPosition.y * self.map.tileHeight);
 }
 
 #pragma mark -

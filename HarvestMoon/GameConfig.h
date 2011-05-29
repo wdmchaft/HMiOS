@@ -10,7 +10,7 @@
 #define __GAME_CONFIG_H
 
 #pragma mark -
-#pragma mark Generam Enums
+#pragma mark General Enums
 
 typedef enum {
     Left= 1,
@@ -27,7 +27,7 @@ typedef enum {
 
 #define kDevelopmentMode 0
 
-#define kUseDPad 0
+#define kUseDPad 1
 
 #pragma mark -
 #pragma mark Tilemap Constants

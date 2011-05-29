@@ -12,6 +12,7 @@
 #import "KBMessageBox.h"
 #import "KBStandardGameController.h"
 #import "KBMessageBoxDelegate.h"
+#import "ScriptingIdentifiers.h"
 
 @interface KBShowMessageEvent : NSObject <KBEvent,KBMessageBoxDelegate> {
     NSString* _text;

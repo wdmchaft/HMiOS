@@ -29,7 +29,7 @@
     self = [super initWithTMXFile:tmxFile];
     if (self) {
         self.background = [self layerNamed:kBackgroundLayer];
-        NSAssert(self.background != nil, @"Couldn't find Background Layer in this TMX File.", tmxFile);
+        NSAssert(self.background != nil, @"Couldn't find Background Layer in this TMX File.");
         
         self.events = [self objectGroupNamed:kEventsLayer];
         

@@ -108,23 +108,26 @@
  </layer>
  <layer name="Items" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt1DcOwjAYhuHfMWWmz5QLUE4NnAA4AbBQJmChhpUaRt7cgGDxD8if9G5RHsmyLOLn91+bBSJzWtAy0HO3WDva00HRvWBd6UZ3RddYkYAspez3/wmNyNl8/n0OK08FKjq4EeYrgVvFqlGdGg5u0jWxWtSmzo/cLvemR33F+xNvgDekkbI7xpvQVNld4a1po+z6iRw58xOFymf/wHtSpOymeSsylFV8q+KV8MpUUXb9/Pzc9gYmMB+T
+   eJzt1jkSwWAYh/E3C2p7bbmA5YIah8EJcAI0lgqNNVprlJ7vBhLjLfj+M78uk2cmk3wTETu739rUFZlhjoWr193Q2mKHvWL3TOuCK26KXccTceHB9+LfJ3BETs7716dpZZBF7oNuSPMZoVuiVUYF1Q+6UVejVUcDzS91O7w3XfQU3x+zPr0BhsrdEb0xJsrdJb0V1spdO5EDz/yIQPnZ3+k9ECp3E5wVSaQUzyqzPL0CispdO7t/XRvmV8YcMeaz89GKcZ8XaGwgpA==
   </data>
  </layer>
  <layer name="Meta" width="30" height="30" opacity="0.43">
   <data encoding="base64" compression="zlib">
-   eJztl+EKgCAMhP3R+7+U/tOHKiFBjlsOyhOqwSGswaenGxS3EKKhNBCr8easmnyoDMRqWm7ESWcd8iwP0A+2evbMPPX4giy2lyu/sb7/5vU5d7L8xzzWe/y9o3YedjczVQxuXWeH9SYVXHxjSi7yFVzWZwou67NZLJwRiljJVfdNjX5uKLl9rOLmxedV9m7j4rxScVedVzGrGPdLffRz38/1/ss8rR0p9AXh
+   eJztl+EKgCAMhP3R+79U/tOHKiFBjpsuwhOqwSGsxaeXG7RvIeyG4kCsxpuzatKpPBCrqbkRJ151yLM8QD/Y6tkz89TjC7LYXnp+Y337zOtzamT5j3ms9/j7RPU87NvMVDa4ZZ0d1p1UcPGOKbnIV3BZnym4rM9msXBGKGIlV903Jdq5oeS2sYqbFp9X2buVi/NKxV11XsWsYtwv9dHPfT/X+y/T6/G77xcdaDUCwQ==
   </data>
  </layer>
  <objectgroup name="Events" width="30" height="30">
-  <object name="GoOutsideEvent" x="165" y="403" width="137" height="78">
+  <object name="GoOutsideEvent" x="208" y="448" width="64" height="32">
    <properties>
     <property name="MapName" value="Jacks_Farm"/>
+    <property name="PositionX" value="12"/>
+    <property name="PositionY" value="33"/>
     <property name="ScriptingId" value="0002"/>
    </properties>
   </object>
   <object name="SampleTalkEvent" x="290" y="130" width="62" height="64">
    <properties>
+    <property name="MessageText" value="SAMPLE_TEXT"/>
     <property name="ScriptingId" value="0003"/>
    </properties>
   </object>

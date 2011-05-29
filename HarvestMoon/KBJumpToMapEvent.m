@@ -14,12 +14,15 @@
 @implementation KBJumpToMapEvent
 @synthesize mapName = _mapName;
 @synthesize hasFinishedRunning;
+@synthesize playerPos=_playerPos;
 
 -(id)initWithObject:(NSDictionary *)object
 {
     self = [super init];
     if (self) {
+        
         self.mapName = [object valueForKey:kMapNameProperty];
+        self.playerPos = ccp([[object valueForKey:kPositionX] integerValue],[[object valueForKey:kPositionY] integerValue]);
     }
     return self;
 }
@@ -28,7 +31,8 @@
 {
     KBGameLayer* gameLayer = (KBGameLayer *)[[KBStandardGameController sharedController] gameLayer];
     
-    [gameLayer loadMap:[self.mapName stringByAppendingString:@".tmx"] withAnimation:YES];
+    
+    [gameLayer loadMap:[self.mapName stringByAppendingString:@".tmx"] playerPosition:self.playerPos withAnimation:YES];
     self.hasFinishedRunning = YES;
 }
 

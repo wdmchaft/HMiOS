@@ -13,3 +13,6 @@
 // Event Properties
 
 #define kMapNameProperty @"MapName"
+#define kMessageText @"MessageText"
+#define kPositionX @"PositionX"
+#define kPositionY @"PositionY"

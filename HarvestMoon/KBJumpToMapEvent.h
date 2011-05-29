@@ -12,12 +12,13 @@
 @interface KBJumpToMapEvent : NSObject <KBEvent> {
     
     NSString* _mapName;
-    
+    CGPoint _playerPos;
 }
 
 
 
 @property(nonatomic,retain) NSString* mapName;
+@property(nonatomic) CGPoint playerPos;
 
 
 -(RunOnEvent) runsOnEvent;

@@ -36,7 +36,12 @@
 {
     self = [super init];
     if (self) {
-        self.text = NSLocalizedString(@"SAMPLE TEXT", @"dunno");
+        self.text = NSLocalizedString([object valueForKey:kMessageText], @"Text from KBShowMessageEvent");
+        
+        if (self.text == nil) {
+            self.text = NSLocalizedString([object valueForKey:@"SAMPLE_TEXT"], @"Text from KBShowMessageEvent");
+        }
+        
     }
     return self;
 }

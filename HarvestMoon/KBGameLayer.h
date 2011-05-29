@@ -59,7 +59,7 @@
 
 - (void) update:(ccTime) dt;
 
--(void) loadMap:(NSString*)mapName withAnimation:(BOOL)animate;
+-(void) loadMap:(NSString*)mapName playerPosition:(CGPoint)playerPosition withAnimation:(BOOL)animate;
 
 #pragma mark -
 #pragma mark Camera Handling

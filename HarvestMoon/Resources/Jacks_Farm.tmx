@@ -1,80 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="16" tileheight="16">
- <tileset firstgid="1" name="House" tilewidth="16" tileheight="16">
-  <image source="house.png" trans="ff00ff" width="256" height="1216"/>
-  <tile id="486">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
-  <tile id="487">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
-  <tile id="502">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
-  <tile id="503">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
-  <tile id="740">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
-  <tile id="741">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
-  <tile id="742">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
-  <tile id="756">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
-  <tile id="758">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
-  <tile id="772">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
-  <tile id="774">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
-  <tile id="788">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
-  <tile id="789">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
-  <tile id="790">
-   <properties>
-    <property name="ScriptingId" value="0001"/>
-   </properties>
-  </tile>
- </tileset>
- <tileset firstgid="1217" name="Meta" tilewidth="16" tileheight="16">
-  <image source="meta.png" width="96" height="32"/>
+<map version="1.0" orientation="orthogonal" width="70" height="50" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="Meta" tilewidth="16" tileheight="16">
+  <image source="meta.png" width="128" height="32"/>
   <tile id="1">
    <properties>
     <property name="Collidable" value="True"/>
@@ -90,37 +17,60 @@
     <property name="Collidable" value="True"/>
    </properties>
   </tile>
-  <tile id="8">
+  <tile id="10">
    <properties>
     <property name="Collidable" value="True"/>
    </properties>
   </tile>
-  <tile id="9">
+  <tile id="11">
    <properties>
     <property name="Collidable" value="True"/>
    </properties>
   </tile>
  </tileset>
- <layer name="Background" width="30" height="30">
+ <tileset firstgid="17" name="Farm" tilewidth="16" tileheight="16">
+  <image source="farm.png" trans="929292" width="512" height="1920"/>
+ </tileset>
+ <layer name="Background" width="70" height="50">
   <data encoding="base64" compression="zlib">
-   eJy91LVPBEEcxfGDo8GDNHiQBg/S4EEaPEiDB2nwIP/AIdef9miP9miP9miP1nybS8jmdvcmmZ3ik19eMt3LG4fNZlvDOjYU3E044YIbHngVXB/82MI2drCr4O5hHwc4xBGOFdwTnOIM57jApYJ7hWvc4BZ3uFdwH/CIJzzjBa8K7hve8YFPfOFbwf3BLxrRhDCEw44IC3MzWtCDXiQgEUlIDpIjEYVoxCAWcYjXea+X+9CPcUwgGznIRV6QnIJUpCEdGchEls57vTyJKSxhGWUoRwUqg+R8FKAQRShGCUp13uvlFaz+69eslypUowa1qEM9GgR71vZr1ksr2tCODnSiC90h9hrI2n7NehnAIIYwjBGMYizEXgNZ269ZL9OYwSzmMI8FLIbYayBr+zXrxahfK/dr1K+V+zXq18r9GvVr5X5lZdH9yvq3Rfcr698W3a+sf1t0v7L+bdH9yvq3Rfcr698W3a+sfzvQr8Oufr9OggtueOCFTwE//gAfNydg
+   eJztmjlOQ1EMRV2Q8qcAUjDugxDYZ5gWAaEAAotgKBgXwVAwirMEXhH7Wrg4etJpXnNl60oez5ntwC7swT4cwPif+xM4hTOYwjlclLdbuIN7eIBHeCpv7/ABn/AF3/BT3pZ6ZsuwAquwBuu98hswhE0YwRZslw+f+6o+eu6r+ui5r+qj576qj577qj567qt6tT2g4tX2gIpX2wMqXm0PqHi1PaDi1faAio+e+6o+eu6r+ui5r+pnPd8PO7MjmAi/x51/P7rkzyu4Fn5vOv9+9MyfL/Aq/L51/v0oS168+1GWvHj3oyx58e5HWfLi3Y+y5MW7H2XJi3c/ypIX736UJS/e/ShLXrz7UZa8VD+qftSSl+pH1Y9a8lL9qPpRS16qH1U/aslL9aPqRy158e5H832zBVgUfgf9uq/7q4++G1D10XcDql7tjkDFq90RqPhf+811FA==
   </data>
  </layer>
- <layer name="Items" width="30" height="30">
+ <layer name="Items" width="70" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt1DcOwjAYhuHfMWWmz5QLUE4NnAA4AbBQJmChhpUaRt7cgGDxD8if9G5RHsmyLOLn91+bBSJzWtAy0HO3WDva00HRvWBd6UZ3RddYkYAspez3/wmNyNl8/n0OK08FKjq4EeYrgVvFqlGdGg5u0jWxWtSmzo/cLvemR33F+xNvgDekkbI7xpvQVNld4a1po+z6iRw58xOFymf/wHtSpOymeSsylFV8q+KV8MpUUXb9/Pzc9gYmMB+T
+   eJzt2tlOWlEYxfHdaFVob5xN6Uswk9KXAMfEvgTglNiXEOmQ6EsItJrYF+hwI9ohsS/Q4Ua0Q2Iv+r+gKWk/d7IN4znfSn4XYELcK8vDwWCMRuOe0JAxk5jCNGZ8+PjO0P+9pHkujgSSSPnw8T2hl5Dw3J+EA8ZEEEUMcSSQRCrQus12O1ft5apkOHsWs5jDPBawiCUP9eK6lxxnz6OAFaxiDevY8FAvrnvZ4uxFbKOER3iMJ3jqoV5c97LH2cuooIpneI59HHioF9e9HHH2Go5xgrd4h/f44KFeXPdyxtnrOMcFvuE7fuCnh3qx7aU4wnUEpZG/PxsNGjOGcUxgElOYxkywM79zJ2LbS5k+Kqg29RLm7BFEEUMcCSSRavRSGOa9arj9v3s7Y9tLjT6OcdLUS4azZzGLOcxjAYtYavSyTSelRi/jvNaE5e+yV2PbS50+znHR1EuOs+dRwApWsYZ1bDR6qdBJtdFLlNeK9WEvru9Hfonr+5FfonuRo3uRo3uRo3uR0+q9NN+vvBww5hVe483A9V+zG2n1XprvVz7RxWd8wdc+66Wd15fAoDFB3MLtwda8Zqei1xc5+n4kR/cix7aXZTxAhmtDFqE+/4zsEtteNvEQOTrJI93nn5FdYtvLDnaxRSdFLPf5/5pcYtvLIV5gj07K2PRRL7a9nOIjjuikhh0f9WLbyyV+4YxO6jj0US+2vYRuGHMXozeNGcOpj3qx7SVNJ/cRppMILn3Ui97vytH7XTm6Fzm6Fzm6Fzm6Fzm6Fzm6Fzm6Fzm6Fzm6FznSXrr93fxeefxvuv3d/F55rNFcJ78B0l+WAg==
   </data>
  </layer>
- <layer name="Meta" width="30" height="30" opacity="0.43">
+ <layer name="Meta" width="70" height="50" opacity="0.43">
   <data encoding="base64" compression="zlib">
-   eJztVkEOwCAI22H//5S76Kt2GQlpKhoXy2EjaUgcUkDQlfM4ygQuAv8NNdrhWn3Q821oBLa3EY12vTWMfbYGkY72+TijnOuC7wjG6/2xmmKMvs4MzAfWOeqJ3jmP7EZgZzWKc5TLDFi+u6V8lNfPsJIX+1PBy/p3FxfeKwrx74CS199J6nybuH9Rsnjrxv6NhL0/Kl7F7DJemyllzS3fmsSrlsz5zcr359Xxvv0XXsENqm0Ftw==
+   eJztm8EKhDAMRAP2tv7/9y57EOMwW6NWMe08CGi1FB6hjVXNhDjO9KIowbY7xkU+L4o52HbHuMhE2vy1UoleYA4iXjDnZuOOs3LWy5Jv/lxeVg/ysl6TF37tF/KyBdeyEb34Neff/SN68WuOuTaD89m2XtBlRo7mC3rB+cagT1ZHkXzxLli+YO3s+2D/LBydd0dBXjjywpEXjrxwmIOM60drWucLq48z7le1zhesV+SFk/W5SfMLR1448sKpecE9/wLtPbPnxb8bYs/LvRLxsrwbyrjeniXixfsZhYiXrDXIFSLzbvlzX8/UvCx73pM7HoW9+gW/rRgF1XUceeHIC0deOPLCkReOvHDkhSMvHHnhyAuHOWj1jf3VeOI/gNrYzNUb4on/AGpjC3GGL0nEDRQ=
   </data>
  </layer>
- <objectgroup name="Events" width="30" height="30">
-  <object name="JumpIntoHouseEvent" x="321" y="368" width="146" height="54">
+ <objectgroup name="Events" width="70" height="50">
+  <object name="JumpIntoHouseEvent" x="160" y="176" width="48" height="80">
    <properties>
     <property name="MapName" value="Jacks_House"/>
+    <property name="PositionX" value="14"/>
+    <property name="PositionY" value="1"/>
     <property name="ScriptingId" value="0002"/>
+   </properties>
+  </object>
+  <object name="ShowDescriptionEvent" x="160" y="432" width="32" height="32">
+   <properties>
+    <property name="MessageText" value="WATER_DESCRIPTION"/>
+    <property name="ScriptingId" value="0003"/>
+   </properties>
+  </object>
+  <object name="MailboxDescriptionEvent" x="272" y="336" width="32" height="32">
+   <properties>
+    <property name="MessageText" value="MAILBOX_DESCRIPTION"/>
+    <property name="ScriptingId" value="0003"/>
+   </properties>
+  </object>
+  <object name="HouseDescriptionEvent" x="336" y="208" width="32" height="32">
+   <properties>
+    <property name="MessageText" value="JACKS_HOUSE_DESCRIPTION"/>
+    <property name="ScriptingId" value="0003"/>
    </properties>
   </object>
  </objectgroup>
