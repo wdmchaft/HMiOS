@@ -51,8 +51,8 @@ static KBStoryController* _sharedSingleton;
     self = [super init];
     if (self) {
         self.lastSavedPlayerPosition = ccp(400,300);
+        
         self.currentMapName = kJacksHouseMap;
-        //self.currentMapName = kCentering_Test;
         
         [self readFromNSUserDefaults];
         

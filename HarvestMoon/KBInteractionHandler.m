@@ -179,12 +179,7 @@
     else
     {
         [self.delegate shouldStopPlayerMovement];
-        
-        CGPoint touchLocation = [touch locationInView:[touch view]];
-        
-        touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-        
-        [self.delegate touchedAtScreenCoordinate:touchLocation];
+        [self.delegate touchedAtScreenCoordinate:[touch locationInView:[touch view]]];
     }
     
 }

@@ -116,6 +116,14 @@
 
 - (void) setViewpointCenter:(CGPoint) position 
 {
+    if (![self.map centerPlayer]) {
+        self.position = ccp(
+                            ([[CCDirector sharedDirector] winSize].width / 2) - ([self.map mapWidthInPixels] / 2),
+                            ([[CCDirector sharedDirector] winSize].height / 2)  - ([self.map mapHeightInPixels] / 2));
+        return;
+    }
+    
+    
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
     int x = MAX(position.x, winSize.width / 2);

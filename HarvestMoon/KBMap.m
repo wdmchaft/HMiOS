@@ -52,12 +52,22 @@
     return self.tileMap.tileSize.height;
 }
 
+- (int) mapWidthInPixels
+{
+    return self.mapWidth * self.tileWidth;
+}
+
+- (int) mapHeightInPixels
+{
+    return self.mapHeight * self.tileHeight;
+}
+
 - (BOOL) centerPlayer
 {
     int screenWidth = [[CCDirector sharedDirector] winSize].width;
     int screenHeight = [[CCDirector sharedDirector] winSize].height;
     
-    return (screenWidth < self.mapWidth || screenHeight < self.mapHeight);
+    return (screenWidth < (self.mapWidth * self.tileWidth) || screenHeight < (self.mapHeight * self.tileHeight));
 }
 
 #pragma mark -

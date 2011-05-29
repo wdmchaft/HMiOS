@@ -38,6 +38,10 @@
 
 - (int) tileHeight;
 
+- (int) mapWidthInPixels;
+
+- (int) mapHeightInPixels;
+
 - (BOOL) centerPlayer;
 
 #pragma mark -
