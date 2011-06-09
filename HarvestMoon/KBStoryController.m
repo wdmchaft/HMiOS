@@ -7,6 +7,9 @@
 //
 
 #import "KBStoryController.h"
+#import "KBGameLayer.h"
+#import "KBStandardGameController.h"
+#import "KBPlayer.h"
 
 #pragma mark -
 #pragma mark Encoding Name Definitions
@@ -63,9 +66,21 @@ static KBStoryController* _sharedSingleton;
 #pragma mark -
 #pragma mark Save Game State
 
+-(void)updateValues
+{
+    KBGameLayer* gl = [[KBStandardGameController sharedController] gameLayer];
+    KBPlayer* player = [[KBStandardGameController sharedController] player];
+    
+    self.lastSavedPlayerPosition = [player position];
+    self.currentMapName = gl.map.mapName;
+    
+    
+    
+}
+
 - (void)saveGameState
 {
-    
+    [self updateValues];
     [[NSUserDefaults standardUserDefaults] setObject:NSStringFromCGPoint(self.lastSavedPlayerPosition) 
                                               forKey:kLastSavedPlayerPosition];
     

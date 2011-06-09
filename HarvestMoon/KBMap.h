@@ -14,13 +14,15 @@
 @interface KBMap : CCNode {
     
     KBTMXTiledMap* _tileMap;
-    
+    NSString* _mapName;
 }
 
 #pragma mark -
 #pragma mark Properties
 
 @property (nonatomic, retain) KBTMXTiledMap* tileMap;
+
+@property (nonatomic, retain) NSString* mapName;
 
 #pragma mark -
 #pragma mark Init & Dealloc

@@ -45,6 +45,8 @@
 
 - (void) readFromNSUserDefaults;
 
+- (void) updateValues;
+
 #pragma mark -
 
 @end

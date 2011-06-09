@@ -15,6 +15,7 @@
 #pragma mark Properties
 
 @synthesize tileMap = _tileMap;
+@synthesize mapName = _mapName;
 
 #pragma mark -
 #pragma mark Init & Dealloc
@@ -23,6 +24,8 @@
     self = [super init];
     if (self) {
         self.tileMap = [KBTMXTiledMap tiledMapWithTMXFile:mapName];
+        
+        self.mapName = mapName;
         
         [self addChild:self.tileMap];
     }

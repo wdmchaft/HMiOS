@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "KBStandardGameController.h"
 #import "GameConfig.h"
+#import "KBInventory.h"
 
 @interface KBPlayer : CCNode {
     
@@ -47,6 +48,8 @@
     
     CCAction* _stayDownAnimation;
     
+    KBInventory* _inventory;
+    
 }
 
 #pragma mark -
@@ -61,6 +64,8 @@
 @property (nonatomic) BOOL isWalking;
 
 @property (nonatomic) Side walkingTo;
+
+@property (nonatomic, retain) KBInventory* inventory;
 
 #pragma mark -
 #pragma mark Init & Dealloc

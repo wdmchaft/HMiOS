@@ -24,6 +24,8 @@
 
 @synthesize walkingTo = _walkingTo;
 
+@synthesize inventory = _inventory;
+
 #pragma mark -
 #pragma mark Init & Dealloc
 
@@ -48,9 +50,6 @@
         _walkingSpeed = 15;
         
         
-        //[self.sprite runAction:self.walkDownAction];
-        //[sprite runAction:self.walkRightAction]
-        //self.currentAction = self.walkDownAction;
         
         [self addChild:self.spriteBatchNode];
         
@@ -67,7 +66,10 @@
         _stayRightAnimation = [self walkAnimationWithRow:1 startPosition:3 spriteCount:1 side:Right];
         _stayUpAnimation = [self walkAnimationWithRow:0 startPosition:0 spriteCount:1 side:Up];
         _stayDownAnimation = [self walkAnimationWithRow:0 startPosition:3 spriteCount:1 side:Down];
-	}
+	
+        self.inventory = [[KBInventory alloc] init];
+    
+    }
 	return self;
     
 }
