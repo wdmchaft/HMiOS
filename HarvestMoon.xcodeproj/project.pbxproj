@@ -140,7 +140,17 @@
 		727F1AFE13881402005C2D78 /* jack_walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 727F1AFD13881402005C2D78 /* jack_walking.png */; };
 		727F1B0013881457005C2D78 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 727F1AFF13881457005C2D78 /* house.png */; };
 		727F1B0213881467005C2D78 /* Jacks_House.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 727F1B0113881467005C2D78 /* Jacks_House.tmx */; };
+		729119EF1394270F007D3699 /* test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 729119EE1394270F007D3699 /* test.xml */; };
 		729A4F84139271490070C0E9 /* farm.png in Resources */ = {isa = PBXBuildFile; fileRef = 729A4F83139271490070C0E9 /* farm.png */; };
+		729DB32C13941EB5004AFAB9 /* KBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 729DB32B13941EB5004AFAB9 /* KBItem.m */; };
+		729DB32F139420BF004AFAB9 /* KBInventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 729DB32E139420BF004AFAB9 /* KBInventory.m */; };
+		729DB33213942212004AFAB9 /* KBItemStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 729DB33113942212004AFAB9 /* KBItemStack.m */; };
+		729DB3371394243B004AFAB9 /* bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 729DB3331394243B004AFAB9 /* bag.png */; };
+		729DB3381394243B004AFAB9 /* hoe.png in Resources */ = {isa = PBXBuildFile; fileRef = 729DB3341394243B004AFAB9 /* hoe.png */; };
+		729DB3391394243B004AFAB9 /* inventory_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 729DB3351394243B004AFAB9 /* inventory_background.png */; };
+		729DB33A1394243B004AFAB9 /* seed.png in Resources */ = {isa = PBXBuildFile; fileRef = 729DB3361394243B004AFAB9 /* seed.png */; };
+		729DB33D13942534004AFAB9 /* can.png in Resources */ = {isa = PBXBuildFile; fileRef = 729DB33B13942534004AFAB9 /* can.png */; };
+		729DB33E13942534004AFAB9 /* flower_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 729DB33C13942534004AFAB9 /* flower_red.png */; };
 		72AF3CB8138C345900B77A75 /* KBSEventFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF3CB7138C345900B77A75 /* KBSEventFactory.m */; };
 		72AF3CBF138ED03A00B77A75 /* KBJumpToMapEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF3CBE138ED03900B77A75 /* KBJumpToMapEvent.m */; };
 		72AF3CC1138ED22C00B77A75 /* Jacks_Farm.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 72AF3CC0138ED22C00B77A75 /* Jacks_Farm.tmx */; };
@@ -408,7 +418,20 @@
 		727F1AFD13881402005C2D78 /* jack_walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jack_walking.png; path = Resources/jack_walking.png; sourceTree = "<group>"; };
 		727F1AFF13881457005C2D78 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = house.png; path = Resources/house.png; sourceTree = "<group>"; };
 		727F1B0113881467005C2D78 /* Jacks_House.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Jacks_House.tmx; path = Resources/Jacks_House.tmx; sourceTree = "<group>"; };
+		729119EE1394270F007D3699 /* test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.xml; sourceTree = "<group>"; };
 		729A4F83139271490070C0E9 /* farm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = farm.png; path = Resources/farm.png; sourceTree = "<group>"; };
+		729DB32A13941EB5004AFAB9 /* KBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBItem.h; sourceTree = "<group>"; };
+		729DB32B13941EB5004AFAB9 /* KBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBItem.m; sourceTree = "<group>"; };
+		729DB32D139420BF004AFAB9 /* KBInventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBInventory.h; sourceTree = "<group>"; };
+		729DB32E139420BF004AFAB9 /* KBInventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBInventory.m; sourceTree = "<group>"; };
+		729DB33013942212004AFAB9 /* KBItemStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBItemStack.h; sourceTree = "<group>"; };
+		729DB33113942212004AFAB9 /* KBItemStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBItemStack.m; sourceTree = "<group>"; };
+		729DB3331394243B004AFAB9 /* bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bag.png; path = Resources/bag.png; sourceTree = "<group>"; };
+		729DB3341394243B004AFAB9 /* hoe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hoe.png; path = Resources/hoe.png; sourceTree = "<group>"; };
+		729DB3351394243B004AFAB9 /* inventory_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = inventory_background.png; path = Resources/inventory_background.png; sourceTree = "<group>"; };
+		729DB3361394243B004AFAB9 /* seed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seed.png; path = Resources/seed.png; sourceTree = "<group>"; };
+		729DB33B13942534004AFAB9 /* can.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = can.png; path = Resources/can.png; sourceTree = "<group>"; };
+		729DB33C13942534004AFAB9 /* flower_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flower_red.png; path = Resources/flower_red.png; sourceTree = "<group>"; };
 		72AF3CB6138C345900B77A75 /* KBSEventFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBSEventFactory.h; sourceTree = "<group>"; };
 		72AF3CB7138C345900B77A75 /* KBSEventFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBSEventFactory.m; sourceTree = "<group>"; };
 		72AF3CB9138C348700B77A75 /* ScriptingIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptingIdentifiers.h; sourceTree = "<group>"; };
@@ -519,6 +542,7 @@
 				7249E7071390242A0010CD97 /* Menu */,
 				72AF3CC3138ED68200B77A75 /* Map-Handling */,
 				72AF3CC2138ED65700B77A75 /* Events & Scripting */,
+				729DB32813941E80004AFAB9 /* Items */,
 				723AD2B1137EB8FC0014B7DE /* AppDelegate.h */,
 				723AD2B2137EB8FC0014B7DE /* AppDelegate.m */,
 				723AD2B4137EB8FC0014B7DE /* RootViewController.h */,
@@ -549,6 +573,12 @@
 		723AD166137EB8F80014B7DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				729DB33B13942534004AFAB9 /* can.png */,
+				729DB33C13942534004AFAB9 /* flower_red.png */,
+				729DB3331394243B004AFAB9 /* bag.png */,
+				729DB3341394243B004AFAB9 /* hoe.png */,
+				729DB3351394243B004AFAB9 /* inventory_background.png */,
+				729DB3361394243B004AFAB9 /* seed.png */,
 				7249E70313901BAE0010CD97 /* Localizable.strings */,
 				7208C974138905BB001B8F92 /* Graphics */,
 				7208C973138905AE001B8F92 /* Maps */,
@@ -562,6 +592,7 @@
 				723AD175137EB8F80014B7DE /* Icon@2x.png */,
 				723AD177137EB8F80014B7DE /* Info.plist */,
 				723AD178137EB8F80014B7DE /* iTunesArtwork */,
+				729119EE1394270F007D3699 /* test.xml */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -826,6 +857,19 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		729DB32813941E80004AFAB9 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				729DB33013942212004AFAB9 /* KBItemStack.h */,
+				729DB33113942212004AFAB9 /* KBItemStack.m */,
+				729DB32A13941EB5004AFAB9 /* KBItem.h */,
+				729DB32B13941EB5004AFAB9 /* KBItem.m */,
+				729DB32D139420BF004AFAB9 /* KBInventory.h */,
+				729DB32E139420BF004AFAB9 /* KBInventory.m */,
+			);
+			name = Items;
+			sourceTree = "<group>";
+		};
 		72AF3CC2138ED65700B77A75 /* Events & Scripting */ = {
 			isa = PBXGroup;
 			children = (
@@ -877,6 +921,9 @@
 /* Begin PBXProject section */
 		723AD148137EB8F80014B7DE /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 723AD14B137EB8F80014B7DE /* Build configuration list for PBXProject "HarvestMoon" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -920,6 +967,13 @@
 				7249E714139037EF0010CD97 /* DPad_Button_Pressed.png in Resources */,
 				7249E715139037EF0010CD97 /* DPad_Button.png in Resources */,
 				729A4F84139271490070C0E9 /* farm.png in Resources */,
+				729DB3371394243B004AFAB9 /* bag.png in Resources */,
+				729DB3381394243B004AFAB9 /* hoe.png in Resources */,
+				729DB3391394243B004AFAB9 /* inventory_background.png in Resources */,
+				729DB33A1394243B004AFAB9 /* seed.png in Resources */,
+				729DB33D13942534004AFAB9 /* can.png in Resources */,
+				729DB33E13942534004AFAB9 /* flower_red.png in Resources */,
+				729119EF1394270F007D3699 /* test.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,6 +1094,9 @@
 				7249E6FF139019350010CD97 /* KBShowMessageEvent.m in Sources */,
 				7249E70213901A990010CD97 /* KBMessageBox.m in Sources */,
 				7249E70E139030F60010CD97 /* KBInteractionHandler.m in Sources */,
+				729DB32C13941EB5004AFAB9 /* KBItem.m in Sources */,
+				729DB32F139420BF004AFAB9 /* KBInventory.m in Sources */,
+				729DB33213942212004AFAB9 /* KBItemStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1059,6 +1116,7 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -1074,6 +1132,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -1091,9 +1150,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HarvestMoon/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = HarvestMoon/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_LDFLAGS = "-lz";
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lxml2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -1108,9 +1171,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HarvestMoon/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = HarvestMoon/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_LDFLAGS = "-lz";
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lxml2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
