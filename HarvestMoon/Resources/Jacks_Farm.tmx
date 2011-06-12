@@ -50,8 +50,8 @@
   <object name="JumpIntoHouseEvent" x="160" y="176" width="48" height="80">
    <properties>
     <property name="MapName" value="Jacks_House"/>
-    <property name="PositionX" value="14"/>
-    <property name="PositionY" value="1"/>
+    <property name="PositionX" value="16"/>
+    <property name="PositionY" value="2"/>
     <property name="ScriptingId" value="0002"/>
    </properties>
   </object>

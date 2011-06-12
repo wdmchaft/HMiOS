@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "cocos2d.h"
 #import "GameConfig.h"
-#import "KBGameLayer.h"
+#import "KBMainMenuScene.h"
 #import "RootViewController.h"
 #import "KBStoryController.h"
+#import "KBConfigurationManager.h"
 
 @class RootViewController;
 

@@ -17,7 +17,7 @@
     if (self) {
         self.isTouchEnabled = YES;
         
-        if (kUseDPad) {
+        if ([((NSNumber*)[[KBConfigurationManager sharedManager].configuration objectForKey:kUseDPad]) integerValue]) {
             [self initializeDPad];
         }
     }
@@ -62,7 +62,7 @@
 - (BOOL) ccTouchBegan:(UITouch *) touch withEvent:(UIEvent *) event
 {
     
-    if (kUseDPad) {
+    if ([((NSNumber*)[[KBConfigurationManager sharedManager].configuration objectForKey:kUseDPad]) integerValue]) {
         if ([self hasDPadGotTouched:touch]) 
         {
             [self.delegate shouldBeginMovingPlayerToSide:[self calculateWhereToWalkWithUITouch:touch]];
@@ -98,7 +98,7 @@
 
 -(Side) calculateWhereToWalkWithUITouch:(UITouch *)touch
 {
-    if (kUseDPad) {
+    if ([((NSNumber*)[[KBConfigurationManager sharedManager].configuration objectForKey:kUseDPad]) integerValue]) {
         if(CGRectContainsPoint(buttonLeft.textureRect, [buttonLeft convertTouchToNodeSpace:touch]))
             return Left;
         if(CGRectContainsPoint(buttonRight.textureRect, [buttonRight convertTouchToNodeSpace:touch]))
@@ -148,7 +148,7 @@
 
 - (void) ccTouchMoved:(UITouch *) touch withEvent:(UIEvent *) event
 {
-    if (kUseDPad) {
+    if ([((NSNumber*)[[KBConfigurationManager sharedManager].configuration objectForKey:kUseDPad]) integerValue]) {
         if ([self hasDPadGotTouched:touch]) 
         {
             [self.delegate shouldBeginMovingPlayerToSide:[self calculateWhereToWalkWithUITouch:touch]];
@@ -170,7 +170,7 @@
 
 - (void) ccTouchEnded:(UITouch *) touch withEvent:(UIEvent *) event
 {
-    if (kUseDPad) {
+    if ([((NSNumber*)[[KBConfigurationManager sharedManager].configuration objectForKey:kUseDPad]) integerValue]) {
         if ([self hasDPadGotTouched:touch]) 
         {
             [self.delegate shouldStopPlayerMovement];

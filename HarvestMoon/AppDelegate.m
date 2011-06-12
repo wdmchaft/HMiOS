@@ -125,17 +125,20 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [KBGameLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: [KBMainMenuScene scene]];
 }
 
 - (void) applicationWillResignActive:(UIApplication *) application 
 {
+    [[KBConfigurationManager sharedManager] saveConfiguration];
     [[KBStoryController sharedController] saveGameState];
 	[[CCDirector sharedDirector] pause];
 }
 
 - (void) applicationDidBecomeActive:(UIApplication *) application 
 {
+    [[KBConfigurationManager sharedManager] readConfiguration];
+    [[KBStoryController sharedController] readFromNSUserDefaults];
 	[[CCDirector sharedDirector] resume];
 }
 

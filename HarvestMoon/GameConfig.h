@@ -23,11 +23,9 @@ typedef enum {
 #pragma mark -
 #pragma mark General Game Constants
 
+#define kGameConfiguration @"GameConfiguration"
+
 #define kApplicationWillTerminateNotification @"AppWillTerminate"
-
-#define kDevelopmentMode 0
-
-#define kUseDPad 1
 
 #pragma mark -
 #pragma mark Tilemap Constants

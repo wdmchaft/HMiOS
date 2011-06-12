@@ -11,6 +11,7 @@
 #import "KBInteractionHandlerDelegate.h"
 #import "KBInteractionHandler.h"
 #import "GameConfig.h"
+#import "KBConfigurationManager.h"
 
 @interface KBInteractionHandler : CCLayer {
     id<KBInteractionHandlerDelegate> _delegate;

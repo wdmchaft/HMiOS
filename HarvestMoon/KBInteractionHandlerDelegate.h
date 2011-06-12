@@ -10,9 +10,15 @@
 #import "GameConfig.h"
 
 @protocol KBInteractionHandlerDelegate <NSObject>
+
+
+
 @required
+-(void)touchedAtScreenCoordinate:(CGPoint)screenCoordinate;
+
+@optional
 -(void)shouldBeginMovingPlayerToSide:(Side)side;
 -(void)shouldChangePlayerMovementToSide:(Side)side;
 -(void)shouldStopPlayerMovement;
--(void)touchedAtScreenCoordinate:(CGPoint)screenCoordinate;
+
 @end

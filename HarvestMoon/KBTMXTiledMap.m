@@ -37,7 +37,7 @@
         self.items = [self layerNamed:kItemsLayer];
         
         
-        if(kDevelopmentMode == NO)
+        if([[KBConfigurationManager sharedManager] intForKey:kDevelopmentMode] == NO)
             [self.meta setVisible:NO];
         
     }

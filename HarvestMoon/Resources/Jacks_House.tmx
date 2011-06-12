@@ -121,7 +121,7 @@
    <properties>
     <property name="MapName" value="Jacks_Farm"/>
     <property name="PositionX" value="12"/>
-    <property name="PositionY" value="33"/>
+    <property name="PositionY" value="34"/>
     <property name="ScriptingId" value="0002"/>
    </properties>
   </object>
