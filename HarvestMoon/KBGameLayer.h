@@ -17,7 +17,7 @@
 #import "KBStoryController.h"
 #import "KBSEventFactory.h"
 #import "KBInteractionHandler.h"
-#import "KBInteractionHandler.h"
+#import "KBGameMenuLayer.h"
 
 // HelloWorldLayer
 @interface KBGameLayer : CCLayer <KBInteractionHandlerDelegate>

@@ -28,6 +28,8 @@
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
+    KBGameMenuLayer* menu = [KBGameMenuLayer node];
+    
 	// 'layer' is an autorelease object.
 	KBGameLayer *layer = [KBGameLayer node];
 	
@@ -36,8 +38,11 @@
     touchHandler.delegate = layer;
     
 	// add layer as a child to scene
-	[scene addChild: layer];
+	
+    
+    [scene addChild:layer];
     [scene addChild:touchHandler];
+    [scene addChild:menu];
 	
 	// return the scene
 	return scene;
