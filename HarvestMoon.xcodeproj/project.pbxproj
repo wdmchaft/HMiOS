@@ -499,10 +499,8 @@
 		7208C974138905BB001B8F92 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				7249E710139037EF0010CD97 /* DPad_Background.png */,
-				7249E711139037EF0010CD97 /* DPad_Button_Pressed.png */,
-				7249E712139037EF0010CD97 /* DPad_Button.png */,
-				7249E70513901FF50010CD97 /* message_background.png */,
+				723BCDB113A6945200D395BE /* Menu */,
+				723BCDB013A6943600D395BE /* Items */,
 				7208C976138905E7001B8F92 /* Characters */,
 				7208C975138905C8001B8F92 /* Tilesets */,
 			);
@@ -562,27 +560,12 @@
 		723AD165137EB8F80014B7DE /* HarvestMoon */ = {
 			isa = PBXGroup;
 			children = (
+				723BCDAF13A6941500D395BE /* InGame */,
 				723BCDAC13A6921300D395BE /* Core */,
 				7249E7071390242A0010CD97 /* Menu */,
 				72AF3CC3138ED68200B77A75 /* Map-Handling */,
 				72AF3CC2138ED65700B77A75 /* Events & Scripting */,
 				729DB32813941E80004AFAB9 /* Items */,
-				723AD2B1137EB8FC0014B7DE /* AppDelegate.h */,
-				723AD2B2137EB8FC0014B7DE /* AppDelegate.m */,
-				723AD2B4137EB8FC0014B7DE /* RootViewController.h */,
-				723AD2B5137EB8FC0014B7DE /* RootViewController.m */,
-				726C6CAF138954940047B503 /* KBStoryController.h */,
-				726C6CB0138954940047B503 /* KBStoryController.m */,
-				723AD2B7137EB8FC0014B7DE /* KBGameLayer.h */,
-				723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */,
-				7249E70F1390312F0010CD97 /* KBInteractionHandlerDelegate.h */,
-				7249E70C139030F40010CD97 /* KBInteractionHandler.h */,
-				7249E70D139030F50010CD97 /* KBInteractionHandler.m */,
-				723AD2BA137EB8FC0014B7DE /* GameConfig.h */,
-				72C13E06137EC42300DFD227 /* KBPlayer.h */,
-				72C13E07137EC42300DFD227 /* KBPlayer.m */,
-				722F192513802BC300ECC33E /* KBStandardGameController.h */,
-				722F192613802BC300ECC33E /* KBStandardGameController.m */,
 				723AD166137EB8F80014B7DE /* Resources */,
 				723AD17A137EB8F80014B7DE /* cocos2d */,
 				723AD26B137EB8FB0014B7DE /* CocosDenshion */,
@@ -597,15 +580,8 @@
 		723AD166137EB8F80014B7DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				723BCD9813A6920300D395BE /* can.plist */,
-				723BCDAD13A6936800D395BE /* can_big.png */,
-				729DB33B13942534004AFAB9 /* can.png */,
-				729DB33C13942534004AFAB9 /* flower_red.png */,
-				729DB3331394243B004AFAB9 /* bag.png */,
-				729DB3341394243B004AFAB9 /* hoe.png */,
-				729DB3351394243B004AFAB9 /* inventory_background.png */,
-				729DB3361394243B004AFAB9 /* seed.png */,
 				7249E70313901BAE0010CD97 /* Localizable.strings */,
+				723BCDB213A6946700D395BE /* Item Definitions */,
 				7208C974138905BB001B8F92 /* Graphics */,
 				7208C973138905AE001B8F92 /* Maps */,
 				723AD167137EB8F80014B7DE /* Default.png */,
@@ -875,12 +851,68 @@
 		723BCDAC13A6921300D395BE /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				723AD2BA137EB8FC0014B7DE /* GameConfig.h */,
+				723AD2B1137EB8FC0014B7DE /* AppDelegate.h */,
+				723AD2B2137EB8FC0014B7DE /* AppDelegate.m */,
+				723AD2B4137EB8FC0014B7DE /* RootViewController.h */,
+				723AD2B5137EB8FC0014B7DE /* RootViewController.m */,
+				726C6CAF138954940047B503 /* KBStoryController.h */,
+				726C6CB0138954940047B503 /* KBStoryController.m */,
+				722F192513802BC300ECC33E /* KBStandardGameController.h */,
+				722F192613802BC300ECC33E /* KBStandardGameController.m */,
 				723BCD9913A6920300D395BE /* KBConfigurationManager.h */,
 				723BCD9A13A6920300D395BE /* KBConfigurationManager.m */,
 				723BCDA113A6920300D395BE /* KBPlistManager.h */,
 				723BCDA213A6920300D395BE /* KBPlistManager.m */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		723BCDAF13A6941500D395BE /* InGame */ = {
+			isa = PBXGroup;
+			children = (
+				723AD2B7137EB8FC0014B7DE /* KBGameLayer.h */,
+				723AD2B8137EB8FC0014B7DE /* KBGameLayer.m */,
+				7249E70F1390312F0010CD97 /* KBInteractionHandlerDelegate.h */,
+				7249E70C139030F40010CD97 /* KBInteractionHandler.h */,
+				7249E70D139030F50010CD97 /* KBInteractionHandler.m */,
+				72C13E06137EC42300DFD227 /* KBPlayer.h */,
+				72C13E07137EC42300DFD227 /* KBPlayer.m */,
+			);
+			name = InGame;
+			sourceTree = "<group>";
+		};
+		723BCDB013A6943600D395BE /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				723BCDAD13A6936800D395BE /* can_big.png */,
+				729DB33B13942534004AFAB9 /* can.png */,
+				729DB33C13942534004AFAB9 /* flower_red.png */,
+				729DB3331394243B004AFAB9 /* bag.png */,
+				729DB3341394243B004AFAB9 /* hoe.png */,
+				729DB3361394243B004AFAB9 /* seed.png */,
+			);
+			name = Items;
+			sourceTree = "<group>";
+		};
+		723BCDB113A6945200D395BE /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				7249E710139037EF0010CD97 /* DPad_Background.png */,
+				7249E711139037EF0010CD97 /* DPad_Button_Pressed.png */,
+				7249E712139037EF0010CD97 /* DPad_Button.png */,
+				7249E70513901FF50010CD97 /* message_background.png */,
+				729DB3351394243B004AFAB9 /* inventory_background.png */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		723BCDB213A6946700D395BE /* Item Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				723BCD9813A6920300D395BE /* can.plist */,
+			);
+			name = "Item Definitions";
 			sourceTree = "<group>";
 		};
 		7249E7071390242A0010CD97 /* Menu */ = {
