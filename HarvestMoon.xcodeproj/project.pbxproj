@@ -135,6 +135,7 @@
 		723BCDA913A6920300D395BE /* KBOptionsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 723BCDA013A6920300D395BE /* KBOptionsScreen.m */; };
 		723BCDAA13A6920300D395BE /* KBPlistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 723BCDA213A6920300D395BE /* KBPlistManager.m */; };
 		723BCDAB13A6920300D395BE /* KBToolItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 723BCDA413A6920300D395BE /* KBToolItem.m */; };
+		723BCDAE13A6936800D395BE /* can_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 723BCDAD13A6936800D395BE /* can_big.png */; };
 		7249E6FF139019350010CD97 /* KBShowMessageEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249E6FE139019350010CD97 /* KBShowMessageEvent.m */; };
 		7249E70213901A990010CD97 /* KBMessageBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249E70113901A990010CD97 /* KBMessageBox.m */; };
 		7249E70413901BAE0010CD97 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7249E70313901BAE0010CD97 /* Localizable.strings */; };
@@ -420,6 +421,7 @@
 		723BCDA213A6920300D395BE /* KBPlistManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBPlistManager.m; sourceTree = "<group>"; };
 		723BCDA313A6920300D395BE /* KBToolItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBToolItem.h; sourceTree = "<group>"; };
 		723BCDA413A6920300D395BE /* KBToolItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBToolItem.m; sourceTree = "<group>"; };
+		723BCDAD13A6936800D395BE /* can_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = can_big.png; sourceTree = "<group>"; };
 		7249E6FD139019350010CD97 /* KBShowMessageEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBShowMessageEvent.h; sourceTree = "<group>"; };
 		7249E6FE139019350010CD97 /* KBShowMessageEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBShowMessageEvent.m; sourceTree = "<group>"; };
 		7249E70013901A990010CD97 /* KBMessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBMessageBox.h; sourceTree = "<group>"; };
@@ -598,6 +600,7 @@
 			isa = PBXGroup;
 			children = (
 				723BCD9813A6920300D395BE /* can.plist */,
+				723BCDAD13A6936800D395BE /* can_big.png */,
 				729DB33B13942534004AFAB9 /* can.png */,
 				729DB33C13942534004AFAB9 /* flower_red.png */,
 				729DB3331394243B004AFAB9 /* bag.png */,
@@ -1017,6 +1020,7 @@
 				729DB33D13942534004AFAB9 /* can.png in Resources */,
 				729DB33E13942534004AFAB9 /* flower_red.png in Resources */,
 				723BCDA513A6920300D395BE /* can.plist in Resources */,
+				723BCDAE13A6936800D395BE /* can_big.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

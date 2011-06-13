@@ -8,6 +8,9 @@
 
 #import "KBItem.h"
 
+#define kName @"Name"
+#define kSmallIcon @"SmallIcon"
+#define kBigIcon @"BigIcon"
 
 @implementation KBItem
 @synthesize name = _name;
@@ -19,8 +22,15 @@
 {
     self = [super init];
     if (self) {
+        NSDictionary* dict = [KBPlistManager readPlistAsDictionary:fileName];
         
+        self.name = [dict objectForKey:kName];
+        
+        self.smallSprite = [CCSprite spriteWithFile:[dict objectForKey:kSmallIcon]];
+        self.bigSprite = [CCSprite spriteWithFile:[dict objectForKey:kBigIcon]];
         
     }
+    
+    return self;
 }
 @end

@@ -6,7 +6,9 @@
 	<string>Tool</string>
 	<key>Name</key>
 	<string>Can</string>
-	<key>InventoryImage</key>
+	<key>SmallIcon</key>
 	<string>can.png</string>
+	<key>BigIcon</key>
+	<string>can_big.png</string>
 </dict>
 </plist>
