@@ -15,6 +15,7 @@
 @synthesize toolMenuOpened = _toolMenuOpened;
 @synthesize currentlyTouchingItemMenu = _currentlyTouchingItemMenu;
 @synthesize currentlyTouchingToolMenu = _currentlyTouchingToolMenu;
+@synthesize scalingAction = _scalingAction;
 
 - (id)init
 {
@@ -43,6 +44,7 @@
         [self addChild:self.itemBackground];
         [self addChild:self.toolBackground];
         
+        self.scalingAction = [CCScaleBy actionWithDuration:0.3 scale:2.5];
         
     }
     
@@ -83,7 +85,9 @@
         for (KBItemStack* itemStack in self.inventory.itemStacks) {
             CCSprite* sprte = [itemStack.itemType smallSprite];
             
-            [self removeChild:sprte cleanup:YES];
+            [sprte runAction:[self.scalingAction reverse]];
+            
+            [self schedule:@selector(removeSprites) interval:0.3];
         }
         
     }
@@ -98,6 +102,18 @@
     
 }
 
+-(void)removeSprites
+{
+    [self unschedule:@selector(removeSprites)];
+    for (KBItemStack* itemStack in self.inventory.itemStacks) {
+        CCSprite* sprte = [itemStack.itemType smallSprite];
+        
+        [self removeChild:sprte cleanup:YES];
+        
+    }
+}
+
+
 -(void)showFullMenu
 {
     [self unschedule:@selector(showFullMenu)];
@@ -110,7 +126,7 @@
     for (KBItemStack* itemStack in self.inventory.itemStacks) {
         CCSprite* sprte = [itemStack.itemType smallSprite];
         
-        [sprte runAction:[CCScaleBy actionWithDuration:0.3 scale:2.5]];
+        [sprte runAction:self.scalingAction];
         
         sprte.position = ccp(30,yPos * i);
         i++;

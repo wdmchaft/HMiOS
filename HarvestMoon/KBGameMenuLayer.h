@@ -22,7 +22,11 @@
     CCSprite* _itemBackground;
     CCSprite* _toolBackground;
     
+    CCScaleBy* _scalingAction;
+    
 }
+
+@property(nonatomic,retain) CCScaleBy* scalingAction;
 
 @property(nonatomic,retain) CCSprite* itemBackground;
 @property(nonatomic,retain) CCSprite* toolBackground;
