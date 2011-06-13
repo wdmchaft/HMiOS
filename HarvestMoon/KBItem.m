@@ -10,5 +10,13 @@
 
 
 @implementation KBItem
+@synthesize name = _name;
+@synthesize smallSprite = _smallSprite;
+@synthesize bigSprite = _bigSprite;
 
+
+-(id)initWithDefinitionFile:(NSString*)fileName
+{
+    
+}
 @end

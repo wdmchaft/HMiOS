@@ -7,10 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "cocos2d.h"
 
 @interface KBItem : NSObject {
+    NSString* _name;
+    CCSprite* _smallSprite;
+    CCSprite* _bigSprite;
     
 }
+
+@property(nonatomic,retain)NSString*name;
+@property(nonatomic,retain)CCSprite*smallSprite;
+@property(nonatomic,retain)CCSprite*bigSprite;
+
+
+-(id)initWithDefinitionFile:(NSString*)fileName;
 
 @end

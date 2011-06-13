@@ -141,7 +141,6 @@
 		727F1AFE13881402005C2D78 /* jack_walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 727F1AFD13881402005C2D78 /* jack_walking.png */; };
 		727F1B0013881457005C2D78 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 727F1AFF13881457005C2D78 /* house.png */; };
 		727F1B0213881467005C2D78 /* Jacks_House.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 727F1B0113881467005C2D78 /* Jacks_House.tmx */; };
-		729119EF1394270F007D3699 /* test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 729119EE1394270F007D3699 /* test.xml */; };
 		729A4F84139271490070C0E9 /* farm.png in Resources */ = {isa = PBXBuildFile; fileRef = 729A4F83139271490070C0E9 /* farm.png */; };
 		729DB32C13941EB5004AFAB9 /* KBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 729DB32B13941EB5004AFAB9 /* KBItem.m */; };
 		729DB32F139420BF004AFAB9 /* KBInventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 729DB32E139420BF004AFAB9 /* KBInventory.m */; };
@@ -421,7 +420,6 @@
 		727F1AFD13881402005C2D78 /* jack_walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jack_walking.png; path = Resources/jack_walking.png; sourceTree = "<group>"; };
 		727F1AFF13881457005C2D78 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = house.png; path = Resources/house.png; sourceTree = "<group>"; };
 		727F1B0113881467005C2D78 /* Jacks_House.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Jacks_House.tmx; path = Resources/Jacks_House.tmx; sourceTree = "<group>"; };
-		729119EE1394270F007D3699 /* test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.xml; sourceTree = "<group>"; };
 		729A4F83139271490070C0E9 /* farm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = farm.png; path = Resources/farm.png; sourceTree = "<group>"; };
 		729DB32A13941EB5004AFAB9 /* KBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBItem.h; sourceTree = "<group>"; };
 		729DB32B13941EB5004AFAB9 /* KBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBItem.m; sourceTree = "<group>"; };
@@ -595,7 +593,6 @@
 				723AD175137EB8F80014B7DE /* Icon@2x.png */,
 				723AD177137EB8F80014B7DE /* Info.plist */,
 				723AD178137EB8F80014B7DE /* iTunesArtwork */,
-				729119EE1394270F007D3699 /* test.xml */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -978,7 +975,6 @@
 				729DB33A1394243B004AFAB9 /* seed.png in Resources */,
 				729DB33D13942534004AFAB9 /* can.png in Resources */,
 				729DB33E13942534004AFAB9 /* flower_red.png in Resources */,
-				729119EF1394270F007D3699 /* test.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
