@@ -563,8 +563,6 @@
 			isa = PBXGroup;
 			children = (
 				723BCDAC13A6921300D395BE /* Core */,
-				723BCDA313A6920300D395BE /* KBToolItem.h */,
-				723BCDA413A6920300D395BE /* KBToolItem.m */,
 				7249E7071390242A0010CD97 /* Menu */,
 				72AF3CC3138ED68200B77A75 /* Map-Handling */,
 				72AF3CC2138ED65700B77A75 /* Events & Scripting */,
@@ -904,6 +902,8 @@
 		729DB32813941E80004AFAB9 /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				723BCDA313A6920300D395BE /* KBToolItem.h */,
+				723BCDA413A6920300D395BE /* KBToolItem.m */,
 				729DB33013942212004AFAB9 /* KBItemStack.h */,
 				729DB33113942212004AFAB9 /* KBItemStack.m */,
 				729DB32A13941EB5004AFAB9 /* KBItem.h */,
