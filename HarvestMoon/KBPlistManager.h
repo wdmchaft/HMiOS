@@ -10,7 +10,6 @@
 
 @interface KBPlistManager : NSObject
 
-+ (id)readPlist:(NSString*)fileName;
 + (NSArray*)readPlistAsArray:(NSString*)fileName;
 + (NSDictionary*)readPlistAsDictionary:(NSString*)fileName;
 
