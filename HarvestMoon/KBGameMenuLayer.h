@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "KBStandardGameController.h"
+#import "KBInventory.h"
 
 @interface KBGameMenuLayer : CCLayer
 {
@@ -19,14 +21,18 @@
     
     CCSprite* _itemBackground;
     CCSprite* _toolBackground;
+    
 }
 
 @property(nonatomic,retain) CCSprite* itemBackground;
 @property(nonatomic,retain) CCSprite* toolBackground;
+
 @property(nonatomic) BOOL itemMenuOpened;
 @property(nonatomic) BOOL toolMenuOpened;
 
 @property(nonatomic) BOOL currentlyTouchingItemMenu;
 @property(nonatomic) BOOL currentlyTouchingToolMenu;
+
+-(KBInventory*)inventory;
 
 @end

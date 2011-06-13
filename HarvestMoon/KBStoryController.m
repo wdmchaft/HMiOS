@@ -86,7 +86,9 @@ static KBStoryController* _sharedSingleton;
     
     KBInventory* inv = [[KBInventory alloc] init];
     
+    KBItem* item = [[KBItem alloc] initWithDefinitionFile:@"can"];
     
+    [inv addItem:item];
     
     [[[KBConfigurationManager sharedManager] configuration] setObject:inv forKey:kInventory];    
     

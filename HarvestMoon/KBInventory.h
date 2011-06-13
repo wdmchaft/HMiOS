@@ -12,14 +12,19 @@
 
 @interface KBInventory : NSObject {
     NSMutableArray* _itemStacks;
+    
+    KBItemStack* _selectedItemStack;
+    
 }
 
 @property (nonatomic, retain) NSMutableArray* itemStacks;
+@property (nonatomic,retain) KBItemStack* selectedItemStack;
 
 -(id)init;
 
 -(void)addItem:(KBItem*)item;
 -(void)removeItem:(KBItem*)item;
 
+-(void)selectItem:(KBItem*)item;
 
 @end

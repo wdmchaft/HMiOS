@@ -29,6 +29,9 @@
         self.smallSprite = [CCSprite spriteWithFile:[dict objectForKey:kSmallIcon]];
         self.bigSprite = [CCSprite spriteWithFile:[dict objectForKey:kBigIcon]];
         
+        
+        NSLog(@"created Item with parameters: %@", dict);
+        
     }
     
     return self;

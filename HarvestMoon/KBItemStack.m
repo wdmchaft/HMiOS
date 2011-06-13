@@ -14,4 +14,13 @@
 @synthesize itemType = _itemType;
 @synthesize itemCount = _itemCount;
 
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 @end

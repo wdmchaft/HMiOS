@@ -16,7 +16,6 @@
 @synthesize currentlyTouchingItemMenu = _currentlyTouchingItemMenu;
 @synthesize currentlyTouchingToolMenu = _currentlyTouchingToolMenu;
 
-
 - (id)init
 {
     self = [super init];
@@ -43,6 +42,8 @@
         
         [self addChild:self.itemBackground];
         [self addChild:self.toolBackground];
+        
+        
     }
     
     return self;
@@ -77,6 +78,14 @@
     if (true/*ganzes Menü aufgeklappt*/) {
         //Touch auf item -> neues item "in die hand nehmen"
         //Touch ausserhalb des menüs -> menü schliessen, nichts machen
+        
+        
+        for (KBItemStack* itemStack in self.inventory.itemStacks) {
+            CCSprite* sprte = [itemStack.itemType smallSprite];
+            
+            [self removeChild:sprte cleanup:YES];
+        }
+        
     }
     else
     {
@@ -94,8 +103,26 @@
     [self unschedule:@selector(showFullMenu)];
     
     NSLog(@"HOLY CRAP");
+    
+    
+    int yPos = 40;
+    int i = 1;
+    for (KBItemStack* itemStack in self.inventory.itemStacks) {
+        CCSprite* sprte = [itemStack.itemType smallSprite];
+        
+        [sprte runAction:[CCScaleBy actionWithDuration:0.3 scale:2.5]];
+        
+        sprte.position = ccp(30,yPos * i);
+        i++;
+        [self addChild:sprte];
+    }
+    
     // TODO : ausklappen des item oder tool menüs
 }
 
+-(KBInventory*)inventory
+{
+    return [[[KBStandardGameController sharedController] player] inventory];
+}
 
 @end

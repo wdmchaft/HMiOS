@@ -7,6 +7,9 @@
 //
 
 #import "KBStandardGameController.h"
+#import "KBPlayer.h"
+#import "KBGameLayer.h"
+
 
 @implementation KBStandardGameController
 

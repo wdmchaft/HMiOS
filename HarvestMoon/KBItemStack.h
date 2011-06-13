@@ -13,6 +13,7 @@
     KBItem* _itemType;
     int _itemCount;
 }
+-(id)init;
 
 @property (nonatomic, retain) KBItem* itemType;
 @property (nonatomic) int itemCount;
