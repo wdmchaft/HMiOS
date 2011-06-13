@@ -14,8 +14,13 @@
     
 }
 
+@property(nonatomic) int toolboxHeightInObjects;
+@property(nonatomic) int toolboxWidthInObjects;
+@property(nonatomic) int toolboxOuterSpacing;
+@property(nonatomic) int toolboxInnerSpacing;
+
 -(id)initWithObject:(NSDictionary *)object;
 -(RunOnEvent) runsOnEvent;
--(void)run;
+-(void) run;
 
 @end
