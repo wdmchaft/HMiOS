@@ -80,6 +80,11 @@ static KBConfigurationManager* _sharedSingleton;
     return [((NSNumber*)[self.configuration objectForKey:key]) doubleValue];
 }
 
+- (NSString*)stringForKey:(NSString*)key
+{
+    return [((NSString*)[self.configuration objectForKey:key]);
+}
+
 - (void)setInt:(int)value forKey:(NSString*)key
 {
     [self.configuration setValue:[NSNumber numberWithInt:value] forKey:key];

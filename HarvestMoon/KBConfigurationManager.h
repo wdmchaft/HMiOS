@@ -17,6 +17,10 @@
 
 #define kDevelopmentMode @"kUseDevelopmentMode"
 
+#define kLastSavedPlayerPosition @"LastSavedPlayerPosition" 
+
+#define kCurrentMapName @"CurrentMapName"
+
 #endif
 
 @interface KBConfigurationManager : NSObject
@@ -34,7 +38,7 @@
 #pragma mark Convencience Methods
 
 - (int)intForKey:(NSString*)key;
-
+- (NSString*)stringForKey:(NSString*)key;
 - (double)doubleForKey:(NSString*)key;
 - (void)setInt:(int)value forKey:(NSString*)key;
 @end

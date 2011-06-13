@@ -138,7 +138,7 @@
 - (void) applicationDidBecomeActive:(UIApplication *) application 
 {
     [[KBConfigurationManager sharedManager] readConfiguration];
-    [[KBStoryController sharedController] readFromNSUserDefaults];
+    [[KBStoryController sharedController] loadGameState];
 	[[CCDirector sharedDirector] resume];
 }
 

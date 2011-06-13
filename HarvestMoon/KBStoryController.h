@@ -43,7 +43,7 @@
 
 - (void) saveGameState;
 
-- (void) readFromNSUserDefaults;
+- (void) loadGameState;
 
 - (void) updateValues;
 

@@ -10,13 +10,7 @@
 #import "KBGameLayer.h"
 #import "KBStandardGameController.h"
 #import "KBPlayer.h"
-
-#pragma mark -
-#pragma mark Encoding Name Definitions
-
-#define kLastSavedPlayerPosition @"LastSavedPlayerPosition" 
-
-#define kCurrentMapName @"CurrentMapName"
+#import "KBConfigurationManager.h"
 
 @implementation KBStoryController
 
@@ -57,7 +51,7 @@ static KBStoryController* _sharedSingleton;
         
         self.currentMapName = kJacksHouseMap;
         
-        [self readFromNSUserDefaults];
+        [self loadGameState];
         
     }
     return self;
@@ -73,30 +67,26 @@ static KBStoryController* _sharedSingleton;
     
     self.lastSavedPlayerPosition = [player position];
     self.currentMapName = gl.map.mapName;
-    
-    
-    
 }
 
 - (void)saveGameState
 {
     [self updateValues];
-    [[NSUserDefaults standardUserDefaults] setObject:NSStringFromCGPoint(self.lastSavedPlayerPosition) 
-                                              forKey:kLastSavedPlayerPosition];
     
-    [[NSUserDefaults standardUserDefaults] setObject:self.currentMapName forKey:kCurrentMapName];
+    [[[KBConfigurationManager sharedManager] configuration] setObject:NSStringFromCGPoint([[KBStandardGameController sharedController] player].position) forKey:kLastSavedPlayerPosition];
     
+    [[[KBConfigurationManager sharedManager] configuration] setObject:[[KBStandardGameController sharedController] gameLayer].map.mapName forKey:kCurrentMapName];
 }
 
-- (void) readFromNSUserDefaults
+- (void) loadGameState
 {
-    if([[NSUserDefaults standardUserDefaults] stringForKey:kLastSavedPlayerPosition] != nil)
-        self.lastSavedPlayerPosition = 
-            CGPointFromString([[NSUserDefaults standardUserDefaults] stringForKey:kLastSavedPlayerPosition]);
+    if ([[KBConfigurationManager sharedManager] stringForKey:kLastSavedPlayerPosition] != nil) {
+        [[KBStandardGameController sharedController] player].position = CGPointFromString([[KBConfigurationManager sharedManager] stringForKey:kLastSavedPlayerPosition]);
+    }
     
-    if([[NSUserDefaults standardUserDefaults] stringForKey:kCurrentMapName] != nil)
-        self.currentMapName = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentMapName];
-    
+    if ([[KBConfigurationManager sharedManager] stringForKey:kCurrentMapName] != nil) {
+        [[[KBStandardGameController sharedController] gameLayer].map initWithMapName:[[KBConfigurationManager sharedManager] stringForKey:kCurrentMapName]];
+    }
 }
 
 #pragma mark -
