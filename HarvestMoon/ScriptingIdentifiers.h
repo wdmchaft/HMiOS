@@ -9,6 +9,7 @@
 #define kOpenToolBox    0001
 #define kJumpToMap      0002
 #define kShowMessage    0003
+#define kOpenToolBoxBig 0004
 
 // Event Properties
 

@@ -13,7 +13,7 @@
 
 + (id<KBEvent>) eventForObject:(NSDictionary *)object
 {
-    NSLog(@"now we should create an run the event %@", object);
+    NSLog(@"now we should create and run the event %@", object);
     id<KBEvent> event = nil;
     switch ([[object valueForKey:kScriptingId] integerValue]) {
         case  kJumpToMap:
@@ -21,6 +21,12 @@
             break;
         case kShowMessage: 
             event = [[KBShowMessageEvent alloc] initWithObject:object];
+        case kOpenToolBox:
+            //event = ...
+            break;
+        case kOpenToolBoxBig:
+            event = [[KBShowToolBoxBigEvent alloc] initWithObject:object];
+            break;
         default:
             break;
     }

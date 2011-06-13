@@ -49,8 +49,6 @@
         
         _walkingSpeed = 15;
         
-        
-        
         [self addChild:self.spriteBatchNode];
         
         [self.sprite runAction:[CCScaleBy actionWithDuration:0.1f scale:1.5f]];

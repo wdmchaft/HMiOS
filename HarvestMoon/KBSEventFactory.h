@@ -12,6 +12,7 @@
 #import "KBEvent.h"
 #import "KBJumpToMapEvent.h"
 #import "KBShowMessageEvent.h"
+#import "KBShowToolBoxBigEvent.h"
 
 @interface KBSEventFactory : NSObject {
     
