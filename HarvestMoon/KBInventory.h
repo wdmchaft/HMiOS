@@ -7,14 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "KBItem.h"
+#import "KBItemStack.h"
 
 @interface KBInventory : NSObject {
-    NSArray* _itemStacks;
+    NSMutableArray* _itemStacks;
 }
 
-@property (nonatomic, retain) NSArray* itemStacks;
+@property (nonatomic, retain) NSMutableArray* itemStacks;
 
 -(id)init;
+
+-(void)addItem:(KBItem*)item;
+-(void)removeItem:(KBItem*)item;
+
 
 @end

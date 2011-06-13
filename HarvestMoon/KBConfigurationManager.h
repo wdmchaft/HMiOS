@@ -21,6 +21,8 @@
 
 #define kCurrentMapName @"CurrentMapName"
 
+#define kInventory @"Inventory"
+
 #endif
 
 @interface KBConfigurationManager : NSObject

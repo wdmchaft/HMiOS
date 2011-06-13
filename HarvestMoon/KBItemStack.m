@@ -11,6 +11,7 @@
 
 @implementation KBItemStack
 
-@synthesize items = _items;
+@synthesize itemType = _itemType;
+@synthesize itemCount = _itemCount;
 
 @end

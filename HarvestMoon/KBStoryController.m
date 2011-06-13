@@ -58,6 +58,9 @@ static KBStoryController* _sharedSingleton;
     [[[KBConfigurationManager sharedManager] configuration] setObject:NSStringFromCGPoint([[KBStandardGameController sharedController] player].position) forKey:kLastSavedPlayerPosition];
     
     [[[KBConfigurationManager sharedManager] configuration] setObject:[[KBStandardGameController sharedController] gameLayer].map.mapName forKey:kCurrentMapName];
+    
+    [[[KBConfigurationManager sharedManager] configuration] setObject:[[KBStandardGameController sharedController] player].inventory forKey:kInventory];
+    
 }
 
 - (void) loadGameState
@@ -69,6 +72,10 @@ static KBStoryController* _sharedSingleton;
     if ([[KBConfigurationManager sharedManager] stringForKey:kCurrentMapName] != nil) {
         [[[KBStandardGameController sharedController] gameLayer].map initWithMapName:[[KBConfigurationManager sharedManager] stringForKey:kCurrentMapName]];
     }
+    
+    if ([[[KBConfigurationManager sharedManager] configuration] objectForKey:kInventory] != nil) {
+        [[KBStandardGameController sharedController] player].inventory = [[[KBConfigurationManager sharedManager] configuration] objectForKey:kInventory];
+    }
 }
 
 - (void) setUpNewGame
@@ -77,6 +84,11 @@ static KBStoryController* _sharedSingleton;
     
     [[[KBConfigurationManager sharedManager] configuration] setObject:@"Jacks_House.tmx" forKey:kCurrentMapName];
     
+    KBInventory* inv = [[KBInventory alloc] init];
+    
+    
+    
+    [[[KBConfigurationManager sharedManager] configuration] setObject:inv forKey:kInventory];    
     
     [self loadGameState];
 }
