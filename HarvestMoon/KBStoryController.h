@@ -13,18 +13,7 @@
 @interface KBStoryController : NSObject
 {
 
-    CGPoint _lastSavedPlayerPosition;
-    
-    NSString* _currentMapName;
-
 }
-
-#pragma mark -
-#pragma mark Properties
-
-@property (nonatomic) CGPoint lastSavedPlayerPosition;
-
-@property (nonatomic, retain) NSString* currentMapName;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -45,7 +34,7 @@
 
 - (void) loadGameState;
 
-- (void) updateValues;
+- (void) setUpNewGame;
 
 #pragma mark -
 

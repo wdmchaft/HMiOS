@@ -58,10 +58,7 @@
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
 		
-        
-        
-        self.map = [[KBMap alloc] initWithMapName:
-                    [[KBStoryController sharedController] currentMapName]];
+        self.map = [[KBMap alloc] init];
         
         //[self.map runAction:[CCScaleBy actionWithDuration:0.1 scale:0.5f]];
         
@@ -71,9 +68,6 @@
         self.player = [[KBPlayer alloc] init];
         
         [self addChild:self.player z:1];
-        
-        self.player.position = [[KBStoryController sharedController] lastSavedPlayerPosition];
-        
         
         [[KBStandardGameController sharedController] setGameLayer:self];
         

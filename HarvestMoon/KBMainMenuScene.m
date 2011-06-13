@@ -69,12 +69,14 @@
 
 -(void)newGame
 {
-    
+    [[CCDirector sharedDirector] replaceScene:[KBGameLayer scene]];
+    [[KBStoryController sharedController] setUpNewGame];
 }
 
 -(void)continueGame
 {
     [[CCDirector sharedDirector] replaceScene:[KBGameLayer scene]];
+    [[KBStoryController sharedController] loadGameState];
 }
 
 -(void)showOptionScreen

@@ -19,9 +19,6 @@ static KBStoryController* _sharedSingleton;
 #pragma mark -
 #pragma mark Properties
 
-@synthesize lastSavedPlayerPosition = _lastSavedPlayerPosition;
-
-@synthesize currentMapName = _currentMapName;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -47,10 +44,6 @@ static KBStoryController* _sharedSingleton;
 - (id)init {
     self = [super init];
     if (self) {
-        self.lastSavedPlayerPosition = ccp(400,300);
-        
-        self.currentMapName = kJacksHouseMap;
-        
         [self loadGameState];
         
     }
@@ -60,19 +53,8 @@ static KBStoryController* _sharedSingleton;
 #pragma mark -
 #pragma mark Save Game State
 
--(void)updateValues
-{
-    KBGameLayer* gl = [[KBStandardGameController sharedController] gameLayer];
-    KBPlayer* player = [[KBStandardGameController sharedController] player];
-    
-    self.lastSavedPlayerPosition = [player position];
-    self.currentMapName = gl.map.mapName;
-}
-
 - (void)saveGameState
 {
-    [self updateValues];
-    
     [[[KBConfigurationManager sharedManager] configuration] setObject:NSStringFromCGPoint([[KBStandardGameController sharedController] player].position) forKey:kLastSavedPlayerPosition];
     
     [[[KBConfigurationManager sharedManager] configuration] setObject:[[KBStandardGameController sharedController] gameLayer].map.mapName forKey:kCurrentMapName];
@@ -87,6 +69,16 @@ static KBStoryController* _sharedSingleton;
     if ([[KBConfigurationManager sharedManager] stringForKey:kCurrentMapName] != nil) {
         [[[KBStandardGameController sharedController] gameLayer].map initWithMapName:[[KBConfigurationManager sharedManager] stringForKey:kCurrentMapName]];
     }
+}
+
+- (void) setUpNewGame
+{
+    [[[KBConfigurationManager sharedManager] configuration] setObject:NSStringFromCGPoint(ccp(200,100)) forKey:kLastSavedPlayerPosition];
+    
+    [[[KBConfigurationManager sharedManager] configuration] setObject:@"Jacks_House.tmx" forKey:kCurrentMapName];
+    
+    
+    [self loadGameState];
 }
 
 #pragma mark -

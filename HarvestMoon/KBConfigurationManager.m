@@ -62,7 +62,6 @@ static KBConfigurationManager* _sharedSingleton;
 
 - (void)saveGameState
 {
-    
     self.configuration = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] dictionaryForKey:kGameConfiguration]];
         
 }
@@ -82,7 +81,7 @@ static KBConfigurationManager* _sharedSingleton;
 
 - (NSString*)stringForKey:(NSString*)key
 {
-    return [((NSString*)[self.configuration objectForKey:key]);
+    return (NSString*)[self.configuration objectForKey:key];
 }
 
 - (void)setInt:(int)value forKey:(NSString*)key

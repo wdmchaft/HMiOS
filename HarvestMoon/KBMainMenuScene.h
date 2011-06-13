@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "KBGameLayer.h"
 #import "KBOptionsScreen.h"
+#import "KBStoryController.h"
 
 @interface KBMainMenuScene : CCLayer {
     
