@@ -17,6 +17,10 @@
 
 -(id)initWithDefinitionFile:(NSString*)fileName
 {
-    
+    self = [super init];
+    if (self) {
+        
+        
+    }
 }
 @end
