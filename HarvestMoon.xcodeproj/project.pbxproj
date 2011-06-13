@@ -140,7 +140,6 @@
 		727F1AFE13881402005C2D78 /* jack_walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 727F1AFD13881402005C2D78 /* jack_walking.png */; };
 		727F1B0013881457005C2D78 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 727F1AFF13881457005C2D78 /* house.png */; };
 		727F1B0213881467005C2D78 /* Jacks_House.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 727F1B0113881467005C2D78 /* Jacks_House.tmx */; };
-		729119EF1394270F007D3699 /* test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 729119EE1394270F007D3699 /* test.xml */; };
 		729A4F84139271490070C0E9 /* farm.png in Resources */ = {isa = PBXBuildFile; fileRef = 729A4F83139271490070C0E9 /* farm.png */; };
 		729DB32C13941EB5004AFAB9 /* KBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 729DB32B13941EB5004AFAB9 /* KBItem.m */; };
 		729DB32F139420BF004AFAB9 /* KBInventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 729DB32E139420BF004AFAB9 /* KBInventory.m */; };
@@ -154,6 +153,13 @@
 		72AF3CB8138C345900B77A75 /* KBSEventFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF3CB7138C345900B77A75 /* KBSEventFactory.m */; };
 		72AF3CBF138ED03A00B77A75 /* KBJumpToMapEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF3CBE138ED03900B77A75 /* KBJumpToMapEvent.m */; };
 		72AF3CC1138ED22C00B77A75 /* Jacks_Farm.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 72AF3CC0138ED22C00B77A75 /* Jacks_Farm.tmx */; };
+		72BEC63513A37E730034FCDB /* can.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72BEC63413A37E730034FCDB /* can.plist */; };
+		72BEC63813A37F550034FCDB /* KBToolItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BEC63713A37F550034FCDB /* KBToolItem.m */; };
+		72BEC64113A4D4290034FCDB /* KBPlistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BEC64013A4D4290034FCDB /* KBPlistManager.m */; };
+		72BEC64713A4DFE00034FCDB /* KBMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BEC64613A4DFE00034FCDB /* KBMainMenuScene.m */; };
+		72BEC64A13A4E7900034FCDB /* KBOptionsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BEC64913A4E78F0034FCDB /* KBOptionsScreen.m */; };
+		72BEC64D13A4ECB90034FCDB /* KBConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BEC64C13A4ECB90034FCDB /* KBConfigurationManager.m */; };
+		72BEC65113A616AE0034FCDB /* KBGameMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BEC65013A616AE0034FCDB /* KBGameMenuLayer.m */; };
 		72C13E08137EC42300DFD227 /* KBPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C13E07137EC42300DFD227 /* KBPlayer.m */; };
 		72FA4D55138801E100796337 /* meta.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FA4D54138801E100796337 /* meta.png */; };
 /* End PBXBuildFile section */
@@ -418,7 +424,6 @@
 		727F1AFD13881402005C2D78 /* jack_walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jack_walking.png; path = Resources/jack_walking.png; sourceTree = "<group>"; };
 		727F1AFF13881457005C2D78 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = house.png; path = Resources/house.png; sourceTree = "<group>"; };
 		727F1B0113881467005C2D78 /* Jacks_House.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Jacks_House.tmx; path = Resources/Jacks_House.tmx; sourceTree = "<group>"; };
-		729119EE1394270F007D3699 /* test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.xml; sourceTree = "<group>"; };
 		729A4F83139271490070C0E9 /* farm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = farm.png; path = Resources/farm.png; sourceTree = "<group>"; };
 		729DB32A13941EB5004AFAB9 /* KBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBItem.h; sourceTree = "<group>"; };
 		729DB32B13941EB5004AFAB9 /* KBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBItem.m; sourceTree = "<group>"; };
@@ -439,6 +444,19 @@
 		72AF3CBD138ED03900B77A75 /* KBJumpToMapEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBJumpToMapEvent.h; sourceTree = "<group>"; };
 		72AF3CBE138ED03900B77A75 /* KBJumpToMapEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBJumpToMapEvent.m; sourceTree = "<group>"; };
 		72AF3CC0138ED22C00B77A75 /* Jacks_Farm.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Jacks_Farm.tmx; path = Resources/Jacks_Farm.tmx; sourceTree = "<group>"; };
+		72BEC63413A37E730034FCDB /* can.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = can.plist; sourceTree = "<group>"; };
+		72BEC63613A37F550034FCDB /* KBToolItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBToolItem.h; sourceTree = "<group>"; };
+		72BEC63713A37F550034FCDB /* KBToolItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBToolItem.m; sourceTree = "<group>"; };
+		72BEC63F13A4D4290034FCDB /* KBPlistManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBPlistManager.h; sourceTree = "<group>"; };
+		72BEC64013A4D4290034FCDB /* KBPlistManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBPlistManager.m; sourceTree = "<group>"; };
+		72BEC64513A4DFE00034FCDB /* KBMainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBMainMenuScene.h; sourceTree = "<group>"; };
+		72BEC64613A4DFE00034FCDB /* KBMainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBMainMenuScene.m; sourceTree = "<group>"; };
+		72BEC64813A4E78F0034FCDB /* KBOptionsScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBOptionsScreen.h; sourceTree = "<group>"; };
+		72BEC64913A4E78F0034FCDB /* KBOptionsScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBOptionsScreen.m; sourceTree = "<group>"; };
+		72BEC64B13A4ECB90034FCDB /* KBConfigurationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBConfigurationManager.h; sourceTree = "<group>"; };
+		72BEC64C13A4ECB90034FCDB /* KBConfigurationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBConfigurationManager.m; sourceTree = "<group>"; };
+		72BEC64F13A616AE0034FCDB /* KBGameMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGameMenuLayer.h; sourceTree = "<group>"; };
+		72BEC65013A616AE0034FCDB /* KBGameMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGameMenuLayer.m; sourceTree = "<group>"; };
 		72C13E06137EC42300DFD227 /* KBPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBPlayer.h; sourceTree = "<group>"; };
 		72C13E07137EC42300DFD227 /* KBPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBPlayer.m; sourceTree = "<group>"; };
 		72FA4D54138801E100796337 /* meta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = meta.png; path = Resources/meta.png; sourceTree = "<group>"; };
@@ -476,6 +494,7 @@
 		7208C974138905BB001B8F92 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				729DB3351394243B004AFAB9 /* inventory_background.png */,
 				7249E710139037EF0010CD97 /* DPad_Background.png */,
 				7249E711139037EF0010CD97 /* DPad_Button_Pressed.png */,
 				7249E712139037EF0010CD97 /* DPad_Button.png */,
@@ -539,14 +558,11 @@
 		723AD165137EB8F80014B7DE /* HarvestMoon */ = {
 			isa = PBXGroup;
 			children = (
+				72BEC63E13A4D3EF0034FCDB /* Core */,
 				7249E7071390242A0010CD97 /* Menu */,
 				72AF3CC3138ED68200B77A75 /* Map-Handling */,
 				72AF3CC2138ED65700B77A75 /* Events & Scripting */,
 				729DB32813941E80004AFAB9 /* Items */,
-				723AD2B1137EB8FC0014B7DE /* AppDelegate.h */,
-				723AD2B2137EB8FC0014B7DE /* AppDelegate.m */,
-				723AD2B4137EB8FC0014B7DE /* RootViewController.h */,
-				723AD2B5137EB8FC0014B7DE /* RootViewController.m */,
 				726C6CAF138954940047B503 /* KBStoryController.h */,
 				726C6CB0138954940047B503 /* KBStoryController.m */,
 				723AD2B7137EB8FC0014B7DE /* KBGameLayer.h */,
@@ -573,12 +589,7 @@
 		723AD166137EB8F80014B7DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				729DB33B13942534004AFAB9 /* can.png */,
-				729DB33C13942534004AFAB9 /* flower_red.png */,
-				729DB3331394243B004AFAB9 /* bag.png */,
-				729DB3341394243B004AFAB9 /* hoe.png */,
-				729DB3351394243B004AFAB9 /* inventory_background.png */,
-				729DB3361394243B004AFAB9 /* seed.png */,
+				72BEC63113A37E1B0034FCDB /* Items */,
 				7249E70313901BAE0010CD97 /* Localizable.strings */,
 				7208C974138905BB001B8F92 /* Graphics */,
 				7208C973138905AE001B8F92 /* Maps */,
@@ -592,7 +603,6 @@
 				723AD175137EB8F80014B7DE /* Icon@2x.png */,
 				723AD177137EB8F80014B7DE /* Info.plist */,
 				723AD178137EB8F80014B7DE /* iTunesArtwork */,
-				729119EE1394270F007D3699 /* test.xml */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -850,9 +860,12 @@
 		7249E7071390242A0010CD97 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				72BEC64E13A615BA0034FCDB /* Main Menu */,
 				7249E70013901A990010CD97 /* KBMessageBox.h */,
 				7249E70113901A990010CD97 /* KBMessageBox.m */,
 				7249E708139024480010CD97 /* KBMessageBoxDelegate.h */,
+				72BEC64F13A616AE0034FCDB /* KBGameMenuLayer.h */,
+				72BEC65013A616AE0034FCDB /* KBGameMenuLayer.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -866,6 +879,8 @@
 				729DB32B13941EB5004AFAB9 /* KBItem.m */,
 				729DB32D139420BF004AFAB9 /* KBInventory.h */,
 				729DB32E139420BF004AFAB9 /* KBInventory.m */,
+				72BEC63613A37F550034FCDB /* KBToolItem.h */,
+				72BEC63713A37F550034FCDB /* KBToolItem.m */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -894,6 +909,61 @@
 				726C6CA913894CDE0047B503 /* KBMap.m */,
 			);
 			name = "Map-Handling";
+			sourceTree = "<group>";
+		};
+		72BEC63113A37E1B0034FCDB /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				72BEC63313A37E3D0034FCDB /* Definitions */,
+				72BEC63213A37E360034FCDB /* Images */,
+			);
+			name = Items;
+			sourceTree = "<group>";
+		};
+		72BEC63213A37E360034FCDB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				729DB33B13942534004AFAB9 /* can.png */,
+				729DB33C13942534004AFAB9 /* flower_red.png */,
+				729DB3331394243B004AFAB9 /* bag.png */,
+				729DB3341394243B004AFAB9 /* hoe.png */,
+				729DB3361394243B004AFAB9 /* seed.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		72BEC63313A37E3D0034FCDB /* Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				72BEC63413A37E730034FCDB /* can.plist */,
+			);
+			name = Definitions;
+			sourceTree = "<group>";
+		};
+		72BEC63E13A4D3EF0034FCDB /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				723AD2B1137EB8FC0014B7DE /* AppDelegate.h */,
+				723AD2B2137EB8FC0014B7DE /* AppDelegate.m */,
+				723AD2B4137EB8FC0014B7DE /* RootViewController.h */,
+				723AD2B5137EB8FC0014B7DE /* RootViewController.m */,
+				72BEC63F13A4D4290034FCDB /* KBPlistManager.h */,
+				72BEC64013A4D4290034FCDB /* KBPlistManager.m */,
+				72BEC64B13A4ECB90034FCDB /* KBConfigurationManager.h */,
+				72BEC64C13A4ECB90034FCDB /* KBConfigurationManager.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		72BEC64E13A615BA0034FCDB /* Main Menu */ = {
+			isa = PBXGroup;
+			children = (
+				72BEC64513A4DFE00034FCDB /* KBMainMenuScene.h */,
+				72BEC64613A4DFE00034FCDB /* KBMainMenuScene.m */,
+				72BEC64813A4E78F0034FCDB /* KBOptionsScreen.h */,
+				72BEC64913A4E78F0034FCDB /* KBOptionsScreen.m */,
+			);
+			name = "Main Menu";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -973,7 +1043,7 @@
 				729DB33A1394243B004AFAB9 /* seed.png in Resources */,
 				729DB33D13942534004AFAB9 /* can.png in Resources */,
 				729DB33E13942534004AFAB9 /* flower_red.png in Resources */,
-				729119EF1394270F007D3699 /* test.xml in Resources */,
+				72BEC63513A37E730034FCDB /* can.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1097,6 +1167,12 @@
 				729DB32C13941EB5004AFAB9 /* KBItem.m in Sources */,
 				729DB32F139420BF004AFAB9 /* KBInventory.m in Sources */,
 				729DB33213942212004AFAB9 /* KBItemStack.m in Sources */,
+				72BEC63813A37F550034FCDB /* KBToolItem.m in Sources */,
+				72BEC64113A4D4290034FCDB /* KBPlistManager.m in Sources */,
+				72BEC64713A4DFE00034FCDB /* KBMainMenuScene.m in Sources */,
+				72BEC64A13A4E7900034FCDB /* KBOptionsScreen.m in Sources */,
+				72BEC64D13A4ECB90034FCDB /* KBConfigurationManager.m in Sources */,
+				72BEC65113A616AE0034FCDB /* KBGameMenuLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1107,6 +1183,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1115,12 +1192,13 @@
 					"COCOS2D_DEBUG=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1128,16 +1206,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -1150,6 +1230,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HarvestMoon/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = HarvestMoon/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -1171,6 +1252,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HarvestMoon/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = HarvestMoon/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;

@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "KBItem.h"
 
 @interface KBItemStack : NSObject {
-    NSArray* _items;
+    KBItem* _itemType;
+    int _itemCount;
 }
 
-@property (nonatomic, retain) NSArray* items;
+@property (nonatomic, retain) KBItem* itemType;
+@property (nonatomic) int itemCount;
 
 @end

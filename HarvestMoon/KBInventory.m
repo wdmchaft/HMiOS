@@ -21,4 +21,44 @@
     }
     return self;
 }
+
+-(void)addItem:(KBItem*)item
+{
+    KBItemStack* stack = nil;
+    
+    for (int i = 0; i < [self.itemStacks count]; i++) {
+        if ([item isEqual:[self.itemStacks objectAtIndex:i]]) {
+            stack = [self.itemStacks objectAtIndex:i];
+        }
+    }
+    
+    if (stack != nil) {
+        stack.itemCount++;
+    }
+    else
+    {
+        KBItemStack* stack = [[KBItemStack alloc] init];
+        stack.itemType = item;
+        stack.itemCount = 1;
+    }
+}
+-(void)removeItem:(KBItem*)item
+{
+    KBItemStack* stack = nil;
+    
+    for (int i = 0; i < [self.itemStacks count]; i++) {
+        if ([item isEqual:[self.itemStacks objectAtIndex:i]]) {
+            stack = [self.itemStacks objectAtIndex:i];
+        }
+    }
+    
+    if (stack != nil) {
+        stack.itemCount--;
+        if (stack.itemCount <= 0) {
+            [self.itemStacks removeObject:stack];
+        }
+        
+    }
+}
+
 @end
