@@ -90,6 +90,10 @@ static KBStoryController* _sharedSingleton;
     
     [inv addItem:item];
     
+    KBItem* item2 = [[KBItem alloc] initWithDefinitionFile:@"hoe"];
+    
+    [inv addItem:item2];
+    
     [[[KBConfigurationManager sharedManager] configuration] setObject:inv forKey:kInventory];    
     
     [self loadGameState];

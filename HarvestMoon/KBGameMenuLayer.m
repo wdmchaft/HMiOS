@@ -85,11 +85,11 @@
         for (KBItemStack* itemStack in self.inventory.itemStacks) {
             CCSprite* sprte = [itemStack.itemType smallSprite];
             
-            [sprte runAction:[self.scalingAction reverse]];
+            [sprte runAction:[[self.scalingAction reverse] copy]];
             
-            [self schedule:@selector(removeSprites) interval:0.3];
+            
         }
-        
+        [self schedule:@selector(removeSprites) interval:0.3];
     }
     else
     {
@@ -126,9 +126,9 @@
     for (KBItemStack* itemStack in self.inventory.itemStacks) {
         CCSprite* sprte = [itemStack.itemType smallSprite];
         
-        [sprte runAction:self.scalingAction];
+        [sprte runAction:[self.scalingAction copy]];
         
-        sprte.position = ccp(30,yPos * i);
+        sprte.position = ccp(65,yPos * i);
         i++;
         [self addChild:sprte];
     }
