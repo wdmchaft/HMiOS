@@ -24,6 +24,7 @@ static KBConfigurationManager* _sharedSingleton;
     return self;
 }
 
+
 #pragma mark -
 #pragma mark Class Methods
 
