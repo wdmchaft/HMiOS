@@ -16,6 +16,8 @@
 @synthesize currentlyTouchingItemMenu = _currentlyTouchingItemMenu;
 @synthesize currentlyTouchingToolMenu = _currentlyTouchingToolMenu;
 @synthesize scalingAction = _scalingAction;
+@synthesize selectedItem = _selectedItem;
+@synthesize selectedTool = _selectedTool;
 
 - (id)init
 {
@@ -46,10 +48,39 @@
         
         self.scalingAction = [CCScaleBy actionWithDuration:0.3 scale:2.5];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSelectedItemChangedNotification:) name:kSelectedItemsChangedNotification object:nil];
+        
     }
     
     return self;
 }
+
+-(void)handleSelectedItemChangedNotification:(NSNotification*)notification
+{
+    [self removeChild:self.selectedItem.itemType.smallSprite cleanup:YES];
+    [self removeChild:self.selectedTool.itemType.smallSprite cleanup:YES];
+    
+    self.selectedTool = self.inventory.selectedTool;
+    self.selectedItem = self.inventory.selectedItem;
+    
+    if(self.selectedItem != nil) 
+    {
+        [self removeChild:self.selectedItem.itemType.smallSprite cleanup:YES];
+        [self addChild:self.selectedItem.itemType.smallSprite];
+        
+        self.selectedItem.itemType.smallSprite.position = ccp(30,30);
+    }
+    
+    
+    if(self.selectedTool != nil) {
+        
+        [self removeChild:self.selectedTool.itemType.smallSprite cleanup:YES];
+        [self addChild:self.selectedTool.itemType.smallSprite];
+        
+        self.selectedTool.itemType.smallSprite.position = ccp(30,90);
+    }
+}
+
 
 - (void) registerWithTouchDispatcher
 {
@@ -75,26 +106,61 @@
     return NO;
 }
 
+-(void)hideFullMenu
+{
+    for (KBItemStack* itemStack in self.itemsToShow) {
+        CCSprite* sprte = [itemStack.itemType smallSprite];
+        
+        [sprte runAction:[[self.scalingAction reverse] copy]];
+        
+    }
+    
+    [self schedule:@selector(removeSprites) interval:0.3];
+    
+    for (KBItemStack* itemStack in self.inventory.itemStacks) {
+        CCSprite* sprte = itemStack.itemType.bigSprite;
+        
+        if ([self.children containsObject:sprte]) {
+            [self removeChild:sprte cleanup:YES];
+        }
+        
+    }
+}
+
 - (void) ccTouchEnded:(UITouch *) touch withEvent:(UIEvent *) event
 {
-    if (true/*ganzes Menü aufgeklappt*/) {
-        //Touch auf item -> neues item "in die hand nehmen"
-        //Touch ausserhalb des menüs -> menü schliessen, nichts machen
+    if (self.itemMenuOpened || self.toolMenuOpened) {
         
+        int touchedItemIndex = [self findTouchedItemWithTouch:touch];
         
-        for (KBItemStack* itemStack in self.inventory.itemStacks) {
-            CCSprite* sprte = [itemStack.itemType smallSprite];
-            
-            [sprte runAction:[[self.scalingAction reverse] copy]];
-            
-            
+        if (touchedItemIndex == -1) {
+            //Index ist -1, wenn kein Item berührt wurde.
+            [self hideFullMenu];
+            NSLog(@"Kein Item berührt, schliesse Menü");
+            return;
         }
-        [self schedule:@selector(removeSprites) interval:0.3];
+        
+        [self.inventory selectItem:[self.itemsToShow objectAtIndex:touchedItemIndex]];
+        
+        // TODO : Touch auf item -> neues item "in die hand nehmen"
+        
+        [self hideFullMenu];
     }
     else
     {
+        if(CGRectContainsPoint(self.itemBackground.textureRect, [self.itemBackground convertTouchToNodeSpace:touch])
+        || CGRectContainsPoint(self.toolBackground.textureRect, [self.toolBackground convertTouchToNodeSpace:touch]))
+        {
+            //Touch endete nicht auf einem der Item-Plätze, es muss nichts gemacht werden
+            NSLog(@"Item benutzen abgebrochen");
+            
+            return;
+        }
+        
+        
         //Touch auf item -> item verwenden
-        //Touch ausserhalb items -> nichts machen
+        //[[KBStandardGameController sharedController].player useItem:nil];
+        
     }
     
     self.currentlyTouchingItemMenu = NO;
@@ -102,15 +168,70 @@
     
 }
 
+- (NSArray *)itemsToShow {
+  NSArray* itemsToShow = nil;
+    if (self.currentlyTouchingItemMenu || self.itemMenuOpened) {
+        itemsToShow = self.inventory.items;
+    }
+    if (self.currentlyTouchingToolMenu || self.toolMenuOpened) {
+        itemsToShow = self.inventory.tools;
+    }
+    NSAssert(itemsToShow != nil, @"The Array that should contain items was nil!");
+  return itemsToShow;
+}
+
+-(int)findTouchedItemWithTouch:(UITouch*)touch
+{
+    int index = -1;
+    NSArray *itemsToShow;
+    itemsToShow = [self itemsToShow];    
+    
+    int counter = 0;
+    for (KBItemStack* stack in itemsToShow) {
+        if (CGRectContainsPoint(stack.itemType.smallSprite.textureRect, [stack.itemType.smallSprite convertTouchToNodeSpace:touch])) {
+            index = counter;
+        }
+        counter++;
+    }
+    
+    
+    return index;
+}
+
+- (void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    
+    for (KBItemStack* itemStack in self.inventory.itemStacks) {
+        CCSprite* sprte = itemStack.itemType.bigSprite;
+        
+        if (CGRectContainsPoint(itemStack.itemType.smallSprite.textureRect, [itemStack.itemType.smallSprite convertTouchToNodeSpace:touch]) ) {
+            sprte.position = ccp([[CCDirector sharedDirector] winSize].width / 2,[[CCDirector sharedDirector] winSize].height/2);
+            
+            if (![self.children containsObject:sprte]) {
+                [self addChild:sprte];
+            }
+        }
+        else
+        {
+            [self removeChild:sprte cleanup:NO];
+        }
+        
+    }
+}
+
 -(void)removeSprites
 {
     [self unschedule:@selector(removeSprites)];
-    for (KBItemStack* itemStack in self.inventory.itemStacks) {
+    for (KBItemStack* itemStack in self.itemsToShow) {
         CCSprite* sprte = [itemStack.itemType smallSprite];
         
         [self removeChild:sprte cleanup:YES];
         
     }
+    
+    // Die Menüs gelten erst als geschlossen, wenn alle Icons nicht mehr sichtbar sind!
+    self.itemMenuOpened = NO;
+    self.toolMenuOpened = NO;
 }
 
 
@@ -123,17 +244,21 @@
     
     int yPos = 40;
     int i = 1;
-    for (KBItemStack* itemStack in self.inventory.itemStacks) {
+    NSArray* itemsToShow = [self itemsToShow];
+    
+    for (KBItemStack* itemStack in itemsToShow) {
         CCSprite* sprte = [itemStack.itemType smallSprite];
         
         [sprte runAction:[self.scalingAction copy]];
         
-        sprte.position = ccp(65,yPos * i);
+        sprte.position = ccp(70,yPos * i);
         i++;
         [self addChild:sprte];
     }
     
-    // TODO : ausklappen des item oder tool menüs
+    self.itemMenuOpened = self.currentlyTouchingItemMenu;
+    self.toolMenuOpened = self.currentlyTouchingToolMenu;
+    
 }
 
 -(KBInventory*)inventory

@@ -162,6 +162,7 @@
 		72AF3CBF138ED03A00B77A75 /* KBJumpToMapEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF3CBE138ED03900B77A75 /* KBJumpToMapEvent.m */; };
 		72AF3CC1138ED22C00B77A75 /* Jacks_Farm.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 72AF3CC0138ED22C00B77A75 /* Jacks_Farm.tmx */; };
 		72C13E08137EC42300DFD227 /* KBPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C13E07137EC42300DFD227 /* KBPlayer.m */; };
+		72EAF51613AE792D005B8732 /* hoe.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72EAF51513AE792D005B8732 /* hoe.plist */; };
 		72FA4D55138801E100796337 /* meta.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FA4D54138801E100796337 /* meta.png */; };
 /* End PBXBuildFile section */
 
@@ -461,6 +462,7 @@
 		72AF3CC0138ED22C00B77A75 /* Jacks_Farm.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Jacks_Farm.tmx; path = Resources/Jacks_Farm.tmx; sourceTree = "<group>"; };
 		72C13E06137EC42300DFD227 /* KBPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBPlayer.h; sourceTree = "<group>"; };
 		72C13E07137EC42300DFD227 /* KBPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBPlayer.m; sourceTree = "<group>"; };
+		72EAF51513AE792D005B8732 /* hoe.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hoe.plist; sourceTree = "<group>"; };
 		72FA4D54138801E100796337 /* meta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = meta.png; path = Resources/meta.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -908,6 +910,7 @@
 			isa = PBXGroup;
 			children = (
 				723BCD9813A6920300D395BE /* can.plist */,
+				72EAF51513AE792D005B8732 /* hoe.plist */,
 			);
 			name = "Item Definitions";
 			sourceTree = "<group>";
@@ -1048,6 +1051,7 @@
 				729DB33E13942534004AFAB9 /* flower_red.png in Resources */,
 				723BCDA513A6920300D395BE /* can.plist in Resources */,
 				723BCDAE13A6936800D395BE /* can_big.png in Resources */,
+				72EAF51613AE792D005B8732 /* hoe.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1187,6 +1191,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ARC_MIGRATION = donothing;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1195,7 +1200,7 @@
 					"COCOS2D_DEBUG=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1208,10 +1213,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ARC_MIGRATION = donothing;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1230,6 +1236,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HarvestMoon/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = HarvestMoon/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -1251,6 +1258,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HarvestMoon/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = HarvestMoon/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;

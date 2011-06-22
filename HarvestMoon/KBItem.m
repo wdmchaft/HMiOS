@@ -11,11 +11,13 @@
 #define kName @"Name"
 #define kSmallIcon @"SmallIcon"
 #define kBigIcon @"BigIcon"
+#define kType @"Type"
 
 @implementation KBItem
 @synthesize name = _name;
 @synthesize smallSprite = _smallSprite;
 @synthesize bigSprite = _bigSprite;
+@synthesize itemType = _itemType;
 
 
 -(id)initWithDefinitionFile:(NSString*)fileName
@@ -28,7 +30,7 @@
         
         self.smallSprite = [CCSprite spriteWithFile:[dict objectForKey:kSmallIcon]];
         self.bigSprite = [CCSprite spriteWithFile:[dict objectForKey:kBigIcon]];
-        
+        self.itemType = [[dict objectForKey:kType] isEqual:@"Tool"] ? Tool : Item;
         
         NSLog(@"created Item with parameters: %@", dict);
         

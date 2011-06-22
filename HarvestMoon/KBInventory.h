@@ -10,15 +10,21 @@
 #import "KBItem.h"
 #import "KBItemStack.h"
 
+
+#define kSelectedItemsChangedNotification @"SelectedItemsChangedNotification"
+
 @interface KBInventory : NSObject {
     NSMutableArray* _itemStacks;
     
-    KBItemStack* _selectedItemStack;
+    KBItemStack* _selectedItem;
+    KBItemStack* _selectedTool;
     
 }
 
 @property (nonatomic, retain) NSMutableArray* itemStacks;
-@property (nonatomic,retain) KBItemStack* selectedItemStack;
+@property (nonatomic,retain) KBItemStack* selectedTool;
+@property (nonatomic,retain) KBItemStack* selectedItem;
+
 
 -(id)init;
 
@@ -26,5 +32,9 @@
 -(void)removeItem:(KBItem*)item;
 
 -(void)selectItem:(KBItem*)item;
+
+-(NSArray*)tools;
+-(NSArray*)items;
+
 
 @end

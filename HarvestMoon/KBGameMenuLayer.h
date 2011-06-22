@@ -22,14 +22,23 @@
     CCSprite* _itemBackground;
     CCSprite* _toolBackground;
     
+    KBItemStack* _selectedTool;
+    KBItemStack* _selectedItem;
+    
     CCScaleBy* _scalingAction;
     
 }
+
+-(void)handleSelectedItemChangedNotification:(NSNotification*)notification;
 
 @property(nonatomic,retain) CCScaleBy* scalingAction;
 
 @property(nonatomic,retain) CCSprite* itemBackground;
 @property(nonatomic,retain) CCSprite* toolBackground;
+
+@property(nonatomic,retain) KBItemStack* selectedTool;
+@property(nonatomic,retain) KBItemStack* selectedItem;
+
 
 @property(nonatomic) BOOL itemMenuOpened;
 @property(nonatomic) BOOL toolMenuOpened;
@@ -38,5 +47,11 @@
 @property(nonatomic) BOOL currentlyTouchingToolMenu;
 
 -(KBInventory*)inventory;
+
+-(int)findTouchedItemWithTouch:(UITouch*)touch;
+
+-(NSArray*)itemsToShow;
+
+-(void)hideFullMenu;
 
 @end
