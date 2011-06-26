@@ -74,4 +74,7 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="Farmland" width="70" height="50">
+  <object x="400" y="352" width="640" height="352"/>
+ </objectgroup>
 </map>
