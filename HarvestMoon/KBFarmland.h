@@ -16,13 +16,15 @@
     int _yPos;
     int _height;
     int _width;
-    
+    CGSize _tileSize;
 }
 
 @property(nonatomic) int xPos;
 @property(nonatomic) int yPos;
 @property(nonatomic) int height;
 @property(nonatomic) int width;
+@property(nonatomic) CGSize tileSize;
 
+- (id)initWithDictionary:(NSDictionary *)dict andTileSize:(CGSize)size;
 
 @end

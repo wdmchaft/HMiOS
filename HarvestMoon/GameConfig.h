@@ -51,6 +51,8 @@ typedef enum {
 
 #define kItemsLayer         @"Items"
 
+#define kFarmlandLayer      @"Farmland"
+
 //
 // Tileset Property Names
 //

@@ -16,6 +16,7 @@
 
 @synthesize tileMap = _tileMap;
 @synthesize mapName = _mapName;
+@synthesize farmlands = _farmlands;
 
 #pragma mark -
 #pragma mark Init & Dealloc
@@ -26,8 +27,23 @@
         self.tileMap = [KBTMXTiledMap tiledMapWithTMXFile:mapName];
         
         self.mapName = mapName;
-        
+                
         [self addChild:self.tileMap];
+        
+        NSMutableArray* arr = [NSMutableArray array];
+        
+        NSLog(@"searching for farmlands");
+        
+        for (NSDictionary* dict in self.tileMap.farmland.objects) {
+            KBFarmland* fl = [[[KBFarmland alloc] initWithDictionary:dict andTileSize:self.tileMap.tileSize] autorelease];
+            
+            [arr addObject:fl];
+            
+            NSLog(@"created farmland %@",fl);
+        }
+        
+        self.farmlands = arr;
+        
     }
     return self;
 }
@@ -74,5 +90,10 @@
 }
 
 #pragma mark -
+
+- (NSDictionary*)eventDataAtPosition:(CGPoint)position
+{
+    return [self.tileMap objectAtPosition:position inLayer:kEventsLayer];
+}
 
 @end

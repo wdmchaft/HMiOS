@@ -10,10 +10,12 @@
 #import "cocos2d.h"
 #import "KBTMXTiledMap.h"
 #import "GameConfig.h"
+#import "KBFarmland.h"
 
 @interface KBMap : CCNode {
     
     KBTMXTiledMap* _tileMap;
+    NSArray* _farmlands;
     NSString* _mapName;
 }
 
@@ -23,6 +25,8 @@
 @property (nonatomic, retain) KBTMXTiledMap* tileMap;
 
 @property (nonatomic, retain) NSString* mapName;
+
+@property (nonatomic, retain) NSArray* farmlands;
 
 #pragma mark -
 #pragma mark Init & Dealloc
@@ -47,5 +51,8 @@
 - (BOOL) centerPlayer;
 
 #pragma mark -
+
+
+- (NSDictionary*)eventDataAtPosition:(CGPoint)position;
 
 @end

@@ -20,6 +20,7 @@
     
     CCTMXObjectGroup* _events;
     
+    CCTMXObjectGroup* _farmland;
 }
 
 #pragma mark -
@@ -32,6 +33,8 @@
 @property(nonatomic, retain) CCTMXLayer* items;
 
 @property(nonatomic, retain) CCTMXObjectGroup* events;
+
+@property(nonatomic, retain) CCTMXObjectGroup* farmland;
 
 #pragma mark -
 #pragma mark Init & Dealloc
@@ -49,7 +52,7 @@
 
 - (NSDictionary *) metaInformationAtPosition:(CGPoint) position;
 
-- (NSDictionary *) objectAtPosition:(CGPoint) position;
+- (NSDictionary *) objectAtPosition:(CGPoint) position inLayer:(NSString*)layerName;
 
 #pragma mark -
 

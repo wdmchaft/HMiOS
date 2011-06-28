@@ -161,7 +161,7 @@
 }
 
 - (void) findAndRunEventAtPosition: (CGPoint) tilePosition interactionType:(RunOnEvent)runOnEvent  {
-  NSDictionary* playerObject = [self.map.tileMap objectAtPosition:tilePosition];
+  NSDictionary* playerObject = [self.map eventDataAtPosition:tilePosition];
     
     if(playerObject != nil && (self.currentEvent == nil || [self.currentEvent hasFinishedRunning])
        && ![_currentMapObject isEqualToDictionary:playerObject])

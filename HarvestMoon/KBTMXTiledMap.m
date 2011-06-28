@@ -21,6 +21,8 @@
 
 @synthesize events = _events;
 
+@synthesize farmland = _farmland;
+
 #pragma mark -
 #pragma mark Init & Dealloc
 
@@ -35,7 +37,7 @@
         
         self.meta = [self layerNamed:kMetaLayer];
         self.items = [self layerNamed:kItemsLayer];
-        
+        self.farmland = [self objectGroupNamed:kFarmlandLayer];
         
         if([[KBConfigurationManager sharedManager] intForKey:kDevelopmentMode] == NO)
             [self.meta setVisible:NO];
@@ -79,10 +81,10 @@
     return dict;
 }
 
-- (NSDictionary *) objectAtPosition:(CGPoint) position
+- (NSDictionary *) objectAtPosition:(CGPoint) position inLayer:(NSString*)layerName
 {
     
-    for (NSMutableDictionary* object in [self.events objects]) {
+    for (NSMutableDictionary* object in [[self objectGroupNamed:layerName] objects]) {
         
         int x = [[object valueForKey:@"x"] integerValue];
         int y = [[object valueForKey:@"y"] integerValue];
