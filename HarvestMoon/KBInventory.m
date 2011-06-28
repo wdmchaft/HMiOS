@@ -8,6 +8,12 @@
 
 #import "KBInventory.h"
 
+//NSCoding
+#define kItemStacksKey @"_itemStacks"
+#define kSelectedItemIndexKey @"_selectedItemIndex"
+#define kSelectedToolIndexKey @"_selectedToolIndex"
+
+
 @implementation KBInventory
 
 @synthesize itemStacks = _itemStacks;
@@ -79,6 +85,34 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kSelectedItemsChangedNotification object:self];
 }
 
+-(void)setSelectedItem:(KBItemStack *)selectedItem
+{
+    if (selectedItem == self.selectedItem || ![self.itemStacks containsObject:selectedItem])
+    {
+        return;
+    }
+    KBItemStack *oldValue = self.selectedItem;
+    _selectedItem = [selectedItem retain];
+    [oldValue release];
+    
+    _selectedItemIndex = [self.itemStacks indexOfObject:self.selectedItem];
+}
+
+-(void)setSelectedTool:(KBItemStack *)selectedTool
+{
+    if (selectedTool == self.selectedTool || ![self.itemStacks containsObject:selectedTool])
+    {
+        return;
+    }
+    KBItemStack *oldValue = self.selectedTool;
+    _selectedTool = [selectedTool retain];
+    [oldValue release];
+    
+    _selectedToolIndex = [self.itemStacks indexOfObject:self.selectedTool];
+    
+}
+
+
 -(NSArray*)tools
 {
     NSMutableArray* arr = [NSMutableArray array];
@@ -103,6 +137,32 @@
     }
     
     return arr;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder setValue:_itemStacks forKey:kItemStacksKey];
+    [aCoder setValue:[NSNumber numberWithInt:_selectedItemIndex]  forKey:kSelectedItemIndexKey];
+    [aCoder setValue:[NSNumber numberWithInt:_selectedToolIndex] forKey:kSelectedToolIndexKey];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self init];
+    if (self) {
+        self.itemStacks = [aDecoder valueForKey:kItemStacksKey];
+        
+        NSNumber* selItem = [aDecoder valueForKey:kSelectedItemIndexKey];
+        NSNumber* selTool = [aDecoder valueForKey:kSelectedToolIndexKey];
+        
+        self.selectedTool = [self.itemStacks objectAtIndex:[selTool integerValue]];
+        
+        self.selectedItem = [self.itemStacks objectAtIndex:[selItem integerValue]];
+        
+        
+    }
+    
+    return self;
 }
 
 @end

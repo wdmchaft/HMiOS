@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "KBItem.h"
 
-@interface KBItemStack : NSObject {
+@interface KBItemStack : NSObject <NSCoding>{
     KBItem* _itemType;
     int _itemCount;
 }

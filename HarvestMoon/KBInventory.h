@@ -13,11 +13,17 @@
 
 #define kSelectedItemsChangedNotification @"SelectedItemsChangedNotification"
 
-@interface KBInventory : NSObject {
+@interface KBInventory : NSObject <NSCoding> {
     NSMutableArray* _itemStacks;
     
     KBItemStack* _selectedItem;
     KBItemStack* _selectedTool;
+    
+    
+    //Gebraucht für Serialisierung
+    int _selectedToolIndex;
+    int _selectedItemIndex;
+    
     
 }
 
