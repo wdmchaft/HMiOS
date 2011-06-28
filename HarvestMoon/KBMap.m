@@ -39,6 +39,10 @@
             
             [arr addObject:fl];
             
+            fl.position = ccp([fl xPos],[fl yPos]);
+            
+            [self addChild:fl];
+            
             NSLog(@"created farmland %@",fl);
         }
         

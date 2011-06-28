@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface KBFarmingField : NSObject
+#import "cocos2d.h"
+@interface KBFarmingField : CCNode
 
 @end

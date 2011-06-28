@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "KBFarmingField.h"
 
 #define kMagnification 2
 
@@ -17,6 +18,7 @@
     int _height;
     int _width;
     CGSize _tileSize;
+    NSArray* _farmingFields;
 }
 
 @property(nonatomic) int xPos;
@@ -24,6 +26,7 @@
 @property(nonatomic) int height;
 @property(nonatomic) int width;
 @property(nonatomic) CGSize tileSize;
+@property(nonatomic,retain) NSArray* farmingFields;
 
 - (id)initWithDictionary:(NSDictionary *)dict andTileSize:(CGSize)size;
 

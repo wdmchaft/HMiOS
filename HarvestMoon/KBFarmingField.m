@@ -8,6 +8,7 @@
 
 #import "KBFarmingField.h"
 
+
 @implementation KBFarmingField
 
 - (id)init
@@ -16,6 +17,10 @@
     if (self) {
         // Initialization code here.
     }
+    
+    [self addChild:[CCSprite spriteWithFile:@"can.png"]];
+    
+    NSLog(@"added can");
     
     return self;
 }

@@ -9,7 +9,7 @@
 #import "KBFarmland.h"
 
 // definiert, wie viele Tiles lang / breit ein einzelnes Feld des gesamten Farmgebiet ist.
-#define kSizeOfAField 2
+#define kTilesPerField 2
 
 @implementation KBFarmland
 
@@ -18,7 +18,7 @@
 @synthesize height = _height;
 @synthesize width = _width;
 @synthesize tileSize = _tileSize;
-
+@synthesize farmingFields = _farmingFields;
 
 - (id)initWithDictionary:(NSDictionary *)dict andTileSize:(CGSize)size
 {
@@ -32,6 +32,24 @@
         self.width = [[dict valueForKey:@"width"] integerValue];
         self.tileSize = size;
         
+        NSMutableArray* arr = [NSMutableArray array];
+        
+        //i = width of the current farmingField
+        for (int i = 0; i <= self.width ; i+=kTilesPerField*self.tileSize.width) {
+            for (int j = 0; j <= self.height; j+=kTilesPerField*self.tileSize.height) {
+                KBFarmingField* field = [[KBFarmingField alloc] init];
+                
+                NSLog(@"created farmingfield");
+                
+                field.position = ccp(i,j);
+                
+                [arr addObject:field];
+                
+                [self addChild:field];
+            }
+        }
+        
+        self.farmingFields = arr;
         
     }
     
