@@ -12,7 +12,7 @@
 #import "GameConfig.h"
 #import "KBInventory.h"
 
-@interface KBPlayer : CCNode <NSCoding>{
+@interface KBPlayer : CCNode {
     
     CCSprite* _sprite;
     

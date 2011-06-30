@@ -8,14 +8,6 @@
 
 #import "KBGameLayer.h"
  
-
-//NSCoding
-#define kPlayerKey @"_player"
-#define kMapKey @"_map"
-#define kCurrentMapObjectKey @"_currentMapObject"
-#define kCurrentEventKey @"_currentEvent"
-
-
 // HelloWorldLayer implementation
 @implementation KBGameLayer
 
@@ -194,29 +186,6 @@
 
 }
 
-#pragma mark -
-#pragma mark NSCoding
-
--(void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder setValue:_player forKey:kPlayerKey];
-    [aCoder setValue:_map forKey:kMapKey];
-    [aCoder setValue:_currentEvent forKey:kCurrentEventKey];
-    [aCoder setValue:_currentMapObject forKey:kCurrentMapObjectKey];
-}
-
--(id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [self init];
-    if (self) {
-        self.player = [aDecoder valueForKey:kPlayerKey];
-        self.map = [aDecoder valueForKey:kMapKey];
-        self.currentEvent = [aDecoder valueForKey:kCurrentEventKey];
-        _currentMapObject = [[aDecoder valueForKey:kCurrentMapObjectKey] retain];
-    }
-    
-    return self;
-}
 
 
 @end

@@ -12,8 +12,6 @@
 #import "KBPlayer.h"
 #import "KBConfigurationManager.h"
 
-#define kSavedGameKey @"savedGame"
-
 @implementation KBStoryController
 
 static KBStoryController* _sharedSingleton;
@@ -57,22 +55,17 @@ static KBStoryController* _sharedSingleton;
 
 - (void)saveGameState
 {
-    /*[[[KBConfigurationManager sharedManager] configuration] setObject:NSStringFromCGPoint([[KBStandardGameController sharedController] player].position) forKey:kLastSavedPlayerPosition];
+    [[[KBConfigurationManager sharedManager] configuration] setObject:NSStringFromCGPoint([[KBStandardGameController sharedController] player].position) forKey:kLastSavedPlayerPosition];
     
     [[[KBConfigurationManager sharedManager] configuration] setObject:[[KBStandardGameController sharedController] gameLayer].map.mapName forKey:kCurrentMapName];
     
-    [[[KBConfigurationManager sharedManager] configuration] setObject:[[KBStandardGameController sharedController] player].inventory forKey:kInventory];*/
-    
-    [[KBConfigurationManager sharedManager] setValue:[[KBStandardGameController sharedController] gameLayer] 
-                                              forKey:kSavedGameKey];
+    [[[KBConfigurationManager sharedManager] configuration] setObject:[[KBStandardGameController sharedController] player].inventory forKey:kInventory];
     
 }
 
 - (void) loadGameState
 {
-    
-    
-    /*if ([[KBConfigurationManager sharedManager] stringForKey:kLastSavedPlayerPosition] != nil) {
+    if ([[KBConfigurationManager sharedManager] stringForKey:kLastSavedPlayerPosition] != nil) {
         [[KBStandardGameController sharedController] player].position = CGPointFromString([[KBConfigurationManager sharedManager] stringForKey:kLastSavedPlayerPosition]);
     }
     
@@ -82,7 +75,7 @@ static KBStoryController* _sharedSingleton;
     
     if ([[[KBConfigurationManager sharedManager] configuration] objectForKey:kInventory] != nil) {
         [[KBStandardGameController sharedController] player].inventory = [[[KBConfigurationManager sharedManager] configuration] objectForKey:kInventory];
-    }*/
+    }
 }
 
 - (void) setUpNewGame
