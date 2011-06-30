@@ -15,17 +15,12 @@ enum ItemType{
     Tool = 1
 } ItemType;
 
-@interface KBItem : NSObject <NSCoding>{
-    
-    NSString* _definitionFileName;
-    
+@interface KBItem : NSObject {
     NSString* _name;
     CCSprite* _smallSprite;
     CCSprite* _bigSprite;
     enum ItemType _itemType;
 }
-
-@property(nonatomic,retain)NSString*definitionFileName;
 
 @property(nonatomic,retain)NSString*name;
 @property(nonatomic,retain)CCSprite*smallSprite;

@@ -9,6 +9,10 @@
 #import "KBPlayer.h"
 #import "KBGameLayer.h"
 
+
+//NSCoding
+#define kInventoryKey @"_inventory"
+
 @implementation KBPlayer
 
 #pragma mark -
@@ -265,5 +269,19 @@
 }
 
 #pragma mark -
+#pragma mark NSCoding
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self init];
+    if (self) {
+        self.inventory = [aDecoder valueForKey:kInventoryKey];
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder setValue:self.inventory forKey:kInventoryKey];
+}
 @end

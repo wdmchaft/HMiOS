@@ -13,7 +13,7 @@
 #import "GameConfig.h"
 #import "KBConfigurationManager.h"
 
-@interface KBInteractionHandler : CCLayer {
+@interface KBInteractionHandler : CCLayer <NSCoding>{
     id<KBInteractionHandlerDelegate> _delegate;
     CCSprite* background;
     CCSprite* buttonLeft;

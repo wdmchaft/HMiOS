@@ -214,5 +214,15 @@
     return (u > 0) && (v > 0) && (u + v < 1);
 }
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    //bleibt leer, da touchinformationen nicht persistent sein sollten
+    return [self init];
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    //bleibt leer, da touchinformationen nicht persistent sein sollten
+}
 
 @end

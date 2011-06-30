@@ -20,7 +20,7 @@
 #import "KBGameMenuLayer.h"
 
 // HelloWorldLayer
-@interface KBGameLayer : CCLayer <KBInteractionHandlerDelegate>
+@interface KBGameLayer : CCLayer <KBInteractionHandlerDelegate, NSCoding>
 {
     KBPlayer* _player;
     
