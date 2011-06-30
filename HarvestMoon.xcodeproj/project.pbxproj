@@ -11,6 +11,8 @@
 		07631E64138EE6BE00CAD983 /* centering_test.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 07631E63138EE6BE00CAD983 /* centering_test.tmx */; };
 		722F192713802BC300ECC33E /* KBStandardGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 722F192613802BC300ECC33E /* KBStandardGameController.m */; };
 		722F192A1380350B00ECC33E /* KBTMXTiledMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 722F19291380350B00ECC33E /* KBTMXTiledMap.m */; };
+		723759A813BD021400BC5490 /* KBFarmingField.m in Sources */ = {isa = PBXBuildFile; fileRef = 723759A513BD021400BC5490 /* KBFarmingField.m */; };
+		723759A913BD021400BC5490 /* KBFarmland.m in Sources */ = {isa = PBXBuildFile; fileRef = 723759A713BD021400BC5490 /* KBFarmland.m */; };
 		723AD156137EB8F80014B7DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723AD155137EB8F80014B7DE /* QuartzCore.framework */; };
 		723AD158137EB8F80014B7DE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723AD157137EB8F80014B7DE /* OpenGLES.framework */; };
 		723AD15A137EB8F80014B7DE /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723AD159137EB8F80014B7DE /* OpenAL.framework */; };
@@ -174,6 +176,10 @@
 		722F192613802BC300ECC33E /* KBStandardGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBStandardGameController.m; sourceTree = "<group>"; };
 		722F19281380350B00ECC33E /* KBTMXTiledMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTMXTiledMap.h; sourceTree = "<group>"; };
 		722F19291380350B00ECC33E /* KBTMXTiledMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTMXTiledMap.m; sourceTree = "<group>"; };
+		723759A413BD021400BC5490 /* KBFarmingField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBFarmingField.h; sourceTree = "<group>"; };
+		723759A513BD021400BC5490 /* KBFarmingField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBFarmingField.m; sourceTree = "<group>"; };
+		723759A613BD021400BC5490 /* KBFarmland.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBFarmland.h; sourceTree = "<group>"; };
+		723759A713BD021400BC5490 /* KBFarmland.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBFarmland.m; sourceTree = "<group>"; };
 		723AD151137EB8F80014B7DE /* HarvestMoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarvestMoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723AD155137EB8F80014B7DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		723AD157137EB8F80014B7DE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -968,6 +974,10 @@
 				722F19291380350B00ECC33E /* KBTMXTiledMap.m */,
 				726C6CA813894CDE0047B503 /* KBMap.h */,
 				726C6CA913894CDE0047B503 /* KBMap.m */,
+				723759A413BD021400BC5490 /* KBFarmingField.h */,
+				723759A513BD021400BC5490 /* KBFarmingField.m */,
+				723759A613BD021400BC5490 /* KBFarmland.h */,
+				723759A713BD021400BC5490 /* KBFarmland.m */,
 			);
 			name = "Map-Handling";
 			sourceTree = "<group>";
@@ -1181,6 +1191,8 @@
 				723BCDA813A6920300D395BE /* KBMainMenuScene.m in Sources */,
 				723BCDA913A6920300D395BE /* KBOptionsScreen.m in Sources */,
 				723BCDAA13A6920300D395BE /* KBPlistManager.m in Sources */,
+				723759A813BD021400BC5490 /* KBFarmingField.m in Sources */,
+				723759A913BD021400BC5490 /* KBFarmland.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
