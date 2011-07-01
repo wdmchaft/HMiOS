@@ -110,13 +110,9 @@
 {
     for (KBItemStack* itemStack in self.itemsToShow) {
         CCSprite* sprte = [itemStack.itemType smallSprite];
-        
-        [sprte runAction:[[self.scalingAction reverse] copy]];
-        
+        sprte.scale = 1;
     }
-    
-    [self schedule:@selector(removeSprites) interval:0.3];
-    
+    [self removeSprites];
     for (KBItemStack* itemStack in self.inventory.itemStacks) {
         CCSprite* sprte = itemStack.itemType.bigSprite;
         
