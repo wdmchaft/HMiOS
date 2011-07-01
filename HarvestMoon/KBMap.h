@@ -31,6 +31,8 @@
 #pragma mark -
 #pragma mark Init & Dealloc
 
+-(id) init;
+
 - (id) initWithMapName:(NSString *)mapName;
 
 #pragma mark -

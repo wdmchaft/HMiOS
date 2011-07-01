@@ -13,11 +13,14 @@
 #define kBigIcon @"BigIcon"
 #define kType @"Type"
 
+#define kFileNameKey @"fileName"
+
 @implementation KBItem
 @synthesize name = _name;
 @synthesize smallSprite = _smallSprite;
 @synthesize bigSprite = _bigSprite;
 @synthesize itemType = _itemType;
+@synthesize fileName = _fileName;
 
 
 -(id)initWithDefinitionFile:(NSString*)fileName
@@ -37,5 +40,15 @@
     }
     
     return self;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    return [self initWithDefinitionFile:[aDecoder valueForKey:kFileNameKey]];
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder setValue:self.fileName forKey:kFileNameKey];
 }
 @end

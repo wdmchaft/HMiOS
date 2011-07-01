@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-@interface KBFarmingField : CCNode
+@interface KBFarmingField : CCNode <NSCoding>
 
 @end

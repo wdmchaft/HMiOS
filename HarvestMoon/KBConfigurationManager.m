@@ -19,6 +19,8 @@ static KBConfigurationManager* _sharedSingleton;
     self = [super init];
     if (self) {
         // Initialization code here.
+        
+        self.configuration = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -88,6 +90,25 @@ static KBConfigurationManager* _sharedSingleton;
 - (void)setInt:(int)value forKey:(NSString*)key
 {
     [self.configuration setValue:[NSNumber numberWithInt:value] forKey:key];
+}
+
+
+-(CGPoint)pointForKey:(NSString*)key
+{
+    return CGPointFromString((NSString*)[self.configuration valueForKey:key]);
+}
+-(void)setPoint:(CGPoint)point forKey:(NSString*)key
+{
+    [self.configuration setValue:NSStringFromCGPoint(point) forKey:key];
+}
+
+-(CGSize)sizeForKey:(NSString*)key
+{
+    return CGSizeFromString((NSString*)[self.configuration valueForKey:key]);
+}
+-(void)setSize:(CGSize)size forKey:(NSString*)key
+{
+    [self.configuration setValue:NSStringFromCGSize(size) forKey:key];
 }
 
 @end

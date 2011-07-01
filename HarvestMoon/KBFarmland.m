@@ -7,6 +7,15 @@
 //
 
 #import "KBFarmland.h"
+#import "KBConfigurationManager.h"
+
+#define kXPosKey            @"xPos"
+#define kYPosKey            @"yPos"
+#define kHeightKey          @"height"
+#define kWidthKey           @"width"
+#define kTileSizeKey        @"tileSize"
+#define kFarmingFieldsKey   @"farmingFields"
+
 
 // definiert, wie viele Tiles lang / breit ein einzelnes Feld des gesamten Farmgebiet ist.
 #define kTilesPerField 2
@@ -51,9 +60,33 @@
         
         self.farmingFields = arr;
         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(load) name:kLoadGameNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:kSaveGameNotification object:nil];
+        
     }
     
     return self;
+}
+
+-(void)load
+{
+    self.xPos = [[KBConfigurationManager sharedManager] intForKey:kXPosKey];
+    self.yPos = [[KBConfigurationManager sharedManager] intForKey:kYPosKey];
+    self.width = [[KBConfigurationManager sharedManager] intForKey:kWidthKey];
+    self.height= [[KBConfigurationManager sharedManager] intForKey:kHeightKey];
+    self.tileSize = [[KBConfigurationManager sharedManager] sizeForKey:kTileSizeKey];
+    self.farmingFields = [[[KBConfigurationManager sharedManager] configuration] valueForKey:kFarmingFieldsKey];
+    
+}
+-(void)save
+{
+    [[KBConfigurationManager sharedManager]setInt:self.xPos forKey:kXPosKey];
+    [[KBConfigurationManager sharedManager]setInt:self.yPos forKey:kYPosKey];
+    
+    [[KBConfigurationManager sharedManager]setInt:self.width forKey:kWidthKey];
+    [[KBConfigurationManager sharedManager]setInt:self.height forKey:kHeightKey];
+    [[KBConfigurationManager sharedManager]setSize:self.tileSize forKey:kTileSizeKey];
+    [[[KBConfigurationManager sharedManager] configuration]setValue:self.farmingFields forKey:kFarmingFieldsKey];
 }
 
 @end

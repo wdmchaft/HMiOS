@@ -8,6 +8,7 @@
 
 #import "KBPlayer.h"
 #import "KBGameLayer.h"
+#import "KBConfigurationManager.h"
 
 @implementation KBPlayer
 
@@ -37,14 +38,11 @@
         [[KBStandardGameController sharedController] setPlayer:self];
         
         self.spriteBatchNode = [[CCSpriteBatchNode alloc] initWithFile:@"jack_walking.png" capacity:30];
-        
-        
-        //CCSpriteSheet* sheet = [CCSpriteSheet spriteSheetWithFile:@"myTest"];
-        
-        
+                
         self.sprite = [CCSprite spriteWithTexture:[self.spriteBatchNode texture] rect:CGRectMake(0, 0, 39, 37)];
         
         [self.spriteBatchNode addChild:self.sprite];
+        
         
         
         _walkingSpeed = 15;
@@ -66,10 +64,24 @@
         _stayDownAnimation = [self walkAnimationWithRow:0 startPosition:3 spriteCount:1 side:Down];
 	
         self.inventory = [[KBInventory alloc] init];
-    
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(load) name:kLoadGameNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:kSaveGameNotification object:nil];
+        
     }
 	return self;
     
+}
+
+
+-(void)load
+{
+    self.position = [[KBConfigurationManager sharedManager] pointForKey:kLastSavedPlayerPosition];
+}
+
+-(void)save
+{
+    [[KBConfigurationManager sharedManager] setPoint:self.position forKey:kLastSavedPlayerPosition];
 }
 
 #pragma mark -

@@ -43,4 +43,10 @@
 - (NSString*)stringForKey:(NSString*)key;
 - (double)doubleForKey:(NSString*)key;
 - (void)setInt:(int)value forKey:(NSString*)key;
+
+-(CGPoint)pointForKey:(NSString*)key;
+-(void)setPoint:(CGPoint)point forKey:(NSString*)key;
+
+-(CGSize)sizeForKey:(NSString*)key;
+-(void)setSize:(CGSize)size forKey:(NSString*)key;
 @end

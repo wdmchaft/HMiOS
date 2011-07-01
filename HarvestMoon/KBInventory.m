@@ -7,6 +7,11 @@
 //
 
 #import "KBInventory.h"
+#import "KBConfigurationManager.h"
+
+#define kItemStacksKey @"itemStacks"
+#define kSelectedItemIndexKey @"selectedItemIndex"
+#define kSelectedToolIndexKey @"selectedToolIndex"
 
 @implementation KBInventory
 
@@ -19,9 +24,30 @@
     if (self) {
         self.itemStacks = [[NSMutableArray alloc] init];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(load) name:kLoadGameNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:kSaveGameNotification object:nil];
+        
     }
     return self;
 }
+
+-(void)load
+{
+    self.itemStacks = [[[KBConfigurationManager sharedManager] configuration] valueForKey:kItemStacksKey];
+
+    self.selectedItem = [self.itemStacks objectAtIndex:[[KBConfigurationManager sharedManager] intForKey:kSelectedItemIndexKey]];
+    self.selectedTool = [self.itemStacks objectAtIndex:[[KBConfigurationManager sharedManager] intForKey:kSelectedToolIndexKey]];
+}
+
+-(void)save
+{
+    [[[KBConfigurationManager sharedManager] configuration] setValue:self.itemStacks forKey:kItemStacksKey];
+    
+    [[KBConfigurationManager sharedManager] setInt:[self.itemStacks indexOfObject:self.selectedItem] forKey:kSelectedItemIndexKey];
+    [[KBConfigurationManager sharedManager] setInt:[self.itemStacks indexOfObject:self.selectedTool] forKey:kSelectedToolIndexKey];
+    
+}
+
 
 -(void)addItem:(KBItem*)item
 {

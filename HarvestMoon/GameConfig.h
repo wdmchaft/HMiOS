@@ -23,6 +23,9 @@ typedef enum {
 #pragma mark -
 #pragma mark General Game Constants
 
+#define kSaveGameNotification @"SaveGameNotification"
+#define kLoadGameNotification @"LoadGameNotification"
+
 #define kGameConfiguration @"GameConfiguration"
 
 #define kApplicationWillTerminateNotification @"AppWillTerminate"

@@ -8,6 +8,8 @@
 
 #import "KBItemStack.h"
 
+#define kItemType @"itemType"
+#define kItemCount @"itemCount"
 
 @implementation KBItemStack
 
@@ -20,6 +22,24 @@
     if (self) {
         
     }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder setValue:self.itemType forKey:kItemType];
+    [aCoder setValue: [NSNumber numberWithInt:self.itemCount] forKey:kItemCount];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self init];
+    if (self) {
+        self.itemType = [aDecoder valueForKey:kItemType];
+        self.itemCount = [[aDecoder valueForKey:kItemCount] integerValue];
+    }
+    
+    
     return self;
 }
 

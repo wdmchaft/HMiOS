@@ -14,7 +14,6 @@
 #import "KBMap.h"
 #import "KBGameLayer.h"
 #import "GameConfig.h"
-#import "KBStoryController.h"
 #import "KBSEventFactory.h"
 #import "KBInteractionHandler.h"
 #import "KBGameMenuLayer.h"
@@ -30,6 +29,9 @@
     
     NSDictionary* _currentMapObject;
     
+    KBGameMenuLayer* _gameMenuLayer;
+    
+    KBInteractionHandler* _interactionHandler;
 }
 
 #pragma mark -
@@ -40,6 +42,10 @@
 @property (nonatomic, retain) KBPlayer* player;
 
 @property (nonatomic, retain) id<KBEvent> currentEvent;
+
+@property (nonatomic, retain) KBGameMenuLayer* gameMenuLayer;
+
+@property (nonatomic, retain) KBInteractionHandler* interactionHandler;
 
 #pragma mark -
 #pragma mark Class Methods

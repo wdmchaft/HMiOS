@@ -7,7 +7,7 @@
 //
 
 #import "KBMap.h"
-
+#import "KBConfigurationManager.h"
 
 @implementation KBMap
 
@@ -24,31 +24,55 @@
 - (id) initWithMapName:(NSString *)mapName {
     self = [super init];
     if (self) {
-        self.tileMap = [KBTMXTiledMap tiledMapWithTMXFile:mapName];
-        
-        self.mapName = mapName;
+        if (!(mapName == nil)) {
+            self.tileMap = [KBTMXTiledMap tiledMapWithTMXFile:mapName];
+            
+            self.mapName = mapName;
+            
+            [self addChild:self.tileMap];
+            
+            NSMutableArray* arr = [NSMutableArray array];
+            
+            NSLog(@"searching for farmlands");
+            
+            for (NSDictionary* dict in self.tileMap.farmland.objects) {
+                KBFarmland* fl = [[[KBFarmland alloc] initWithDictionary:dict andTileSize:self.tileMap.tileSize] autorelease];
                 
-        [self addChild:self.tileMap];
-        
-        NSMutableArray* arr = [NSMutableArray array];
-        
-        NSLog(@"searching for farmlands");
-        
-        for (NSDictionary* dict in self.tileMap.farmland.objects) {
-            KBFarmland* fl = [[[KBFarmland alloc] initWithDictionary:dict andTileSize:self.tileMap.tileSize] autorelease];
+                [arr addObject:fl];
+                
+                fl.position = ccp([fl xPos],[fl yPos]);
+                
+                [self addChild:fl];
+                
+                NSLog(@"created farmland %@",fl);
+            }
             
-            [arr addObject:fl];
-            
-            fl.position = ccp([fl xPos],[fl yPos]);
-            
-            [self addChild:fl];
-            
-            NSLog(@"created farmland %@",fl);
+            self.farmlands = arr;
         }
         
-        self.farmlands = arr;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(load) name:kLoadGameNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:kSaveGameNotification object:nil];
+        
         
     }
+    return self;
+}
+
+-(void)load
+{
+    [self initWithMapName:[[[KBConfigurationManager sharedManager] configuration] valueForKey:kCurrentMapName]];
+}
+
+-(void)save
+{
+    [[[KBConfigurationManager sharedManager] configuration] setValue:self.mapName forKey:kCurrentMapName];
+}
+
+
+-(id)init
+{
+    self = [self initWithMapName:@"Jacks_House.tmx"];
+    
     return self;
 }
 

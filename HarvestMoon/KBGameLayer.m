@@ -20,6 +20,10 @@
 
 @synthesize currentEvent = _currentEvent;
 
+@synthesize gameMenuLayer = _gameMenuLayer;
+
+@synthesize interactionHandler = _interactionHandler;
+
 #pragma mark -
 #pragma mark Class Methods
 
