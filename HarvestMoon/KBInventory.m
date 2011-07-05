@@ -35,16 +35,43 @@
 {
     self.itemStacks = [[[KBConfigurationManager sharedManager] configuration] valueForKey:kItemStacksKey];
 
-    self.selectedItem = [self.itemStacks objectAtIndex:[[KBConfigurationManager sharedManager] intForKey:kSelectedItemIndexKey]];
-    self.selectedTool = [self.itemStacks objectAtIndex:[[KBConfigurationManager sharedManager] intForKey:kSelectedToolIndexKey]];
+    if (self.itemStacks.count > 0) {
+        if ([[KBConfigurationManager sharedManager] uIntForKey:kSelectedItemIndexKey] < 1000) {
+             self.selectedItem = [self.itemStacks objectAtIndex:[[KBConfigurationManager sharedManager] uIntForKey:kSelectedItemIndexKey]];
+        }
+       
+        if ([[KBConfigurationManager sharedManager] uIntForKey:kSelectedToolIndexKey] < 1000) {
+            self.selectedTool = [self.itemStacks objectAtIndex:[[KBConfigurationManager sharedManager] uIntForKey:kSelectedToolIndexKey]];
+        }
+        
+    }
 }
 
 -(void)save
 {
-    [[[KBConfigurationManager sharedManager] configuration] setValue:self.itemStacks forKey:kItemStacksKey];
+    [[[KBConfigurationManager sharedManager] configuration] setValue:self.itemStacks 
+                                                              forKey:kItemStacksKey];
     
-    [[KBConfigurationManager sharedManager] setInt:[self.itemStacks indexOfObject:self.selectedItem] forKey:kSelectedItemIndexKey];
-    [[KBConfigurationManager sharedManager] setInt:[self.itemStacks indexOfObject:self.selectedTool] forKey:kSelectedToolIndexKey];
+    if (self.selectedItem != nil) {
+        [[KBConfigurationManager sharedManager] setUInt:[self.itemStacks indexOfObject:self.selectedItem] 
+                                                 forKey:kSelectedItemIndexKey];
+    }
+    else
+    {
+        [[KBConfigurationManager sharedManager] setUInt:-1
+                                                 forKey:kSelectedItemIndexKey];
+    }
+    
+    if (self.selectedTool) {
+        [[KBConfigurationManager sharedManager] setUInt:[self.itemStacks indexOfObject:self.selectedTool] 
+                                                 forKey:kSelectedToolIndexKey];
+    }
+    else
+    {
+        [[KBConfigurationManager sharedManager] setUInt:-1
+                                                 forKey:kSelectedToolIndexKey];
+    }
+    
     
 }
 

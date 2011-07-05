@@ -8,8 +8,11 @@
 
 #import "KBFarmingField.h"
 
+#define kSpriteFile @"spriteFile"
 
 @implementation KBFarmingField
+
+@synthesize spriteFile = _spriteFile;
 
 - (id)init
 {
@@ -18,21 +21,44 @@
         // Initialization code here.
     }
     
-    [self addChild:[CCSprite spriteWithFile:@"can.png"]];
     
-    NSLog(@"added can");
+    if (self.spriteFile == nil) {
+        
+        switch (arc4random() % 2) {
+            case 0:
+                self.spriteFile = @"can.png";
+                break;
+            case 1:
+                self.spriteFile = @"hoe.png";
+                break;
+            default:
+                break;
+        }
+        
+    }
+    [self addChild:[CCSprite spriteWithFile:self.spriteFile]];
+    
+    NSLog(@"added farming field");
     
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
-    
+    [aCoder setValue:self.spriteFile forKey:kSpriteFile];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
-    return [self init];
+    self = [super init];
+    if (self) {
+        self.spriteFile = [aDecoder valueForKey:kSpriteFile];
+        [self addChild:[CCSprite spriteWithFile:self.spriteFile]];
+        
+        NSLog(@"added farming field");
+    }
+    
+    return self;
 }
 
 @end

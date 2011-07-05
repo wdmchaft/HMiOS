@@ -112,7 +112,6 @@
         CCSprite* sprte = [itemStack.itemType smallSprite];
         sprte.scale = 1;
     }
-    [self removeSprites];
     for (KBItemStack* itemStack in self.inventory.itemStacks) {
         CCSprite* sprte = itemStack.itemType.bigSprite;
         

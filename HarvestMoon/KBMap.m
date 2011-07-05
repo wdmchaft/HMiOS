@@ -9,6 +9,8 @@
 #import "KBMap.h"
 #import "KBConfigurationManager.h"
 
+#define kFarmlandsKey @"farmlands"
+
 @implementation KBMap
 
 #pragma mark -
@@ -48,6 +50,8 @@
             }
             
             self.farmlands = arr;
+            
+            
         }
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(load) name:kLoadGameNotification object:nil];
@@ -61,11 +65,24 @@
 -(void)load
 {
     [self initWithMapName:[[[KBConfigurationManager sharedManager] configuration] valueForKey:kCurrentMapName]];
+    
+    
+    //[self loadFarmlands:[[KBConfigurationManager sharedManager].configuration valueForKey:kFarmlandsKey]];
 }
 
 -(void)save
 {
+    // Die Maps speichern ihre Information in eigene Files
+    // Nur so kann garantiert werden, dass die Maps immer ihre eigenen Daten
+    // zuverlässig wieder finden kann.
+    
+    
+    //[[NSFileManager defaultManager] ]
+    
+    //NSDocumentDirectory 
+    
     [[[KBConfigurationManager sharedManager] configuration] setValue:self.mapName forKey:kCurrentMapName];
+    [[[KBConfigurationManager sharedManager] configuration] setValue:self.farmlands forKey:kFarmlandsKey];
 }
 
 

@@ -39,6 +39,9 @@
 #pragma mark -
 #pragma mark Convencience Methods
 
+-(NSUInteger)uIntForKey:(NSString*)key;
+-(void)setUInt:(NSUInteger)value forKey:(NSString*)key;
+
 - (int)intForKey:(NSString*)key;
 - (NSString*)stringForKey:(NSString*)key;
 - (double)doubleForKey:(NSString*)key;

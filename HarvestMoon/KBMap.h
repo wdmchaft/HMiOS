@@ -35,6 +35,9 @@
 
 - (id) initWithMapName:(NSString *)mapName;
 
+-(void)save;
+-(void)load;
+
 #pragma mark -
 #pragma mark Accessibility
 

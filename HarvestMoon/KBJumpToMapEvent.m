@@ -31,8 +31,11 @@
 {
     KBGameLayer* gameLayer = (KBGameLayer *)[[KBStandardGameController sharedController] gameLayer];
     
-    
+    [gameLayer.map save];
     [gameLayer loadMap:[self.mapName stringByAppendingString:@".tmx"] playerPosition:self.playerPos withAnimation:YES];
+    
+    [gameLayer.map load];
+    
     self.hasFinishedRunning = YES;
 }
 
