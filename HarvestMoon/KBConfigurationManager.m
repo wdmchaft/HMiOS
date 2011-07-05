@@ -72,6 +72,17 @@ static KBConfigurationManager* _sharedSingleton;
 #pragma mark -
 #pragma mark Convencience Methods
 
+- (NSUInteger)uIntForKey:(NSString*)key
+{
+    return [((NSNumber*)[self.configuration objectForKey:key]) unsignedIntegerValue];
+}
+
+- (void)setUInt:(NSUInteger)value forKey:(NSString*)key
+{
+    [self.configuration setValue:[NSNumber numberWithUnsignedInteger:value] 
+                          forKey:key];
+}
+
 - (int)intForKey:(NSString*)key
 {
     return [((NSNumber*)[self.configuration objectForKey:key]) integerValue];
@@ -109,6 +120,19 @@ static KBConfigurationManager* _sharedSingleton;
 -(void)setSize:(CGSize)size forKey:(NSString*)key
 {
     [self.configuration setValue:NSStringFromCGSize(size) forKey:key];
+}
+
+-(void)saveValue:(NSObject*)value intoFile:(NSString*)fileName
+{
+    NSString* appSupportPath =  [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSAssert(appSupportPath != nil, @"ApplicationSupport Folder not found!");
+    
+    NSString* filePath = [appSupportPath stringByAppendingPathComponent:fileName];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        
+    }
 }
 
 @end
