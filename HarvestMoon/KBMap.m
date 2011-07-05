@@ -67,7 +67,7 @@
     [self initWithMapName:[[[KBConfigurationManager sharedManager] configuration] valueForKey:kCurrentMapName]];
     
     
-    [self loadFarmlands:[[KBConfigurationManager sharedManager].configuration valueForKey:kFarmlandsKey]];
+    //[self loadFarmlands:[[KBConfigurationManager sharedManager].configuration valueForKey:kFarmlandsKey]];
 }
 
 -(void)save
