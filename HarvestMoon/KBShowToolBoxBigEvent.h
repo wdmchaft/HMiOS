@@ -11,7 +11,7 @@
 #import "KBEvent.h"
 
 @interface KBShowToolBoxBigEvent : NSObject <KBEvent> {
-    
+    NSMutableArray *items;
 }
 
 @property(nonatomic) int toolboxHeightInObjects;

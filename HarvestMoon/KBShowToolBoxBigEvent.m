@@ -31,6 +31,7 @@
 
 -(void) run
 {
+    items = [[NSMutableArray alloc] init];
     int screenWidth = [[CCDirector sharedDirector] winSize].width - self.toolboxOuterSpacing;
     int screenHeight = [[CCDirector sharedDirector] winSize].height - self.toolboxOuterSpacing;
     int objectBoxWidth = screenWidth / self.toolboxWidthInObjects;
