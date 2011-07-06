@@ -106,6 +106,21 @@
     return NO;
 }
 
+-(void)removeSprites
+{
+    [self unschedule:@selector(removeSprites)];
+    for (KBItemStack* itemStack in self.itemsToShow) {
+        CCSprite* sprte = [itemStack.itemType smallSprite];
+        
+        [self removeChild:sprte cleanup:YES];
+        
+    }
+    
+    // Die Menüs gelten erst als geschlossen, wenn alle Icons nicht mehr sichtbar sind!
+    self.itemMenuOpened = NO;
+    self.toolMenuOpened = NO;
+}
+
 -(void)hideFullMenu
 {
     for (KBItemStack* itemStack in self.itemsToShow) {
@@ -120,6 +135,8 @@
         }
         
     }
+    
+    [self removeSprites];
 }
 
 - (void) ccTouchEnded:(UITouch *) touch withEvent:(UIEvent *) event
@@ -213,22 +230,6 @@
         
     }
 }
-
--(void)removeSprites
-{
-    [self unschedule:@selector(removeSprites)];
-    for (KBItemStack* itemStack in self.itemsToShow) {
-        CCSprite* sprte = [itemStack.itemType smallSprite];
-        
-        [self removeChild:sprte cleanup:YES];
-        
-    }
-    
-    // Die Menüs gelten erst als geschlossen, wenn alle Icons nicht mehr sichtbar sind!
-    self.itemMenuOpened = NO;
-    self.toolMenuOpened = NO;
-}
-
 
 -(void)showFullMenu
 {
