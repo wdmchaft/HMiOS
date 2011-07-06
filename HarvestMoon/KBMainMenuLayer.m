@@ -59,7 +59,7 @@
 
 -(void)continueGame
 {
-    [[CCDirector sharedDirector] replaceScene:[KBGameLayer scene]];
+    [[KBMasterController sharedController] loadGame];
 }
 
 -(void)showOptionScreen

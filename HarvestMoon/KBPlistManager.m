@@ -49,4 +49,18 @@
     return (NSDictionary*) [KBPlistManager readPlist:fileName];
 }
 
++ (void)writePlist:(NSString*)fileName withArray:(NSArray*)data
+{
+    NSData *d = [NSKeyedArchiver archivedDataWithRootObject:data];
+    
+    
+    [[NSFileManager defaultManager] createFileAtPath:fileName contents:d attributes:nil];
+}
+
++ (void)writePlist:(NSString*)fileName withDictionary:(NSDictionary *)data
+{
+    NSData *d = [NSKeyedArchiver archivedDataWithRootObject:data];
+    
+    [[NSFileManager defaultManager] createFileAtPath:fileName contents:d attributes:nil];
+}
 @end

@@ -35,8 +35,6 @@
         self.bigSprite = [CCSprite spriteWithFile:[dict objectForKey:kBigIcon]];
         self.itemType = [[dict objectForKey:kType] isEqual:@"Tool"] ? Tool : Item;
         
-        NSLog(@"created Item with parameters: %@", dict);
-        
     }
     
     return self;
@@ -44,11 +42,11 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
-    return [self initWithDefinitionFile:[aDecoder valueForKey:kFileNameKey]];
+    return [self initWithDefinitionFile:[aDecoder decodeObjectForKey:kFileNameKey]];
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder setValue:self.fileName forKey:kFileNameKey];
+    [aCoder encodeObject:self.fileName forKey:kFileNameKey];
 }
 @end

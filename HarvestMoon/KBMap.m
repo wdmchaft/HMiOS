@@ -10,6 +10,7 @@
 #import "KBConfigurationManager.h"
 
 #define kFarmlandsKey @"farmlands"
+#define kMapNameKey @"mapName"
 
 @implementation KBMap
 
@@ -20,10 +21,22 @@
 @synthesize mapName = _mapName;
 @synthesize farmlands = _farmlands;
 
+- (void)setFarmlands:(NSArray *)farmlands
+{
+    if (self.farmlands == farmlands)
+    {
+        return;
+    }
+    NSArray *oldValue = self.farmlands;
+    _farmlands = [farmlands retain];
+    [oldValue release];
+}
+
 #pragma mark -
 #pragma mark Init & Dealloc
 
 - (id) initWithMapName:(NSString *)mapName {
+    NSLog(@"initWithMapName");
     self = [super init];
     if (self) {
         if (!(mapName == nil)) {
@@ -46,7 +59,6 @@
                 
                 [self addChild:fl];
                 
-                NSLog(@"created farmland %@",fl);
             }
             
             self.farmlands = arr;
@@ -62,12 +74,37 @@
     return self;
 }
 
+-(NSString*)getSaveFileName
+{
+    return [[self.mapName stringByDeletingPathExtension] stringByAppendingPathExtension:@"plist"];
+}
+
+-(void)updateFarmland:(NSArray*)newFarmlands
+{
+    for (CCNode* node in self.farmlands) {
+        [self removeChild:node cleanup:YES];
+    }
+    
+    self.farmlands = newFarmlands;
+    
+    for (CCNode* node in newFarmlands) {
+        [self addChild:node];
+    }
+}
+
 -(void)load
 {
+    NSLog(@"load KBMap from persistent data");
+    
+    NSArray* retVal =(NSArray*)[[KBConfigurationManager sharedManager] loadValueFromFile:self.getSaveFileName]; 
+    
+    if (retVal) {
+        [self updateFarmland:retVal];
+    }
+    
     [self initWithMapName:[[[KBConfigurationManager sharedManager] configuration] valueForKey:kCurrentMapName]];
     
     
-    //[self loadFarmlands:[[KBConfigurationManager sharedManager].configuration valueForKey:kFarmlandsKey]];
 }
 
 -(void)save
@@ -75,14 +112,9 @@
     // Die Maps speichern ihre Information in eigene Files
     // Nur so kann garantiert werden, dass die Maps immer ihre eigenen Daten
     // zuverlässig wieder finden kann.
+    NSLog(@"save KBMap to persistent data");
+    [[KBConfigurationManager sharedManager] saveValue:self.farmlands intoFile:self.getSaveFileName];
     
-    
-    //[[NSFileManager defaultManager] ]
-    
-    //NSDocumentDirectory 
-    
-    [[[KBConfigurationManager sharedManager] configuration] setValue:self.mapName forKey:kCurrentMapName];
-    [[[KBConfigurationManager sharedManager] configuration] setValue:self.farmlands forKey:kFarmlandsKey];
 }
 
 

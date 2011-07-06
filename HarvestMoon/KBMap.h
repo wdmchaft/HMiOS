@@ -12,7 +12,7 @@
 #import "GameConfig.h"
 #import "KBFarmland.h"
 
-@interface KBMap : CCNode {
+@interface KBMap : CCNode{
     
     KBTMXTiledMap* _tileMap;
     NSArray* _farmlands;
@@ -26,7 +26,11 @@
 
 @property (nonatomic, retain) NSString* mapName;
 
+
 @property (nonatomic, retain) NSArray* farmlands;
+
+
+
 
 #pragma mark -
 #pragma mark Init & Dealloc

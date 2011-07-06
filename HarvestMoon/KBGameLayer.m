@@ -112,7 +112,7 @@
     
     [self.player updatePlayerForMapChange];
     
-    [self addChild:self.map];
+    [self addChild:self.map z:-1];
     
     self.player.position = ccp(playerPosition.x * self.map.tileWidth, playerPosition.y * self.map.tileHeight);
 }

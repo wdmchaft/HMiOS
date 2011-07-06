@@ -8,7 +8,8 @@
 
 #import "KBFarmingField.h"
 
-#define kSpriteFile @"spriteFile"
+#define kSpriteFileKey @"spriteFile"
+#define kPositionKey @"position"
 
 @implementation KBFarmingField
 
@@ -37,25 +38,28 @@
         
     }
     [self addChild:[CCSprite spriteWithFile:self.spriteFile]];
-    
-    NSLog(@"added farming field");
-    
+        
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder setValue:self.spriteFile forKey:kSpriteFile];
+    [aCoder encodeObject:self.spriteFile forKey:kSpriteFileKey];
+    
+    [aCoder encodeCGPoint:self.position forKey:kPositionKey];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
     if (self) {
-        self.spriteFile = [aDecoder valueForKey:kSpriteFile];
+        self.spriteFile = [aDecoder decodeObjectForKey:kSpriteFileKey];
+        self.position = [aDecoder decodeCGPointForKey:kPositionKey];
+        
         [self addChild:[CCSprite spriteWithFile:self.spriteFile]];
         
-        NSLog(@"added farming field");
+        NSLog(@"created FarminField from persistent data");
+        
     }
     
     return self;

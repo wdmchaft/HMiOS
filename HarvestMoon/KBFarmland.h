@@ -12,7 +12,7 @@
 
 #define kMagnification 2
 
-@interface KBFarmland : CCNode {
+@interface KBFarmland : CCNode <NSCoding>{
     int _xPos;
     int _yPos;
     int _height;
@@ -29,5 +29,8 @@
 @property(nonatomic,retain) NSArray* farmingFields;
 
 - (id)initWithDictionary:(NSDictionary *)dict andTileSize:(CGSize)size;
+
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+- (id)initWithCoder:(NSCoder *)aDecoder;
 
 @end

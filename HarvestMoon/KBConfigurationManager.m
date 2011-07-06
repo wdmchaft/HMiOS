@@ -7,6 +7,7 @@
 //
 
 #import "KBConfigurationManager.h"
+#import "KBPlistManager.h"
 
 @implementation KBConfigurationManager
 
@@ -122,17 +123,35 @@ static KBConfigurationManager* _sharedSingleton;
     [self.configuration setValue:NSStringFromCGSize(size) forKey:key];
 }
 
--(void)saveValue:(NSObject*)value intoFile:(NSString*)fileName
+-(void)saveValue:(id<NSCoding>)value intoFile:(NSString*)fileName
 {
+    if (value == nil) {
+        NSLog(@"value was nil, didn't save anything...");
+        return;
+    }
+    
+    NSLog(@"write to File %@",fileName);
+    
     NSString* appSupportPath =  [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
     NSAssert(appSupportPath != nil, @"ApplicationSupport Folder not found!");
     
     NSString* filePath = [appSupportPath stringByAppendingPathComponent:fileName];
     
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        
-    }
+    [KBPlistManager writePlist:filePath withArray:[NSArray arrayWithObject:value]];
+}
+
+-(id<NSCoding>)loadValueFromFile:(NSString*)fileName
+{
+    NSLog(@"loading from File %@", fileName);
+    
+    NSString* appSupportPath =  [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSAssert(appSupportPath != nil, @"ApplicationSupport Folder not found!");
+    
+    NSString* filePath = [appSupportPath stringByAppendingPathComponent:fileName];
+    
+    return [[KBPlistManager readPlistAsArray:filePath] objectAtIndex:0];
 }
 
 @end

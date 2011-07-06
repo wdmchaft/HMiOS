@@ -48,45 +48,55 @@
             for (int j = 0; j <= self.height; j+=kTilesPerField*self.tileSize.height) {
                 KBFarmingField* field = [[KBFarmingField alloc] init];
                 
-                NSLog(@"created farmingfield");
-                
                 field.position = ccp(i,j);
                 
                 [arr addObject:field];
                 
                 [self addChild:field];
+                
+                [field release];
             }
         }
         
         self.farmingFields = arr;
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(load) name:kLoadGameNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:kSaveGameNotification object:nil];
         
     }
     
     return self;
 }
 
--(void)load
+- (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    self.xPos = [[KBConfigurationManager sharedManager] intForKey:kXPosKey];
-    self.yPos = [[KBConfigurationManager sharedManager] intForKey:kYPosKey];
-    self.width = [[KBConfigurationManager sharedManager] intForKey:kWidthKey];
-    self.height= [[KBConfigurationManager sharedManager] intForKey:kHeightKey];
-    self.tileSize = [[KBConfigurationManager sharedManager] sizeForKey:kTileSizeKey];
-    self.farmingFields = [[[KBConfigurationManager sharedManager] configuration] valueForKey:kFarmingFieldsKey];
+    NSLog(@"saving farmland to persistent data");
+    [aCoder encodeInt:self.xPos forKey:kXPosKey];
+    [aCoder encodeInt:self.yPos forKey:kYPosKey];
+    
+    [aCoder encodeInt:self.width forKey:kWidthKey];
+    [aCoder encodeInt:self.height forKey:kHeightKey];
+    
+    [aCoder encodeCGSize:self.tileSize forKey:kTileSizeKey];
+    
+    [aCoder encodeObject:self.farmingFields forKey:kFarmingFieldsKey];
     
 }
--(void)save
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    [[KBConfigurationManager sharedManager]setInt:self.xPos forKey:kXPosKey];
-    [[KBConfigurationManager sharedManager]setInt:self.yPos forKey:kYPosKey];
-    
-    [[KBConfigurationManager sharedManager]setInt:self.width forKey:kWidthKey];
-    [[KBConfigurationManager sharedManager]setInt:self.height forKey:kHeightKey];
-    [[KBConfigurationManager sharedManager]setSize:self.tileSize forKey:kTileSizeKey];
-    [[[KBConfigurationManager sharedManager] configuration]setValue:self.farmingFields forKey:kFarmingFieldsKey];
+    self = [super init];
+    if (self) {
+        self.xPos = [aDecoder decodeIntForKey:kXPosKey];
+        self.yPos = [aDecoder decodeIntForKey:kYPosKey];
+        
+        self.width = [aDecoder decodeIntForKey:kWidthKey];
+        self.height = [aDecoder decodeIntForKey:kHeightKey];
+        
+        self.tileSize = [aDecoder decodeCGSizeForKey:kTileSizeKey];
+        
+        self.farmingFields = [aDecoder decodeObjectForKey:kFarmingFieldsKey];
+        
+        NSLog(@"created Farmland from persistent data");
+        
+    }
+    return self;
 }
-
 @end

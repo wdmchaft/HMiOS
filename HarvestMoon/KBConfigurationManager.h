@@ -52,4 +52,7 @@
 
 -(CGSize)sizeForKey:(NSString*)key;
 -(void)setSize:(CGSize)size forKey:(NSString*)key;
+
+-(void)saveValue:(id<NSCoding>)value intoFile:(NSString*)fileName;
+-(id<NSCoding>)loadValueFromFile:(NSString*)fileName;
 @end

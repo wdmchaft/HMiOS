@@ -138,8 +138,6 @@
 
 - (void) applicationDidBecomeActive:(UIApplication *) application 
 {
-    [[KBMasterController sharedController]loadGame];
-    
 	[[CCDirector sharedDirector] resume];
 }
 

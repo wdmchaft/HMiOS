@@ -73,6 +73,7 @@ static KBMasterController* _sharedSingleton;
 }
 -(void)loadGame
 {
+    NSLog(@"sending load message");
     [[NSNotificationCenter defaultCenter] postNotificationName:kLoadGameNotification object:self];
 }
 - (void)setUpGameLayer {
@@ -82,6 +83,7 @@ static KBMasterController* _sharedSingleton;
     
     if (self.gameLayer == nil) {
         self.gameLayer = [[KBGameLayer alloc] init];
+        
     }
     
     if (self.gameMenuLayer == nil) {
@@ -100,12 +102,9 @@ static KBMasterController* _sharedSingleton;
 }
 -(void)newGame
 {
-    
-    //[[CCDirector sharedDirector] replaceScene:[KBGameLayer scene]];
-    
-    [[[KBConfigurationManager sharedManager] configuration] setObject:NSStringFromCGPoint(ccp(200,100)) forKey:kLastSavedPlayerPosition];
-    
     [[[KBConfigurationManager sharedManager] configuration] setObject:@"Jacks_House.tmx" forKey:kCurrentMapName];
+    [[KBConfigurationManager sharedManager] setPoint:ccp(200,100) forKey:kLastSavedPlayerPosition];
+    
     
     [self setUpGameLayer];
 

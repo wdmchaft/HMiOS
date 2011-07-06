@@ -12,5 +12,6 @@
 
 + (NSArray*)readPlistAsArray:(NSString*)fileName;
 + (NSDictionary*)readPlistAsDictionary:(NSString*)fileName;
-
++ (void)writePlist:(NSString*)fileName withArray:(NSArray*)data;
++ (void)writePlist:(NSString*)fileName withDictionary:(NSDictionary *)data;
 @end
