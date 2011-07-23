@@ -12,7 +12,13 @@
 #import "GameConfig.h"
 #import "KBInventory.h"
 
+#pragma mark -
+#pragma mark Interface
+
 @interface KBPlayer : CCNode {
+    
+#pragma mark -
+#pragma mark Class Variables
     
     CCSprite* _sprite;
     
@@ -68,9 +74,13 @@
 @property (nonatomic, retain) KBInventory* inventory;
 
 #pragma mark -
-#pragma mark Init & Dealloc
+#pragma mark State Handling
 
 - (id) init;
+
+-(void)load;
+
+-(void)save;
 
 #pragma mark -
 #pragma mark CCNode Methods

@@ -12,11 +12,20 @@
 #import "GameConfig.h"
 #import "KBFarmland.h"
 
+#pragma mark -
+#pragma mark Interface
+
 @interface KBMap : CCNode{
     
+#pragma mark -
+#pragma mark Class Variables
+    
     KBTMXTiledMap* _tileMap;
+    
     NSArray* _farmlands;
+    
     NSString* _mapName;
+    
 }
 
 #pragma mark -
@@ -26,20 +35,19 @@
 
 @property (nonatomic, retain) NSString* mapName;
 
-
 @property (nonatomic, retain) NSArray* farmlands;
 
-
-
-
 #pragma mark -
-#pragma mark Init & Dealloc
+#pragma mark State Handling
 
 -(id) init;
 
 - (id) initWithMapName:(NSString *)mapName;
 
+-(NSString*)getSaveFileName;
+
 -(void)save;
+
 -(void)load;
 
 #pragma mark -
@@ -60,11 +68,17 @@
 - (BOOL) centerPlayer;
 
 #pragma mark -
+#pragma mark Map Loading
 
 -(void)loadMap;
 -(void)loadNewFarmlands:(NSArray*)farmlands;
 -(void)createNewFarmland;
 
+#pragma mark -
+#pragma mark Event Handling
+
 - (NSDictionary*)eventDataAtPosition:(CGPoint)position;
+
+#pragma mark -
 
 @end

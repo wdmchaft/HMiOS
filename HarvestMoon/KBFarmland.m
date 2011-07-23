@@ -9,6 +9,10 @@
 #import "KBFarmland.h"
 #import "KBConfigurationManager.h"
 
+#pragma mark -
+#pragma mark ConfigurationKeys
+
+
 #define kXPosKey            @"xPos"
 #define kYPosKey            @"yPos"
 #define kHeightKey          @"height"
@@ -16,37 +20,63 @@
 #define kTileSizeKey        @"tileSize"
 #define kFarmingFieldsKey   @"farmingFields"
 
+#pragma mark -
+#pragma mark Constants
 
 // definiert, wie viele Tiles lang / breit ein einzelnes Feld des gesamten Farmgebiet ist.
 #define kTilesPerField 2
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBFarmland
 
+#pragma mark -
+#pragma mark Properties
+
 @synthesize xPos = _xPos;
+
 @synthesize yPos = _yPos;
+
 @synthesize height = _height;
+
 @synthesize width = _width;
+
 @synthesize tileSize = _tileSize;
+
 @synthesize farmingFields = _farmingFields;
 
-- (id)initWithDictionary:(NSDictionary *)dict andTileSize:(CGSize)size
+#pragma mark -
+#pragma mark State Handling
+
+-(id)initwithXPos:(int)x yPos:(int)y height:(int)height 
+            width:(int)width tileSize:(CGSize)tileSize
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
-        
-        self.xPos = [[dict valueForKey:@"x"] integerValue];
-        self.yPos = [[dict valueForKey:@"y"] integerValue];
-        self.height = [[dict valueForKey:@"height"] integerValue];
-        self.width = [[dict valueForKey:@"width"] integerValue];
-        self.tileSize = size;
-        
-        
-        self.position = ccp(self.xPos,self.yPos);
-        
+        self.xPos = x;
+        self.yPos = y;
+        self.height = height;
+        self.width = width;
+        self.position = ccp(x,y);
+        self.tileSize = tileSize;
+    }
+    
+    return self;
+}
+
+- (id)initWithDictionary:(NSDictionary *)dict andTileSize:(CGSize)size
+{
+    self = [self initwithXPos:[[dict valueForKey:@"x"] integerValue] 
+                         yPos:[[dict valueForKey:@"y"] integerValue] 
+                       height:[[dict valueForKey:@"height"] integerValue] 
+                        width:[[dict valueForKey:@"width"] integerValue] 
+                     tileSize:size];
+    
+    if(self)
+    {
         NSMutableArray* arr = [NSMutableArray array];
         
-        //i = width of the current farmingField
         for (int i = 0; i <= self.width ; i+=kTilesPerField*self.tileSize.width) {
             for (int j = 0; j <= self.height; j+=kTilesPerField*self.tileSize.height) {
                 KBFarmingField* field = [[KBFarmingField alloc] init];
@@ -56,33 +86,25 @@
                 [arr addObject:field];
                 
                 [self addChild:field];
-                
+            
                 [field release];
             }
         }
-        
-        self.farmingFields = arr;
-        
-        
-    }
     
+        self.farmingFields = arr;    
+    }
     return self;
 }
 
 -(id)initWithDataRepresentation:(NSDictionary *)dataRepresentation
 {
-    self=[super init];
+    self = [self initwithXPos:[[dataRepresentation objectForKey:kXPosKey] integerValue]
+                         yPos:[[dataRepresentation objectForKey:kYPosKey] integerValue]
+                       height:[[dataRepresentation objectForKey:kHeightKey] integerValue] 
+                        width:[[dataRepresentation objectForKey:kWidthKey] integerValue]
+                     tileSize:CGSizeFromString([dataRepresentation objectForKey:kTileSizeKey])];
+    
     if (self) {
-        self.xPos = [[dataRepresentation objectForKey:kXPosKey] integerValue];
-        self.yPos = [[dataRepresentation objectForKey:kYPosKey] integerValue];
-        self.position = ccp(self.xPos,self.yPos);
-        
-        self.width = [[dataRepresentation objectForKey:kWidthKey] integerValue];
-        self.height = [[dataRepresentation objectForKey:kHeightKey] integerValue];
-        
-        self.tileSize = CGSizeFromString([dataRepresentation objectForKey:kTileSizeKey]);
-        
-        
         NSMutableArray* fields = [dataRepresentation objectForKey:kFarmingFieldsKey];
         NSMutableArray* farmingFields = [NSMutableArray array];
         
@@ -96,7 +118,6 @@
         }
         
         self.farmingFields = farmingFields;
-        
     }
     
     return self;
@@ -123,5 +144,7 @@
     
     return dict;
 }
+
+#pragma mark -
 
 @end

@@ -8,12 +8,24 @@
 
 #import "KBFarmingField.h"
 
+#pragma mark -
+#pragma mark ConfigurationKeys
+
 #define kSpriteFileKey @"spriteFile"
 #define kPositionKey @"position"
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBFarmingField
 
+#pragma mark -
+#pragma mark Properties
+
 @synthesize spriteFile = _spriteFile;
+
+#pragma mark -
+#pragma mark State Handling
 
 - (id)init
 {
@@ -64,5 +76,7 @@
     
     return dict;
 }
+
+#pragma mark -
 
 @end

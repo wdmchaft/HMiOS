@@ -10,12 +10,15 @@
 #import "cocos2d.h"
 #import "GameConfig.h"
 
+#pragma mark -
+#pragma mark Interface
+
 @interface RootViewController : UIViewController {
 
 }
 
 #pragma mark -
-#pragma mark Init & Dealloc
+#pragma mark State Handling
 
 - (void) dealloc;
 

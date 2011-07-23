@@ -9,8 +9,18 @@
 #import "KBInteractionHandler.h"
 #import "KBStandardGameController.h"
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBInteractionHandler
+
+#pragma mark -
+#pragma mark Properties
+
 @synthesize delegate=_delegate;
+
+#pragma mark -
+#pragma mark State Handling
 
 - (id)init {
     self = [super init];
@@ -24,35 +34,8 @@
     return self;
 }
 
-
--(void) initializeDPad
-{
-    background = [CCSprite spriteWithFile:@"DPad_Background.png"];
-    buttonLeft = [CCSprite spriteWithFile:@"DPad_Button.png"];
-    buttonRight = [CCSprite spriteWithFile:@"DPad_Button.png"];
-    buttonUp = [CCSprite spriteWithFile:@"DPad_Button.png"];
-    buttonDown = [CCSprite spriteWithFile:@"DPad_Button.png"];
-    
-    buttonLeft.rotation = -90;
-    buttonRight.rotation = 90;
-    buttonDown.rotation = 180;
-    
-    
-    background.position = ccp([[CCDirector sharedDirector] winSize].width - background.contentSize.width/2,background.contentSize.height/2);
-    
-    
-    buttonUp.position = ccp(background.position.x,background.position.y + background.contentSize.height/2 - buttonUp.contentSize.height/2);
-	buttonDown.position = ccp(background.position.x,background.position.y - background.contentSize.height/2 + buttonDown.contentSize.height/2);
-	buttonRight.position = ccp(background.position.x + background.contentSize.width/2 - buttonRight.contentSize.width/2,background.position.y);
-	buttonLeft.position = ccp(background.position.x - background.contentSize.width/2 + buttonLeft.contentSize.width/2,background.position.y);
-    
-    [self addChild:background];
-    [self addChild:buttonDown];
-    [self addChild:buttonLeft];
-    [self addChild:buttonRight];
-    [self addChild:buttonUp];
-    
-}
+#pragma mark -
+#pragma mark Touch Handling
 
 - (void) registerWithTouchDispatcher
 {
@@ -80,70 +63,6 @@
     
     
     return YES;
-}
-
--(BOOL) hasDPadGotTouched:(UITouch *)touch
-{
-    if(CGRectContainsPoint(buttonLeft.textureRect, [buttonLeft convertTouchToNodeSpace:touch]))
-        return YES;
-    if(CGRectContainsPoint(buttonRight.textureRect, [buttonRight convertTouchToNodeSpace:touch]))
-        return YES;
-    if(CGRectContainsPoint(buttonDown.textureRect, [buttonDown convertTouchToNodeSpace:touch]))
-        return YES;
-    if(CGRectContainsPoint(buttonUp.textureRect, [buttonUp convertTouchToNodeSpace:touch]))
-        return YES;
-    
-    return NO;
-}
-
--(Side) calculateWhereToWalkWithUITouch:(UITouch *)touch
-{
-    if ([((NSNumber*)[[KBConfigurationManager sharedManager].configuration objectForKey:kUseDPad]) integerValue]) {
-        if(CGRectContainsPoint(buttonLeft.textureRect, [buttonLeft convertTouchToNodeSpace:touch]))
-            return Left;
-        if(CGRectContainsPoint(buttonRight.textureRect, [buttonRight convertTouchToNodeSpace:touch]))
-            return Right;
-        if(CGRectContainsPoint(buttonDown.textureRect, [buttonDown convertTouchToNodeSpace:touch]))
-            return Up;
-        if(CGRectContainsPoint(buttonUp.textureRect, [buttonUp convertTouchToNodeSpace:touch]))
-            return Down;
-        
-    }
-    else
-    {
-        CGPoint touchLocation = [touch locationInView:[touch view]];
-    
-        touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-        //touchLocation = [self convertToNodeSpace:touchLocation];
-    
-        int width =[[CCDirector sharedDirector] winSize].width;
-        int height =[[CCDirector sharedDirector] winSize].height;
-    
-        CGPoint middlePoint = CGPointMake(width/2, height/2);
-        CGPoint lo = CGPointMake(0, 0);
-        CGPoint lu = CGPointMake(0, height);
-        CGPoint ro = CGPointMake(width, 0);
-        CGPoint ru = CGPointMake(width, height);
-    
-    
-        if ([self CGPoint:touchLocation inTriangleP1:lu P2:lo P3:middlePoint]) {
-            return Left;
-        }
-        if ([self CGPoint:touchLocation inTriangleP1:ru P2:ro P3:middlePoint]) {
-            return Right;
-        }
-        if ([self CGPoint:touchLocation inTriangleP1:lo P2:ro P3:middlePoint]) {
-            return Up;
-        }
-        if ([self CGPoint:touchLocation inTriangleP1:lu P2:ru P3:middlePoint]) {
-            return Down;
-        }
-
-        return Down;
-    }
-    
-    //didn't touch the dpad or made a touch outside of the sceen
-    return -1;
 }
 
 - (void) ccTouchMoved:(UITouch *) touch withEvent:(UIEvent *) event
@@ -184,6 +103,59 @@
     
 }
 
+#pragma mark -
+#pragma mark Helper Methods
+
+-(Side) calculateWhereToWalkWithUITouch:(UITouch *)touch
+{
+    if ([((NSNumber*)[[KBConfigurationManager sharedManager].configuration objectForKey:kUseDPad]) integerValue]) {
+        if(CGRectContainsPoint(buttonLeft.textureRect, [buttonLeft convertTouchToNodeSpace:touch]))
+            return Left;
+        if(CGRectContainsPoint(buttonRight.textureRect, [buttonRight convertTouchToNodeSpace:touch]))
+            return Right;
+        if(CGRectContainsPoint(buttonDown.textureRect, [buttonDown convertTouchToNodeSpace:touch]))
+            return Up;
+        if(CGRectContainsPoint(buttonUp.textureRect, [buttonUp convertTouchToNodeSpace:touch]))
+            return Down;
+        
+    }
+    else
+    {
+        CGPoint touchLocation = [touch locationInView:[touch view]];
+        
+        touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+        //touchLocation = [self convertToNodeSpace:touchLocation];
+        
+        int width =[[CCDirector sharedDirector] winSize].width;
+        int height =[[CCDirector sharedDirector] winSize].height;
+        
+        CGPoint middlePoint = CGPointMake(width/2, height/2);
+        CGPoint lo = CGPointMake(0, 0);
+        CGPoint lu = CGPointMake(0, height);
+        CGPoint ro = CGPointMake(width, 0);
+        CGPoint ru = CGPointMake(width, height);
+        
+        
+        if ([self CGPoint:touchLocation inTriangleP1:lu P2:lo P3:middlePoint]) {
+            return Left;
+        }
+        if ([self CGPoint:touchLocation inTriangleP1:ru P2:ro P3:middlePoint]) {
+            return Right;
+        }
+        if ([self CGPoint:touchLocation inTriangleP1:lo P2:ro P3:middlePoint]) {
+            return Up;
+        }
+        if ([self CGPoint:touchLocation inTriangleP1:lu P2:ru P3:middlePoint]) {
+            return Down;
+        }
+        
+        return Down;
+    }
+    
+    //didn't touch the dpad or made a touch outside of the sceen
+    return -1;
+}
+
 - (CGFloat) GBDot:(CGPoint) v1 point2:(CGPoint) v2
 {
     return v1.x * v2.x + v1.y * v2.y;
@@ -214,5 +186,52 @@
     return (u > 0) && (v > 0) && (u + v < 1);
 }
 
+#pragma mark -
+#pragma mark D-Pad Handling
+
+-(void) initializeDPad
+{
+    background = [CCSprite spriteWithFile:@"DPad_Background.png"];
+    buttonLeft = [CCSprite spriteWithFile:@"DPad_Button.png"];
+    buttonRight = [CCSprite spriteWithFile:@"DPad_Button.png"];
+    buttonUp = [CCSprite spriteWithFile:@"DPad_Button.png"];
+    buttonDown = [CCSprite spriteWithFile:@"DPad_Button.png"];
+    
+    buttonLeft.rotation = -90;
+    buttonRight.rotation = 90;
+    buttonDown.rotation = 180;
+    
+    
+    background.position = ccp([[CCDirector sharedDirector] winSize].width - background.contentSize.width/2,background.contentSize.height/2);
+    
+    
+    buttonUp.position = ccp(background.position.x,background.position.y + background.contentSize.height/2 - buttonUp.contentSize.height/2);
+	buttonDown.position = ccp(background.position.x,background.position.y - background.contentSize.height/2 + buttonDown.contentSize.height/2);
+	buttonRight.position = ccp(background.position.x + background.contentSize.width/2 - buttonRight.contentSize.width/2,background.position.y);
+	buttonLeft.position = ccp(background.position.x - background.contentSize.width/2 + buttonLeft.contentSize.width/2,background.position.y);
+    
+    [self addChild:background];
+    [self addChild:buttonDown];
+    [self addChild:buttonLeft];
+    [self addChild:buttonRight];
+    [self addChild:buttonUp];
+    
+}
+
+-(BOOL) hasDPadGotTouched:(UITouch *)touch
+{
+    if(CGRectContainsPoint(buttonLeft.textureRect, [buttonLeft convertTouchToNodeSpace:touch]))
+        return YES;
+    if(CGRectContainsPoint(buttonRight.textureRect, [buttonRight convertTouchToNodeSpace:touch]))
+        return YES;
+    if(CGRectContainsPoint(buttonDown.textureRect, [buttonDown convertTouchToNodeSpace:touch]))
+        return YES;
+    if(CGRectContainsPoint(buttonUp.textureRect, [buttonUp convertTouchToNodeSpace:touch]))
+        return YES;
+    
+    return NO;
+}
+
+#pragma mark -
 
 @end

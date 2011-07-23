@@ -9,14 +9,29 @@
 #import "KBMasterController.h"
 #import "GameConfig.h"
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBMasterController
 
+#pragma mark -
+#pragma mark Properties
+
 @synthesize mainMenuLayer = _mainMenuLayer;
+
 @synthesize gameLayer = _gameLayer;
+
 @synthesize gameMenuLayer = _gameMenuLayer;
+
 @synthesize interactionHandler = _interactionHandler;
 
+#pragma mark -
+#pragma mark Static Objects
+
 static KBMasterController* _sharedSingleton;
+
+#pragma mark -
+#pragma mark State Handling
 
 -(id)init
 {
@@ -32,6 +47,9 @@ static KBMasterController* _sharedSingleton;
     _sharedSingleton = self;
     return self;
 }
+
+#pragma mark -
+#pragma mark Class Methods
 
 + (KBMasterController *) sharedController
 {
@@ -58,6 +76,9 @@ static KBMasterController* _sharedSingleton;
     return scene;
 }
 
+#pragma mark -
+#pragma mark Game Handling
+
 -(void)showMenu
 {
     if (self.mainMenuLayer == nil) {
@@ -71,11 +92,13 @@ static KBMasterController* _sharedSingleton;
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:kSaveGameNotification object:self];
 }
+
 -(void)loadGame
 {
     NSLog(@"sending load message");
     [[NSNotificationCenter defaultCenter] postNotificationName:kLoadGameNotification object:self];
 }
+
 - (void)setUpGameLayer {
     
     if([self.children containsObject:self.mainMenuLayer])
@@ -100,8 +123,16 @@ static KBMasterController* _sharedSingleton;
     [self addChild:self.interactionHandler];
     [self addChild:self.gameMenuLayer];
 }
+
 -(void)newGame
 {
+
+    NSArray* files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[[KBConfigurationManager sharedManager] documentsPathForFile:@""] error:nil];
+    
+    for (NSString* file in files) {
+        [[NSFileManager defaultManager] removeItemAtPath:file error:nil];
+    }
+    
     [[[KBConfigurationManager sharedManager] configuration] setObject:@"Jacks_House.tmx" forKey:kCurrentMapName];
     [[KBConfigurationManager sharedManager] setPoint:ccp(200,100) forKey:kLastSavedPlayerPosition];
     
@@ -121,8 +152,9 @@ static KBMasterController* _sharedSingleton;
     [inv addItem:item2];
     
     self.gameLayer.player.inventory = inv;
-    
+        
 }
 
+#pragma mark -
 
 @end

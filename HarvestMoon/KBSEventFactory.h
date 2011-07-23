@@ -14,9 +14,18 @@
 #import "KBShowMessageEvent.h"
 #import "KBShowToolBoxBigEvent.h"
 
+#pragma mark -
+#pragma mark Interface
+
 @interface KBSEventFactory : NSObject {
     
 }
+
+#pragma mark -
+#pragma mark Class Methods
+
 + (id<KBEvent>) eventForObject:(NSDictionary *)object;
+
+#pragma mark -
 
 @end

@@ -9,6 +9,9 @@
 #import "KBMainMenuLayer.h"
 #import "KBMasterController.h"
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBMainMenuLayer
 
 

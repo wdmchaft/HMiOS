@@ -10,8 +10,28 @@
 #import "cocos2d.h"
 #import "KBGameLayer.h"
 #import "KBOptionsScreen.h"
+
+#pragma mark -
+#pragma mark Interface
+
 @interface KBMainMenuLayer : CCLayer {
     
 }
+
+#pragma mark -
+#pragma mark State Handling
+
+-(id)init;
+
+#pragma mark -
+#pragma mark Menu Handling
+
+-(void)newGame;
+
+-(void)continueGame;
+
+-(void)showOptionScreen;
+
+#pragma mark -
 
 @end

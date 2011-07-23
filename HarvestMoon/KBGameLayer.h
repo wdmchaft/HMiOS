@@ -18,9 +18,15 @@
 #import "KBInteractionHandler.h"
 #import "KBGameMenuLayer.h"
 
-// HelloWorldLayer
+#pragma mark -
+#pragma mark Interface
+
 @interface KBGameLayer : CCLayer <KBInteractionHandlerDelegate>
 {
+    
+#pragma mark -
+#pragma mark Class Variables
+    
     KBPlayer* _player;
     
     KBMap* _map;
@@ -54,7 +60,7 @@
 + (CCScene *) scene;
 
 #pragma mark -
-#pragma mark Init & Dealloc
+#pragma mark State Handling
 
 - (id) init;
 
@@ -74,9 +80,17 @@
 
 #pragma mark -
 #pragma mark Touch Events
+
 -(void)shouldBeginMovingPlayerToSide:(Side)side;
+
 -(void)shouldChangePlayerMovementToSide:(Side)side;
+
 -(void)shouldStopPlayerMovement;
+
 -(void)touchedAtScreenCoordinate:(CGPoint)screenCoordinate;
+
 - (void) findAndRunEventAtPosition: (CGPoint) tilePosition interactionType:(RunOnEvent)runOnEvent;
+
+#pragma mark -
+
 @end

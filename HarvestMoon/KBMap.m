@@ -9,8 +9,14 @@
 #import "KBMap.h"
 #import "KBConfigurationManager.h"
 
+#pragma mark -
+#pragma mark ConfigurationKeys
+
 #define kFarmlandsKey @"farmlands"
 #define kMapNameKey @"mapName"
+
+#pragma mark -
+#pragma mark Implementation
 
 @implementation KBMap
 
@@ -27,61 +33,28 @@
 - (id) initWithMapName:(NSString *)mapName {
     self = [self init];
     
-    NSLog(@"init new map: %@", mapName);
-    
+
     if (self) {
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(load) name:kLoadGameNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:kSaveGameNotification object:nil];
         self.mapName = mapName;
         
-        [self loadMap];
-        [self createNewFarmland];
+        if ([self.mapName isEqualToString:@""] == NO) {
+            NSLog(@"init new map: %@", mapName);
+            
+            [self loadMap];
+            [self createNewFarmland];
+        }
     }
     return self;
 }
 
-- (void)loadMap
-{
-    [self removeChild:self.tileMap cleanup:YES];
-    self.tileMap = [KBTMXTiledMap tiledMapWithTMXFile:self.mapName];
-    [self addChild:self.tileMap];
-}
 
--(void)loadNewFarmlands:(NSArray*)farmlands
+-(id)init
 {
-    for (KBFarmland* fl in self.farmlands) {
-        [self removeChild:fl cleanup:YES];
-    }
-    
-    self.farmlands = farmlands;
-    
-    for (KBFarmland* fl in self.farmlands) {
-        [self addChild:fl];
-    }
+    return [self initWithMapName:@""];
 }
-
--(void)createNewFarmland
-{
-    NSLog(@"create a new Framland");
-    
-    
-    for (KBFarmland* fl in self.farmlands) {
-        [self removeChild:fl cleanup:YES];
-    }
-    
-    NSMutableArray* arr = [NSMutableArray array];
-    
-    
-    for (NSDictionary* dict in self.tileMap.farmland.objects) {
-        KBFarmland* fl = [[[KBFarmland alloc] initWithDictionary:dict andTileSize:self.tileMap.tileSize] autorelease];
-        
-        [arr addObject:fl];
-                
-        [self addChild:fl];
-        
-    }
-    
-    self.farmlands = arr;
-}
-
 
 -(NSString*)getSaveFileName
 {
@@ -96,6 +69,7 @@
     if(![[NSFileManager defaultManager] fileExistsAtPath:filePath])
     {
         NSLog(@"first visit fo map %@, can't load anything from persistent space", self.mapName);
+        [self createNewFarmland];
         return;
     }
 
@@ -114,41 +88,6 @@
     }
     
     [self loadNewFarmlands:loadedFarmlands];
-    
-    //self.farmlands = loadedFarmlands;
-    
-    //[self createNewFarmland];
-    
-    //NSArray* farmlands = [NSArray arrayWithContentsOfFile:[[KBConfigurationManager sharedManager] documentsPathForFile:[self getSaveFileName]]];
-    
-    //[self loadNewFarmlands:farmlands];
-    
-    /*
-    
-    //NSArray* farmlands = (NSArray*)[[KBConfigurationManager sharedManager] loadValueFromFile:self.getSaveFileName];
-    
-    NSString* filePath = [[KBConfigurationManager sharedManager] documentsPathForFile:[self getSaveFileName]];
-    
-    NSArray* farmlands = [NSArray arrayWithContentsOfFile:filePath];
-    
-    if (farmlands == nil) {
-        NSLog(@"couldn't load farmlands");
-        return;
-    }
-    [self loadNewFarmlands:farmlands];
-    
-    
-    */
-    /*
-    
-    [self initWithMapName:[[[KBConfigurationManager sharedManager] configuration] valueForKey:kCurrentMapName]];
-
-
-    
-    [self loadFarmland];
-    
-    NSLog(@"loaded %@ from persistent data", self.mapName);
-     */
 }
 
 -(void)save
@@ -176,18 +115,6 @@
     
 }
 
-
--(id)init
-{
-    self = [super init];
-    if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(load) name:kLoadGameNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:kSaveGameNotification object:nil];
-    }
-    
-    
-    return self;
-}
 
 #pragma mark -
 #pragma mark Accessibility
@@ -231,10 +158,60 @@
 }
 
 #pragma mark -
+#pragma mark Map Loading
+
+- (void)loadMap
+{
+    [self removeChild:self.tileMap cleanup:YES];
+    self.tileMap = [KBTMXTiledMap tiledMapWithTMXFile:self.mapName];
+    [self addChild:self.tileMap];
+}
+
+-(void)loadNewFarmlands:(NSArray*)farmlands
+{
+    for (KBFarmland* fl in self.farmlands) {
+        [self removeChild:fl cleanup:YES];
+    }
+    
+    self.farmlands = farmlands;
+    
+    for (KBFarmland* fl in self.farmlands) {
+        [self addChild:fl];
+    }
+}
+
+-(void)createNewFarmland
+{
+    NSLog(@"create a new Framland");
+    
+    
+    for (KBFarmland* fl in self.farmlands) {
+        [self removeChild:fl cleanup:YES];
+    }
+    
+    NSMutableArray* arr = [NSMutableArray array];
+    
+    
+    for (NSDictionary* dict in self.tileMap.farmland.objects) {
+        KBFarmland* fl = [[[KBFarmland alloc] initWithDictionary:dict andTileSize:self.tileMap.tileSize] autorelease];
+        
+        [arr addObject:fl];
+        
+        [self addChild:fl];
+        
+    }
+    
+    self.farmlands = arr;
+}
+
+#pragma mark -
+#pragma mark Event Handling
 
 - (NSDictionary*)eventDataAtPosition:(CGPoint)position
 {
     return [self.tileMap objectAtPosition:position inLayer:kEventsLayer];
 }
+
+#pragma mark -
 
 @end

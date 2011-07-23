@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation AppDelegate
 
 #pragma mark -
@@ -16,7 +19,7 @@
 @synthesize window = _window;
 
 #pragma mark -
-#pragma mark Init & Dealloc
+#pragma mark State Handling
 
 - (void) dealloc 
 {

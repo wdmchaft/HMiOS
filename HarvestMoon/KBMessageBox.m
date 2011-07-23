@@ -9,12 +9,24 @@
 #import "KBMessageBox.h"
 
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBMessageBox
 
+#pragma mark -
+#pragma mark Properties
+
 @synthesize text=_text;
+
 @synthesize sprite=_sprite;
+
 @synthesize delegate=_delegate;
+
 @synthesize label=_label;
+
+#pragma mark -
+#pragma mark State Handling
 
 + (KBMessageBox *) layerWithText:(NSString *)text
 {
@@ -23,11 +35,6 @@
 	KBMessageBox *layer = [[KBMessageBox alloc] initWithText:text];
 	
 	return layer;
-}
-
-- (void) registerWithTouchDispatcher
-{
-    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 }
 
 - (id)initWithText:(NSString*)text {
@@ -60,6 +67,14 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark Touch Handling
+
+- (void) registerWithTouchDispatcher
+{
+    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+
 -(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     [self ccTouchEnded:touch withEvent:event];
@@ -78,5 +93,7 @@
     [self removeChild:self.sprite cleanup:YES];
     [self removeChild:self.label cleanup:YES];
 }
+
+#pragma mark -
 
 @end

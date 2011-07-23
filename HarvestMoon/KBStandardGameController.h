@@ -10,10 +10,19 @@
 #import "cocos2d.h"
 #import "KBTMXTiledMap.h"
 
+#pragma mark -
+#pragma mark Forward Declarations
+
 @class KBGameLayer;
 @class KBPlayer;
 
+#pragma mark -
+#pragma mark Interface
+
 @interface KBStandardGameController : NSObject {
+    
+#pragma mark -
+#pragma mark Class Variables
     
     KBGameLayer* _gameLayer;    
     

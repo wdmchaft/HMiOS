@@ -13,6 +13,9 @@
 
 #import "RootViewController.h"
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation RootViewController
 
 #pragma mark -

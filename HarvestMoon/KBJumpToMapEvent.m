@@ -11,10 +11,22 @@
 #import "KBStandardGameController.h"
 #import "KBGameLayer.h"
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBJumpToMapEvent
+
+#pragma mark -
+#pragma mark Properties
+
 @synthesize mapName = _mapName;
+
 @synthesize hasFinishedRunning;
+
 @synthesize playerPos=_playerPos;
+
+#pragma mark -
+#pragma mark State Handling
 
 -(id)initWithObject:(NSDictionary *)object
 {
@@ -26,6 +38,9 @@
     }
     return self;
 }
+
+#pragma mark -
+#pragma mark Event Handling
 
 -(void)run
 {
@@ -41,5 +56,7 @@
 {
     return TouchedByPlayer;
 }
+
+#pragma mark -
 
 @end

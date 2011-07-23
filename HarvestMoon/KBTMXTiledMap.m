@@ -8,6 +8,9 @@
 
 #import "KBTMXTiledMap.h"
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBTMXTiledMap
 
 #pragma mark -
@@ -24,7 +27,7 @@
 @synthesize farmland = _farmland;
 
 #pragma mark -
-#pragma mark Init & Dealloc
+#pragma mark State Handling
 
 - (id) initWithTMXFile:(NSString *) tmxFile
 {

@@ -8,16 +8,34 @@
 
 #import "KBGameMenuLayer.h"
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBGameMenuLayer
+
+#pragma mark -
+#pragma mark Properties
+
 @synthesize itemBackground = _itemBackground;
+
 @synthesize toolBackground = _toolBackground;
+
 @synthesize itemMenuOpened = _itemMenuOpened;
+
 @synthesize toolMenuOpened = _toolMenuOpened;
+
 @synthesize currentlyTouchingItemMenu = _currentlyTouchingItemMenu;
+
 @synthesize currentlyTouchingToolMenu = _currentlyTouchingToolMenu;
+
 @synthesize scalingAction = _scalingAction;
+
 @synthesize selectedItem = _selectedItem;
+
 @synthesize selectedTool = _selectedTool;
+
+#pragma mark -
+#pragma mark State Handling
 
 - (id)init
 {
@@ -55,6 +73,119 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark Convenience Methods
+
+-(KBInventory*)inventory
+{
+    return [[[KBStandardGameController sharedController] player] inventory];
+}
+
+- (NSArray *)itemsToShow 
+{
+    NSArray* itemsToShow = nil;
+    if (self.currentlyTouchingItemMenu || self.itemMenuOpened) {
+        itemsToShow = self.inventory.items;
+    }
+    if (self.currentlyTouchingToolMenu || self.toolMenuOpened) {
+        itemsToShow = self.inventory.tools;
+    }
+    NSAssert(itemsToShow != nil, @"The Array that should contain items was nil!");
+    return itemsToShow;
+}
+
+#pragma mark -
+#pragma mark Touch Handling
+
+- (void) registerWithTouchDispatcher
+{
+    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+
+- (BOOL) ccTouchBegan:(UITouch *) touch withEvent:(UIEvent *) event
+{
+    if(CGRectContainsPoint(self.itemBackground.textureRect, [self.itemBackground convertTouchToNodeSpace:touch]))
+    {
+        self.currentlyTouchingItemMenu = YES;
+        [self schedule:@selector(showFullMenu) interval:2];
+        return YES;
+    }
+    
+    if(CGRectContainsPoint(self.toolBackground.textureRect, [self.toolBackground convertTouchToNodeSpace:touch]))
+    {
+        self.currentlyTouchingToolMenu = YES;
+        [self schedule:@selector(showFullMenu) interval:2];
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    
+    for (KBItemStack* itemStack in self.inventory.itemStacks) {
+        CCSprite* sprte = itemStack.itemType.bigSprite;
+        
+        if (CGRectContainsPoint(itemStack.itemType.smallSprite.textureRect, [itemStack.itemType.smallSprite convertTouchToNodeSpace:touch]) ) {
+            sprte.position = ccp([[CCDirector sharedDirector] winSize].width / 2,[[CCDirector sharedDirector] winSize].height/2);
+            
+            if (![self.children containsObject:sprte]) {
+                [self addChild:sprte];
+            }
+        }
+        else
+        {
+            [self removeChild:sprte cleanup:NO];
+        }
+        
+    }
+}
+
+- (void) ccTouchEnded:(UITouch *) touch withEvent:(UIEvent *) event
+{
+    if (self.itemMenuOpened || self.toolMenuOpened) {
+        
+        int touchedItemIndex = [self findTouchedItemWithTouch:touch];
+        
+        if (touchedItemIndex == -1) {
+            //Index ist -1, wenn kein Item berührt wurde.
+            [self hideFullMenu];
+            NSLog(@"Kein Item berührt, schliesse Menü");
+            return;
+        }
+        
+        [self.inventory selectItemStack:[self.itemsToShow objectAtIndex:touchedItemIndex]];
+        
+        // TODO : Touch auf item -> neues item "in die hand nehmen"
+        
+        [self hideFullMenu];
+    }
+    else
+    {
+        if(CGRectContainsPoint(self.itemBackground.textureRect, [self.itemBackground convertTouchToNodeSpace:touch])
+           || CGRectContainsPoint(self.toolBackground.textureRect, [self.toolBackground convertTouchToNodeSpace:touch]))
+        {
+            //Touch endete nicht auf einem der Item-Plätze, es muss nichts gemacht werden
+            NSLog(@"Item benutzen abgebrochen");
+            
+            return;
+        }
+        
+        
+        //Touch auf item -> item verwenden
+        //[[KBStandardGameController sharedController].player useItem:nil];
+        
+    }
+    
+    self.currentlyTouchingItemMenu = NO;
+    self.currentlyTouchingToolMenu = NO;
+    
+}
+
+#pragma mark -
+#pragma mark Item Menu Handling
+
 -(void)handleSelectedItemChangedNotification:(NSNotification*)notification
 {
     [self removeChild:self.selectedItem.itemType.smallSprite cleanup:YES];
@@ -79,31 +210,6 @@
         
         self.selectedTool.itemType.smallSprite.position = ccp(30,90);
     }
-}
-
-
-- (void) registerWithTouchDispatcher
-{
-    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-}
-
-- (BOOL) ccTouchBegan:(UITouch *) touch withEvent:(UIEvent *) event
-{
-    if(CGRectContainsPoint(self.itemBackground.textureRect, [self.itemBackground convertTouchToNodeSpace:touch]))
-    {
-        self.currentlyTouchingItemMenu = YES;
-        [self schedule:@selector(showFullMenu) interval:2];
-        return YES;
-    }
-    
-    if(CGRectContainsPoint(self.toolBackground.textureRect, [self.toolBackground convertTouchToNodeSpace:touch]))
-    {
-        self.currentlyTouchingToolMenu = YES;
-        [self schedule:@selector(showFullMenu) interval:2];
-        return YES;
-    }
-    
-    return NO;
 }
 
 -(void)removeSprites
@@ -139,59 +245,6 @@
     [self removeSprites];
 }
 
-- (void) ccTouchEnded:(UITouch *) touch withEvent:(UIEvent *) event
-{
-    if (self.itemMenuOpened || self.toolMenuOpened) {
-        
-        int touchedItemIndex = [self findTouchedItemWithTouch:touch];
-        
-        if (touchedItemIndex == -1) {
-            //Index ist -1, wenn kein Item berührt wurde.
-            [self hideFullMenu];
-            NSLog(@"Kein Item berührt, schliesse Menü");
-            return;
-        }
-        
-        [self.inventory selectItem:[self.itemsToShow objectAtIndex:touchedItemIndex]];
-        
-        // TODO : Touch auf item -> neues item "in die hand nehmen"
-        
-        [self hideFullMenu];
-    }
-    else
-    {
-        if(CGRectContainsPoint(self.itemBackground.textureRect, [self.itemBackground convertTouchToNodeSpace:touch])
-        || CGRectContainsPoint(self.toolBackground.textureRect, [self.toolBackground convertTouchToNodeSpace:touch]))
-        {
-            //Touch endete nicht auf einem der Item-Plätze, es muss nichts gemacht werden
-            NSLog(@"Item benutzen abgebrochen");
-            
-            return;
-        }
-        
-        
-        //Touch auf item -> item verwenden
-        //[[KBStandardGameController sharedController].player useItem:nil];
-        
-    }
-    
-    self.currentlyTouchingItemMenu = NO;
-    self.currentlyTouchingToolMenu = NO;
-    
-}
-
-- (NSArray *)itemsToShow {
-  NSArray* itemsToShow = nil;
-    if (self.currentlyTouchingItemMenu || self.itemMenuOpened) {
-        itemsToShow = self.inventory.items;
-    }
-    if (self.currentlyTouchingToolMenu || self.toolMenuOpened) {
-        itemsToShow = self.inventory.tools;
-    }
-    NSAssert(itemsToShow != nil, @"The Array that should contain items was nil!");
-  return itemsToShow;
-}
-
 -(int)findTouchedItemWithTouch:(UITouch*)touch
 {
     int index = -1;
@@ -208,27 +261,6 @@
     
     
     return index;
-}
-
-- (void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
-{
-    
-    for (KBItemStack* itemStack in self.inventory.itemStacks) {
-        CCSprite* sprte = itemStack.itemType.bigSprite;
-        
-        if (CGRectContainsPoint(itemStack.itemType.smallSprite.textureRect, [itemStack.itemType.smallSprite convertTouchToNodeSpace:touch]) ) {
-            sprte.position = ccp([[CCDirector sharedDirector] winSize].width / 2,[[CCDirector sharedDirector] winSize].height/2);
-            
-            if (![self.children containsObject:sprte]) {
-                [self addChild:sprte];
-            }
-        }
-        else
-        {
-            [self removeChild:sprte cleanup:NO];
-        }
-        
-    }
 }
 
 -(void)showFullMenu
@@ -257,9 +289,6 @@
     
 }
 
--(KBInventory*)inventory
-{
-    return [[[KBStandardGameController sharedController] player] inventory];
-}
+#pragma mark -
 
 @end

@@ -8,20 +8,39 @@
 
 #import "KBItem.h"
 
+#pragma mark -
+#pragma mark ConfigurationKeys
+
 #define kName @"Name"
+
 #define kSmallIcon @"SmallIcon"
+
 #define kBigIcon @"BigIcon"
+
 #define kType @"Type"
 
 #define kFileNameKey @"fileName"
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBItem
+
+#pragma mark -
+#pragma mark Properties
+
 @synthesize name = _name;
+
 @synthesize smallSprite = _smallSprite;
+
 @synthesize bigSprite = _bigSprite;
+
 @synthesize itemType = _itemType;
+
 @synthesize fileName = _fileName;
 
+#pragma mark -
+#pragma mark State Handling
 
 -(id)initWithDefinitionFile:(NSString*)fileName
 {
@@ -49,4 +68,7 @@
 {
     [aCoder encodeObject:self.fileName forKey:kFileNameKey];
 }
+
+#pragma mark -
+
 @end

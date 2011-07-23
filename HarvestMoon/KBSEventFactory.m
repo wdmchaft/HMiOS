@@ -9,7 +9,13 @@
 #import "KBSEventFactory.h"
 
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBSEventFactory
+
+#pragma mark -
+#pragma mark Class Methods
 
 + (id<KBEvent>) eventForObject:(NSDictionary *)object
 {
@@ -33,5 +39,7 @@
     
     return [event autorelease];
 }
+
+#pragma mark -
 
 @end

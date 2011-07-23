@@ -8,7 +8,13 @@
 
 #import "KBPlistManager.h"
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBPlistManager
+
+#pragma mark -
+#pragma mark Class Methods
 
 +(id)readPlistFromPath:(NSString *)filePath
 {
@@ -43,6 +49,7 @@
 {
     return (NSArray*) [KBPlistManager readPlistFromBundle:fileName];
 }
+
 + (NSDictionary*)readPlistFromBundleAsDictionary:(NSString*)fileName
 {
     return (NSDictionary*) [KBPlistManager readPlistFromBundle:fileName];
@@ -52,6 +59,7 @@
 {
     return [KBPlistManager readPlistFromPath:filePath];
 }
+
 + (NSDictionary*)readPlistAsDictionary:(NSString*)filePath
 {
     return [KBPlistManager readPlistFromPath:filePath];
@@ -82,4 +90,7 @@
     if([data writeToFile:filePath atomically:YES] == NO)
         NSLog(@"critical errör!");
 }
+
+#pragma mark -
+
 @end

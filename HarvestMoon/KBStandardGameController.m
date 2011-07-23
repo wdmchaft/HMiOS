@@ -11,7 +11,13 @@
 #import "KBGameLayer.h"
 
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBStandardGameController
+
+#pragma mark -
+#pragma mark Static Objects
 
 static KBStandardGameController* _sharedSingleton;
 

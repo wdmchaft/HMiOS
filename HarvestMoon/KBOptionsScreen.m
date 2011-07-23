@@ -9,10 +9,22 @@
 #import "KBOptionsScreen.h"
 
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBOptionsScreen
+
+#pragma mark -
+#pragma mark Properties
+
 @synthesize menu = _menu;
+
 @synthesize menuItemSteeringMethod = _menuItemSteeringMethod;
+
 @synthesize menuItemDevelopmentMode = _menuItemDevelopmentMode;
+
+#pragma mark -
+#pragma mark State Handling
 
 +(CCScene*)scene
 {
@@ -72,6 +84,9 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark Menu Handling
+
 -(void)useDevelopmentMode
 {
     CCLOG(@"Set kDevelopmentMode to: %i",self.menuItemDevelopmentMode.selectedIndex);
@@ -87,11 +102,11 @@
     [[KBConfigurationManager sharedManager]setInt:useDPad forKey:kUseDPad];
 }
 
-
 -(void)exit
 {
     [[CCDirector sharedDirector] popScene];
 }
 
+#pragma mark -
 
 @end

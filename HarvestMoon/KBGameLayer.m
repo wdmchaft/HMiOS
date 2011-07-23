@@ -8,7 +8,9 @@
 
 #import "KBGameLayer.h"
  
-// HelloWorldLayer implementation
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBGameLayer
 
 #pragma mark -
@@ -53,7 +55,7 @@
 }
 
 #pragma mark -
-#pragma mark Init & Dealloc
+#pragma mark State Handling
 
 // on "init" you need to initialize your instance
 - (id) init
@@ -153,6 +155,7 @@
 
 #pragma mark -
 #pragma mark Touch Events
+
 -(void)shouldBeginMovingPlayerToSide:(Side)side
 {
     [self.player beginWalkingToSide:side];
@@ -185,6 +188,7 @@
     _currentMapObject = [playerObject retain];
 
 }
+
 -(void)touchedAtScreenCoordinate:(CGPoint)screenCoordinate
 {
     screenCoordinate = [[CCDirector sharedDirector] convertToGL:screenCoordinate];
@@ -194,6 +198,6 @@
 
 }
 
-
+#pragma mark -
 
 @end

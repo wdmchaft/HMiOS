@@ -10,6 +10,9 @@
 #import "KBGameLayer.h"
 #import "KBConfigurationManager.h"
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBPlayer
 
 #pragma mark -
@@ -28,7 +31,7 @@
 @synthesize inventory = _inventory;
 
 #pragma mark -
-#pragma mark Init & Dealloc
+#pragma mark State Handling
 
 - (id) init 
 {
@@ -72,7 +75,6 @@
 	return self;
     
 }
-
 
 -(void)load
 {

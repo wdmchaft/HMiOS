@@ -9,17 +9,34 @@
 #import "KBInventory.h"
 #import "KBConfigurationManager.h"
 
+#pragma mark -
+#pragma mark ConfigurationKeys
+
 #define kItemStacksKey @"itemStacks"
+
 #define kSelectedItemIndexKey @"selectedItemIndex"
+
 #define kSelectedToolIndexKey @"selectedToolIndex"
+
+#pragma mark -
+#pragma mark Implementation
 
 @implementation KBInventory
 
+#pragma mark -
+#pragma mark Properties
+
 @synthesize itemStacks = _itemStacks;
+
 @synthesize selectedItem = _selectedItem;
+
 @synthesize selectedTool = _selectedTool;
 
-- (id)init {
+#pragma mark -
+#pragma mark State Handling
+
+- (id)init
+{
     self = [super init];
     if (self) {
         self.itemStacks = [[NSMutableArray alloc] init];
@@ -75,6 +92,8 @@
     
 }
 
+#pragma mark -
+#pragma mark Item Handling
 
 -(void)addItem:(KBItem*)item
 {
@@ -99,6 +118,7 @@
         
     }
 }
+
 -(void)removeItem:(KBItem*)item
 {
     KBItemStack* stack = nil;
@@ -118,7 +138,7 @@
     }
 }
 
--(void)selectItem:(KBItemStack *)itemStack
+-(void)selectItemStack:(KBItemStack *)itemStack
 {
     if (itemStack.itemType.itemType == Tool) {
         self.selectedTool = itemStack;
@@ -157,5 +177,7 @@
     
     return arr;
 }
+
+#pragma mark -
 
 @end

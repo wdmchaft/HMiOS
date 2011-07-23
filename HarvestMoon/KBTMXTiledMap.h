@@ -10,7 +10,13 @@
 #import "cocos2d.h"
 #import "KBConfigurationManager.h"
 
+#pragma mark -
+#pragma mark Interface
+
 @interface KBTMXTiledMap : CCTMXTiledMap {
+    
+#pragma mark -
+#pragma mark Class Variables
     
     CCTMXLayer* _background;
     
@@ -37,7 +43,7 @@
 @property(nonatomic, retain) CCTMXObjectGroup* farmland;
 
 #pragma mark -
-#pragma mark Init & Dealloc
+#pragma mark State Handling
 
 - (id) initWithTMXFile:(NSString *) tmxFile;
 

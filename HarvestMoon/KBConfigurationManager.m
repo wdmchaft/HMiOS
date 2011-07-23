@@ -9,24 +9,20 @@
 #import "KBConfigurationManager.h"
 #import "KBPlistManager.h"
 
+#pragma mark -
+#pragma mark Implementation
+
 @implementation KBConfigurationManager
+
+#pragma mark -
+#pragma mark - Properties
 
 @synthesize configuration = _configuration;
 
+#pragma mark -
+#pragma mark Static Objects
+
 static KBConfigurationManager* _sharedSingleton;
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-        
-        self.configuration = [NSMutableDictionary dictionary];
-    }
-    
-    return self;
-}
-
 
 #pragma mark -
 #pragma mark Class Methods
@@ -44,6 +40,21 @@ static KBConfigurationManager* _sharedSingleton;
 + (KBConfigurationManager *) sharedManager
 {
     return _sharedSingleton;
+}
+
+#pragma mark -
+#pragma mark State Handling
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // Initialization code here.
+        
+        self.configuration = [NSMutableDictionary dictionary];
+    }
+    
+    return self;
 }
 
 #pragma mark -
@@ -67,9 +78,6 @@ static KBConfigurationManager* _sharedSingleton;
 - (void)saveGameState
 {
     self.configuration = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] dictionaryForKey:kGameConfiguration]];
-        
-    
-    
 }
 
 #pragma mark -
@@ -106,11 +114,11 @@ static KBConfigurationManager* _sharedSingleton;
     [self.configuration setValue:[NSNumber numberWithInt:value] forKey:key];
 }
 
-
 -(CGPoint)pointForKey:(NSString*)key
 {
     return CGPointFromString((NSString*)[self.configuration valueForKey:key]);
 }
+
 -(void)setPoint:(CGPoint)point forKey:(NSString*)key
 {
     [self.configuration setValue:NSStringFromCGPoint(point) forKey:key];
@@ -120,6 +128,7 @@ static KBConfigurationManager* _sharedSingleton;
 {
     return CGSizeFromString((NSString*)[self.configuration valueForKey:key]);
 }
+
 -(void)setSize:(CGSize)size forKey:(NSString*)key
 {
     [self.configuration setValue:NSStringFromCGSize(size) forKey:key];
@@ -133,5 +142,7 @@ static KBConfigurationManager* _sharedSingleton;
     
     return [documentsPath stringByAppendingPathComponent:fileName];
 }
+
+#pragma mark -
 
 @end

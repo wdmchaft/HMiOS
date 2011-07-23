@@ -12,9 +12,18 @@
 #import "RootViewController.h"
 #import "KBMasterController.h"
 
+#pragma mark -
+#pragma mark Forward Declarations
+
 @class RootViewController;
 
+#pragma mark -
+#pragma mark Interface
+
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
+    
+#pragma mark -
+#pragma mark Class Variables
     
 	UIWindow* _window;
     
@@ -28,7 +37,7 @@
 @property (nonatomic, retain) UIWindow * window;
 
 #pragma mark -
-#pragma mark Init & Dealloc
+#pragma mark State Handling
 
 - (void) dealloc;
 
