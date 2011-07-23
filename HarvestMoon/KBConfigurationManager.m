@@ -134,39 +134,4 @@ static KBConfigurationManager* _sharedSingleton;
     return [documentsPath stringByAppendingPathComponent:fileName];
 }
 
--(void)saveValue:(id<NSCoding>)value intoFile:(NSString*)fileName
-{
-    if (value == nil) {
-        NSLog(@"value was nil, didn't save anything...");
-        return;
-    }
-    
-    NSLog(@"write to File %@",fileName);
-    
-    NSString* documentsPath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];  
-    
-    NSAssert(documentsPath != nil, @"Documents Folder not found!");
-    
-    NSString* filePath = [documentsPath stringByAppendingPathComponent:fileName];
-    
-    [KBPlistManager writePlist:value toFile:filePath];
-    
-    //[KBPlistManager writePlist:filePath withDictionary:((NSDictionary*) value)];
-}
-
--(id)loadValueFromFile:(NSString*)fileName
-{
-    NSLog(@"loading from File %@", fileName);
-      
-    NSString* documentsPath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];  
-    
-    NSAssert(documentsPath != nil, @"Documents Folder not found!");
-    
-    NSString* filePath = [documentsPath stringByAppendingPathComponent:fileName];
-    
-    return [KBPlistManager readPlistFromPath:filePath];
-    
-    //return [KBPlistManager readPlistAsDictionary:filePath];
-}
-
 @end
