@@ -55,4 +55,6 @@
 
 -(void)saveValue:(id<NSCoding>)value intoFile:(NSString*)fileName;
 -(id<NSCoding>)loadValueFromFile:(NSString*)fileName;
+
+-(NSString*)documentsPathForFile:(NSString*)fileName;
 @end

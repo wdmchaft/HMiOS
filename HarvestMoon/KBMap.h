@@ -61,6 +61,9 @@
 
 #pragma mark -
 
+-(void)loadMap;
+-(void)loadNewFarmlands:(NSArray*)farmlands;
+-(void)createNewFarmland;
 
 - (NSDictionary*)eventDataAtPosition:(CGPoint)position;
 

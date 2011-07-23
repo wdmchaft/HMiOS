@@ -62,7 +62,7 @@
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
 		
-        self.map = [[KBMap alloc] init];
+        self.map = [[KBMap alloc] initWithMapName:[[[KBConfigurationManager sharedManager] configuration]valueForKey:kCurrentMapName]];
         
         //[self.map runAction:[CCScaleBy actionWithDuration:0.1 scale:0.5f]];
         
@@ -108,7 +108,11 @@
 {
     [self removeChild:self.map cleanup:YES];
     
+    [[[KBConfigurationManager sharedManager] configuration]setValue:mapName forKey:kCurrentMapName];
+    
+    //[self.map load];
     self.map = [[KBMap alloc] initWithMapName:mapName];
+    [self.map load];
     
     [self.player updatePlayerForMapChange];
     

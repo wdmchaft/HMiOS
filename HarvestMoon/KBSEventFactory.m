@@ -13,7 +13,6 @@
 
 + (id<KBEvent>) eventForObject:(NSDictionary *)object
 {
-    NSLog(@"now we should create and run the event %@", object);
     id<KBEvent> event = nil;
     switch ([[object valueForKey:kScriptingId] integerValue]) {
         case  kJumpToMap:

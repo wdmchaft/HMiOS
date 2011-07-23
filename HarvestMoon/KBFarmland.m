@@ -41,6 +41,9 @@
         self.width = [[dict valueForKey:@"width"] integerValue];
         self.tileSize = size;
         
+        
+        self.position = ccp(self.xPos,self.yPos);
+        
         NSMutableArray* arr = [NSMutableArray array];
         
         //i = width of the current farmingField
@@ -66,37 +69,59 @@
     return self;
 }
 
-- (void)encodeWithCoder:(NSCoder *)aCoder
+-(id)initWithDataRepresentation:(NSDictionary *)dataRepresentation
 {
-    NSLog(@"saving farmland to persistent data");
-    [aCoder encodeInt:self.xPos forKey:kXPosKey];
-    [aCoder encodeInt:self.yPos forKey:kYPosKey];
-    
-    [aCoder encodeInt:self.width forKey:kWidthKey];
-    [aCoder encodeInt:self.height forKey:kHeightKey];
-    
-    [aCoder encodeCGSize:self.tileSize forKey:kTileSizeKey];
-    
-    [aCoder encodeObject:self.farmingFields forKey:kFarmingFieldsKey];
-    
-}
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
+    self=[super init];
     if (self) {
-        self.xPos = [aDecoder decodeIntForKey:kXPosKey];
-        self.yPos = [aDecoder decodeIntForKey:kYPosKey];
+        self.xPos = [[dataRepresentation objectForKey:kXPosKey] integerValue];
+        self.yPos = [[dataRepresentation objectForKey:kYPosKey] integerValue];
+        self.position = ccp(self.xPos,self.yPos);
         
-        self.width = [aDecoder decodeIntForKey:kWidthKey];
-        self.height = [aDecoder decodeIntForKey:kHeightKey];
+        self.width = [[dataRepresentation objectForKey:kWidthKey] integerValue];
+        self.height = [[dataRepresentation objectForKey:kHeightKey] integerValue];
         
-        self.tileSize = [aDecoder decodeCGSizeForKey:kTileSizeKey];
+        self.tileSize = CGSizeFromString([dataRepresentation objectForKey:kTileSizeKey]);
         
-        self.farmingFields = [aDecoder decodeObjectForKey:kFarmingFieldsKey];
         
-        NSLog(@"created Farmland from persistent data");
+        NSMutableArray* fields = [dataRepresentation objectForKey:kFarmingFieldsKey];
+        NSMutableArray* farmingFields = [NSMutableArray array];
+        
+        for (NSDictionary* dict in fields) {
+            
+            KBFarmingField* fl = [[KBFarmingField alloc] initWithDataRepresentation:dict];
+            
+            [farmingFields addObject:fl];
+            
+            [self addChild:fl];
+        }
+        
+        self.farmingFields = farmingFields;
         
     }
+    
     return self;
 }
+
+-(NSDictionary *)dataRepresentation
+{
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    
+    
+    [dict setObject:[NSNumber numberWithInt:self.xPos] forKey:kXPosKey];
+    [dict setObject:[NSNumber numberWithInt:self.yPos] forKey:kYPosKey];
+    [dict setObject:[NSNumber numberWithInt:self.width] forKey:kWidthKey];
+    [dict setObject:[NSNumber numberWithInt:self.height] forKey:kHeightKey];
+    [dict setObject:NSStringFromCGSize(self.tileSize) forKey:kTileSizeKey];
+    
+    NSMutableArray* fields = [NSMutableArray array];
+    
+    for (KBFarmingField* fl in self.farmingFields) {
+        [fields addObject:[fl dataRepresentation]];
+    }
+    
+    [dict setObject:fields forKey:kFarmingFieldsKey];
+    
+    return dict;
+}
+
 @end

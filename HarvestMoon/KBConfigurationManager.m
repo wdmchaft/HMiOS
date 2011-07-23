@@ -68,6 +68,8 @@ static KBConfigurationManager* _sharedSingleton;
 {
     self.configuration = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] dictionaryForKey:kGameConfiguration]];
         
+    
+    
 }
 
 #pragma mark -
@@ -123,6 +125,15 @@ static KBConfigurationManager* _sharedSingleton;
     [self.configuration setValue:NSStringFromCGSize(size) forKey:key];
 }
 
+-(NSString*)documentsPathForFile:(NSString*)fileName
+{
+    NSString* documentsPath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];  
+    
+    NSAssert(documentsPath != nil, @"Documents Folder not found!");
+    
+    return [documentsPath stringByAppendingPathComponent:fileName];
+}
+
 -(void)saveValue:(id<NSCoding>)value intoFile:(NSString*)fileName
 {
     if (value == nil) {
@@ -132,26 +143,30 @@ static KBConfigurationManager* _sharedSingleton;
     
     NSLog(@"write to File %@",fileName);
     
-    NSString* appSupportPath =  [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString* documentsPath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];  
     
-    NSAssert(appSupportPath != nil, @"ApplicationSupport Folder not found!");
+    NSAssert(documentsPath != nil, @"Documents Folder not found!");
     
-    NSString* filePath = [appSupportPath stringByAppendingPathComponent:fileName];
+    NSString* filePath = [documentsPath stringByAppendingPathComponent:fileName];
     
-    [KBPlistManager writePlist:filePath withArray:[NSArray arrayWithObject:value]];
+    [KBPlistManager writePlist:value toFile:filePath];
+    
+    //[KBPlistManager writePlist:filePath withDictionary:((NSDictionary*) value)];
 }
 
--(id<NSCoding>)loadValueFromFile:(NSString*)fileName
+-(id)loadValueFromFile:(NSString*)fileName
 {
     NSLog(@"loading from File %@", fileName);
+      
+    NSString* documentsPath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];  
     
-    NSString* appSupportPath =  [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSAssert(documentsPath != nil, @"Documents Folder not found!");
     
-    NSAssert(appSupportPath != nil, @"ApplicationSupport Folder not found!");
+    NSString* filePath = [documentsPath stringByAppendingPathComponent:fileName];
     
-    NSString* filePath = [appSupportPath stringByAppendingPathComponent:fileName];
+    return [KBPlistManager readPlistFromPath:filePath];
     
-    return [[KBPlistManager readPlistAsArray:filePath] objectAtIndex:0];
+    //return [KBPlistManager readPlistAsDictionary:filePath];
 }
 
 @end

@@ -27,7 +27,7 @@
 {
     self = [super init];
     if (self) {
-        NSDictionary* dict = [KBPlistManager readPlistAsDictionary:fileName];
+        NSDictionary* dict = [KBPlistManager readPlistFromBundleAsDictionary:fileName];
         
         self.name = [dict objectForKey:kName];
         

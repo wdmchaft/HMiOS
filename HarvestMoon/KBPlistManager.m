@@ -10,57 +10,76 @@
 
 @implementation KBPlistManager
 
-- (id)init
++(id)readPlistFromPath:(NSString *)filePath
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
+    NSLog(@"reading plist %@",filePath);
+    if(![[NSFileManager defaultManager] fileExistsAtPath:filePath])
+        NSLog(@"file doesn't EXIST U IDIOT!");
     
-    return self;
-}
-
-
-
-+ (id)readPlist:(NSString*)fileName
-{
-    NSData *plistData;  
+    NSData *plistData;
     NSString *error;  
     NSPropertyListFormat format;  
-    id plist;  
+    id plist; 
     
-    NSString *localizedPath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"];  
-    plistData = [NSData dataWithContentsOfFile:localizedPath];   
+    plistData = [NSData dataWithContentsOfFile:filePath]; 
     
     plist = [NSPropertyListSerialization propertyListFromData:plistData mutabilityOption:NSPropertyListImmutable format:&format errorDescription:&error];  
     if (!plist) {  
-        NSLog(@"Error reading plist from file '%s', error = '%s'", [localizedPath UTF8String], [error UTF8String]);  
+        NSLog(@"Error reading plist from file '%s', error = '%s'", [filePath UTF8String], [error UTF8String]);  
         [error release];  
     }  
     
     return plist; 
 }
-+ (NSArray*)readPlistAsArray:(NSString*)fileName
+
++ (id)readPlistFromBundle:(NSString*)fileName 
 {
-    return (NSArray*) [KBPlistManager readPlist:fileName];
-}
-+ (NSDictionary*)readPlistAsDictionary:(NSString*)fileName
-{
-    return (NSDictionary*) [KBPlistManager readPlist:fileName];
+    NSString *localizedPath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"];  
+      
+    return [KBPlistManager readPlistFromPath:localizedPath];
 }
 
-+ (void)writePlist:(NSString*)fileName withArray:(NSArray*)data
++ (NSArray*)readPlistFromBundleAsArray:(NSString*)fileName
 {
+    return (NSArray*) [KBPlistManager readPlistFromBundle:fileName];
+}
++ (NSDictionary*)readPlistFromBundleAsDictionary:(NSString*)fileName
+{
+    return (NSDictionary*) [KBPlistManager readPlistFromBundle:fileName];
+}
+
++ (NSArray*)readPlistAsArray:(NSString*)filePath
+{
+    return [KBPlistManager readPlistFromPath:filePath];
+}
++ (NSDictionary*)readPlistAsDictionary:(NSString*)filePath
+{
+    return [KBPlistManager readPlistFromPath:filePath];
+}
+
++(void)writePlist:(id)data toFile:(NSString*)filePath
+{
+    NSLog(@"writing plist %@",filePath);
+    
     NSData *d = [NSKeyedArchiver archivedDataWithRootObject:data];
     
     
-    [[NSFileManager defaultManager] createFileAtPath:fileName contents:d attributes:nil];
+    [[NSFileManager defaultManager] createFileAtPath:filePath contents:d attributes:nil];
 }
 
-+ (void)writePlist:(NSString*)fileName withDictionary:(NSDictionary *)data
++ (void)writePlist:(NSString*)filePath withArray:(NSArray*)data
 {
-    NSData *d = [NSKeyedArchiver archivedDataWithRootObject:data];
+    //[KBPlistManager writePlist:data toFile:filePath];
     
-    [[NSFileManager defaultManager] createFileAtPath:fileName contents:d attributes:nil];
+    if([data writeToFile:filePath atomically:YES] == NO)
+        NSLog(@"critical errör!");
+    
+}
+
++ (void)writePlist:(NSString*)filePath withDictionary:(NSDictionary *)data
+{
+    //[KBPlistManager writePlist:data toFile:filePath];
+    if([data writeToFile:filePath atomically:YES] == NO)
+        NSLog(@"critical errör!");
 }
 @end

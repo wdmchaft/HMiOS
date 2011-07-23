@@ -42,27 +42,27 @@
     return self;
 }
 
--(void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:self.spriteFile forKey:kSpriteFileKey];
-    
-    [aCoder encodeCGPoint:self.position forKey:kPositionKey];
-}
-
--(id)initWithCoder:(NSCoder *)aDecoder
+-(id)initWithDataRepresentation:(NSDictionary *)dataRepresentation
 {
     self = [super init];
     if (self) {
-        self.spriteFile = [aDecoder decodeObjectForKey:kSpriteFileKey];
-        self.position = [aDecoder decodeCGPointForKey:kPositionKey];
         
+        self.position = CGPointFromString([dataRepresentation objectForKey:kPositionKey]);        
+        self.spriteFile = [dataRepresentation objectForKey:kSpriteFileKey];
         [self addChild:[CCSprite spriteWithFile:self.spriteFile]];
-        
-        NSLog(@"created FarminField from persistent data");
-        
     }
     
     return self;
+}
+
+-(NSDictionary*)dataRepresentation
+{
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    
+    [dict setObject:self.spriteFile forKey:kSpriteFileKey];
+    [dict setObject:NSStringFromCGPoint(self.position) forKey:kPositionKey];
+    
+    return dict;
 }
 
 @end

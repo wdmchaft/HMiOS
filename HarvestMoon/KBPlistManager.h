@@ -10,8 +10,15 @@
 
 @interface KBPlistManager : NSObject
 
-+ (NSArray*)readPlistAsArray:(NSString*)fileName;
-+ (NSDictionary*)readPlistAsDictionary:(NSString*)fileName;
-+ (void)writePlist:(NSString*)fileName withArray:(NSArray*)data;
-+ (void)writePlist:(NSString*)fileName withDictionary:(NSDictionary *)data;
++(id)readPlistFromPath:(NSString *)filePath;
+
++ (NSArray*)readPlistFromBundleAsArray:(NSString*)fileName;
++ (NSDictionary*)readPlistFromBundleAsDictionary:(NSString*)fileName;
+
++ (NSArray*)readPlistAsArray:(NSString*)filePath;
++ (NSDictionary*)readPlistAsDictionary:(NSString*)filePath;
+
++(void)writePlist:(id)data toFile:(NSString*)filePath;
++ (void)writePlist:(NSString*)filePath withArray:(NSArray*)data;
++ (void)writePlist:(NSString*)filePath withDictionary:(NSDictionary *)data;
 @end

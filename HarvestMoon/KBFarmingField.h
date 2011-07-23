@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-@interface KBFarmingField : CCNode <NSCoding> {
+@interface KBFarmingField : CCNode{
     NSString* _spriteFile;
 }
 
 @property(nonatomic,retain) NSString* spriteFile;
-
+-(NSDictionary*)dataRepresentation;
+-(id)initWithDataRepresentation:(NSDictionary *)dataRepresentation;
 @end
