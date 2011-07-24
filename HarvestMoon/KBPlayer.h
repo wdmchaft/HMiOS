@@ -104,5 +104,8 @@
 - (void) handleWalking;
 
 #pragma mark -
+#pragma mark Item Using
+
+-(void)useItem:(KBItemStack*)itemStack;
 
 @end

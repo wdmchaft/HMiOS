@@ -7,6 +7,7 @@
 //
 
 #import "KBGameMenuLayer.h"
+#import "KBPlayer.h"
 
 #pragma mark -
 #pragma mark Implementation
@@ -157,24 +158,24 @@
         
         [self.inventory selectItemStack:[self.itemsToShow objectAtIndex:touchedItemIndex]];
         
-        // TODO : Touch auf item -> neues item "in die hand nehmen"
-        
         [self hideFullMenu];
     }
     else
     {
-        if(CGRectContainsPoint(self.itemBackground.textureRect, [self.itemBackground convertTouchToNodeSpace:touch])
-           || CGRectContainsPoint(self.toolBackground.textureRect, [self.toolBackground convertTouchToNodeSpace:touch]))
+        if(CGRectContainsPoint(self.itemBackground.textureRect, [self.itemBackground convertTouchToNodeSpace:touch]))
+        {
+            [((KBPlayer*)[KBStandardGameController sharedController].player) useItem:self.inventory.selectedItem];
+        } 
+        else if (CGRectContainsPoint(self.toolBackground.textureRect, [self.toolBackground convertTouchToNodeSpace:touch]))
+        {
+            [((KBPlayer*)[KBStandardGameController sharedController].player) useItem:self.inventory.selectedTool];            
+        }
+        else
         {
             //Touch endete nicht auf einem der Item-Plätze, es muss nichts gemacht werden
             NSLog(@"Item benutzen abgebrochen");
-            
-            return;
+        
         }
-        
-        
-        //Touch auf item -> item verwenden
-        //[[KBStandardGameController sharedController].player useItem:nil];
         
     }
     

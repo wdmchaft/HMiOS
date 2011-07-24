@@ -279,5 +279,13 @@
 }
 
 #pragma mark -
+#pragma mark Item Using
+
+-(void)useItem:(KBItemStack*)itemStack
+{
+    
+}
+
+#pragma mark -
 
 @end
