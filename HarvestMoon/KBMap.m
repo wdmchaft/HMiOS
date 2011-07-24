@@ -31,9 +31,8 @@
 #pragma mark Init & Dealloc
 
 - (id) initWithMapName:(NSString *)mapName {
-    self = [self init];
-    
 
+    self = [super init];
     if (self) {
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(load) name:kLoadGameNotification object:nil];
