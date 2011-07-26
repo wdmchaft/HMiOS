@@ -108,4 +108,6 @@
 
 -(void)useItem:(KBItemStack*)itemStack;
 
+-(void)showAnimationForItemType:(KBItem*)itemType;
+
 @end

@@ -283,6 +283,11 @@
 
 -(void)useItem:(KBItemStack*)itemStack
 {
+    [self showAnimationForItemType:itemStack.itemType];
+}
+
+-(void)showAnimationForItemType:(KBItem*)itemType
+{
     
 }
 
